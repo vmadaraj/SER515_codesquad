@@ -9,8 +9,16 @@ body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-repeat: no-repeat;
-    background-color: #4682B4;
 
+}
+
+div.container_flights{
+	border: 1px solid green;
+	height: 200px;
+    width: 50%;
+    border-radius: 20px;
+	display: table;
+	margin: 0 auto;
 }
 
 .text-muted {

@@ -9,6 +9,7 @@
     <script src="app/routes.js"></script> 
 
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css">
@@ -45,8 +46,42 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
+	
+	<!-- Add the class "form-inline" -->
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<div class="container_flights">
+		<div class="container">
+			<h3>
+				FLIGHTS
+			</h3>
+			<center>
+				<form class="form-inline">
+					<div class="form-group">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From">
+						<span class="glyphicon glyphicon-transfer"></span>
+					</div>
+					<div class="form-group">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="To">
+					</div>
+					<div class="input-group">
+						<span class="input-group-btn">
+						<button type="submit" id="search_button" class="btn btn-default">Search</button>
+					</span>
+					</div>
+				</form>
+			</center>
+		</div>
+	</div>
     <script src="resources/js/bootstrap.js"></script>  
     <script src="resources/js/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
+
