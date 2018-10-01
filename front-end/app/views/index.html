@@ -6,6 +6,7 @@
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script> 
 
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -40,7 +41,12 @@
                     </li>
                     <li class="">
                         <a class="page-scroll" href="/home">Home</a>
-                    </li>  
+                    </li> 
+
+                    <li class="">
+                        <a class="page-scroll" href="/login">Login</a>
+                    </li>   
+                     
                     <li class="">
                         <a class="page-scroll" href="/">About Us</a>
                     </li>                                    
@@ -51,14 +57,12 @@
         <div ng-view></div>
 
     </nav>
+    <div ng-view></div>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	<br><br><br><br><br>
+	
 	
 	<div class="container_flights">
 		<div class="container">
@@ -69,6 +73,13 @@
 
 			</h3>
 			<center>
+				<!-- Default inline 1-->
+				<div class="custom-control custom-radio custom-control-inline">
+  					<input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
+  					<label class="custom-control-label" for="defaultInline1">Roundtrip</label>
+  					<input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+  					<label class="custom-control-label" for="defaultInline2">One-Way</label>
+				</div>
 				<form class="form-inline">
 					<div class="form-group">
 						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From">
@@ -77,11 +88,20 @@
 					<div class="form-group">
 						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="To">
 					</div>
+					<div class="form-group">
+       					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text"/>
+       				</div>
+       				<div class="form-group">
+       					<input class="form-control" id="return" name="return" placeholder="Return" type="text"/>
+       				</div>
 					<div class="input-group">
 						<span class="input-group-btn">
-						<button type="submit" id="search_button" class="btn btn-default">Search</button>
+						<button class="btn btn-primary " name="search" type="search">
+        				Search
+       					</button>
 					</span>
 					</div>
+		
 				</form>
 			</center>
 		</div>
@@ -141,6 +161,32 @@
     <script src="resources/js/bootstrap.js"></script>  
     <script src="resources/js/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function(){
+        var date_depart=$('input[name="depart"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_depart.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+        var date_return=$('input[name="return"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_return.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
 
 </body>
 </html>
