@@ -15,12 +15,8 @@ mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
         console.log("Connected to MONGODB");
     }
 });
-app.get('/', function(req, res){
+app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
-})
-
-app.get('/contacts.html', function(req, res){
-    res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
 })
 
 app.listen(port || 8080,function(){
