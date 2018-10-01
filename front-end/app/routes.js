@@ -1,11 +1,18 @@
-angular.module('airlineRoutes',['ngRoute']).config(function($routeProvider){
+angular.module('airlineApp', ['ngRoute'])
+.config(function($routeProvider)
+{
     $routeProvider
-    
-    .when('/',{
-        templateUrl: 'app/views/pages/home.html'
-    })
+    .when('/home',{
+        templateUrl: 'app/views/index.html'
+    });
+
+   
+    $routeProvider .when('/login', {
+        templateUrl: 'app/views/pages/login.html'
+    });
 
     .when('/about',{
         templateUrl: 'app/views/pages/about.html'
     });
-   });
+});
+
