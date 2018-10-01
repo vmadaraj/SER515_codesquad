@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Naren Konchada",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
@@ -15,5 +15,13 @@
     "mongoose": "^5.2.17",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirikvs/SER515_codesquad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shirikvs/SER515_codesquad/issues"
+  },
+  "homepage": "https://github.com/shirikvs/SER515_codesquad#readme"
 }

@@ -1,3 +1,3 @@
-angular.module('airlineApp',[]).config(function(){
- console.log('angular');
-});
+angular.module('airlineApp',['airlineRoutes']).config(function(){
+    console.log('angular');
+   });
