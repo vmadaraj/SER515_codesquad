@@ -9,8 +9,7 @@ body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
         background: url("/front-end/images/flight-background") no-repeat center center fixed;
-        background-size:100%
-
+        background-size:100%;
 
 }
 .carousel {
@@ -32,6 +31,15 @@ body {
   }
   
   
+
+div.container_flights{
+	border: 1px solid green;
+	height: 200px;
+    width: 50%;
+    border-radius: 20px;
+	display: table;
+	margin: 0 auto;
+}
 
 .text-muted {
     color: #777;
