@@ -13,6 +13,25 @@ body {
 
 
 }
+.carousel {
+    /* any dimensions are fine, it can be responsive with max-width */
+    width: 1200px;
+    height: 500px;
+  }
+  
+  .carousel-inner img{
+    /* make sure your .items will get correct height */
+    height: 100%;
+    width: 100%;
+  }
+
+  
+  .item {
+    width: 100%;
+    height: 100%;
+  }
+  
+  
 
 .text-muted {
     color: #777;
