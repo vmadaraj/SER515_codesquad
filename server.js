@@ -19,8 +19,8 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
-app.get('/contacts', function(req, res){
-    res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts'));
+app.get('/contacts.html', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
 })
 
 app.listen(port || 8080,function(){
