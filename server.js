@@ -20,7 +20,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/contacts', function(req, res){
-    res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts'));
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
 })
 
 app.listen(port || 8080,function(){
