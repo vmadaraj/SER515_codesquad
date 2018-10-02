@@ -9,4 +9,10 @@ angular.module('airlineApp',['appRoutes']).config(function(){
     .when('/login', {
         templateUrl: 'front-end/app/views/pages/login.html'
     });
+
+    $routeProvider
+
+    .when('/about', {
+        templateUrl: 'front-end/app/views/pages/about.html'
+    });
 });
