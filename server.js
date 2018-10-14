@@ -4,6 +4,10 @@ var port = process.env.PORT || 8080;
 var morgan = require('morgan');
 var path= require('path');
 
+var bodyParser = require('body-parser');
+var flights = require('./routes/flights');
+
+
 app.use(morgan('dev'));
 app.use(express.static(__dirname+ '/front-end'));
 var mongoose= require('mongoose');
@@ -15,9 +19,34 @@ mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
         console.log("Connected to MONGODB");
     }
 });
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
+})
+
+app.get('/api', function(req, res){
+    res.sendFile(path.join(__dirname+ '/routes/flights.js'));
+})
+
+app.get('/contacts', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
+})
+
+app.get('/login', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/login.html'));
+});
+
+app.get('/about', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/about.html'));
+});
+
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+
 
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
