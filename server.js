@@ -31,10 +31,17 @@ app.get('/about', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/about.html'));
 });
 
+app.get('/editprofile', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/editprofile.html'));
+});
+
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
+app.get('/register', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/register.html'));
+});
  
 
 app.listen(port || 8080,function(){
