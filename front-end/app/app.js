@@ -15,4 +15,12 @@ angular.module('airlineApp',['appRoutes']).config(function(){
     .when('/about', {
         templateUrl: 'front-end/app/views/pages/about.html'
     });
+
+    $routeProvider
+
+    .when('/userProfile', {
+        templateUrl: 'front-end/app/views/pages/userProfile.html'
+    });
+    
+
 });
