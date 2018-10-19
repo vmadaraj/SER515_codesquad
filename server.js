@@ -43,10 +43,14 @@ app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
+<<<<<<< HEAD
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
+=======
+
+>>>>>>> master
 
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
