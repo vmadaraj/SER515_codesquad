@@ -31,6 +31,10 @@ app.get('/about', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/about.html'));
 });
 
+app.get('/userProfile', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/userProfile.html'));
+});
+
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
