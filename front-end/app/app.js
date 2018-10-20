@@ -1,4 +1,4 @@
-angular.module('airlineApp',['appRoutes']).config(function(){
+var app = angular.module('airlineApp',['appRoutes']).config(function(){
  console.log('angular');
 });
  
@@ -21,6 +21,5 @@ angular.module('airlineApp',['appRoutes']).config(function(){
     .when('/userProfile', {
         templateUrl: 'front-end/app/views/pages/userProfile.html'
     });
-    
 
 });
