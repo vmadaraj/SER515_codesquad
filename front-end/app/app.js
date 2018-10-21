@@ -1,8 +1,31 @@
-angular.module('airlineApp',['appRoutes']).config(function(){
+var app = angular.module('airlineApp',['appRoutes']).config(function(){
  console.log('angular');
 });
- 
- app.config(function($routeProvider)
+
+angular.module('airlineApp',['appRoutes']).
+controller('MainCtrl', function($rootScope, $scope, $mdToast, $animate, $http, $timeout, $q, $log) {
+console.log("dummy");
+  // Initialize the scope variables
+  $scope.credentials={
+    'source' : '',
+    'destination' : ''
+  }
+
+  $scope.search = function() {
+    var credentials = {
+      source : $scope.source,
+      destination : $scope.destination
+    }
+      console.log(credentials);
+
+
+    }
+
+
+  })
+
+
+app.config(function($routeProvider)
 {
     $routeProvider
 

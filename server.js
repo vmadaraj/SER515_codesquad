@@ -6,6 +6,7 @@ var path= require('path');
 
 var bodyParser = require('body-parser');
 var flights = require('./routes/flights');
+require('./front-end/app/config')(app);
 
 
 app.use(morgan('dev'));
@@ -23,9 +24,11 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
-app.get('/api', function(req, res){
-    res.sendFile(path.join(__dirname+ '/routes/flights.js'));
-})
+
+
+//app.get('/api', function(req, res){
+  //  res.sendFile(path.join(__dirname+ '/routes/flights.js'));
+//})
 
 app.get('/contacts', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
@@ -43,14 +46,10 @@ app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
-<<<<<<< HEAD
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-
-=======
-
->>>>>>> master
 
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );

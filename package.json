@@ -10,10 +10,17 @@
   "author": "Naren Konchada",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.5.0",
     "express": "^4.16.4",
     "global": "^4.3.2",
+    "method-override": "^3.0.0",
+    "mongojs": "^2.6.0",
     "mongoose": "^5.2.17",
     "morgan": "^1.9.1",
+    "multer": "^1.4.1",
     "nodemon": "^1.18.4"
   },
   "repository": {
@@ -24,5 +31,7 @@
     "url": "https://github.com/shirikvs/SER515_codesquad/issues"
   },
   "homepage": "https://github.com/shirikvs/SER515_codesquad#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "sabre-dev-studio": "^1.2.0"
+  }
 }
