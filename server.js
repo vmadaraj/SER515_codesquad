@@ -6,8 +6,7 @@ var path= require('path');
 
 var bodyParser = require('body-parser');
 var flights = require('./routes/flights');
-require('./front-end/app/config')(app);
-
+//require('./front-end/app/config')(app);
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname+ '/front-end'));

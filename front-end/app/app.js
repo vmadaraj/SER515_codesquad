@@ -16,9 +16,7 @@ console.log("dummy");
       source : $scope.source,
       destination : $scope.destination
     }
-      console.log(credentials);
-
-
+      console.log(credentials.source);
     }
 
 
