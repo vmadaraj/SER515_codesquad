@@ -17,27 +17,36 @@ body {
     width: 1200px;
     height: 500px;
   }
-  
+
   .carousel-inner img{
     /* make sure your .items will get correct height */
     height: 100%;
     width: 100%;
   }
 
-  
+
   .item {
     width: 100%;
     height: 100%;
   }
-  
+
 #profile {
     height: 40px;
     border-radius: 50%;
     margin-top: -10px;
   }
-  
+
 
 div.container_flights{
+	border: 1px solid green;
+	height: 200px;
+    width: 50%;
+    border-radius: 20px;
+	display: table;
+	margin: 0 auto;
+}
+
+div.container_details{
 	border: 1px solid green;
 	height: 200px;
     width: 50%;
@@ -941,7 +950,7 @@ body {
 
 
 /* =====================================
-START: LOADING ICON FOR LOGGING OUT USER 
+START: LOADING ICON FOR LOGGING OUT USER
 ===================================== */
 
 .dizzy-gillespie {
@@ -1016,7 +1025,7 @@ START: LOADING ICON FOR LOGGING OUT USER
 
 
 /* ===================================
-END: LOADING ICON FOR LOGGING OUT USER 
+END: LOADING ICON FOR LOGGING OUT USER
 =================================== */
 
 .social-icons {

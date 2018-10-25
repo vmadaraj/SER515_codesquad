@@ -36,7 +36,7 @@ angular.module('airlineApp', ['ngRoute'])
     $routeProvider
     .when('/home',{
         templateUrl: 'app/views/index.html',
-        controller: 'MainCtrl'
+        //controller: 'MainCtrl'
     });
 
 

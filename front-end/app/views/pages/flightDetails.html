@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <base href="/">
+    <script src="resources/js/angular.js"></script>
+    <script src="resources/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!-- This is our Google Arvo font and Font-Awesome -->
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+
+    <title>Airline Reservation System</title>
+
+</head>
+
+<body ng-app="airlineApp">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <!--  <div class="dummy"> -->
+
+                <!-- </div> -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="/home">Home</a>
+                    </li>
+
+
+
+
+                    <li class="">
+                        <a class="page-scroll" href="/login">Login</a>
+                    </li>
+
+
+                    <li class="">
+                        <a class="page-scroll" href="/contacts">Contacts</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/about">About Us</a>
+                    </li>
+                    <li>
+                      <a href="/about"><img id="profile" src= "images/userprofile.jpg"></a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <div ng-view></div>
+
+    </nav>
+    <div ng-view></div>
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <!-- <div ng-controller="FlightsCtrl">
+      <p>    Click <a ng-click="loadFlights()">here</a> to load data.</p> -->
+    <!--<div class="container_flights"> -->
+    	<div class="container_details">
+    		<h3>
+          <center>
+            Flight Details
+          </center></h3>
+          <table st-table="flights" class="table table-striped">
+            <thead>
+            <tr>
+              <th>FlightNo</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>Depature</th>
+              <th>Return</th>
+              <th>Price</th>
+            </tr>
+            <!-- <tr ng-repeat="flight in flights">
+              <td>{{flight.id}}</td>
+              <td>{{flight.source}}</td>
+              <td>{{flight.destination}}</td>
+            </tr> -->
+          </table>
+      </div>
+<script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</script>
+</body>
+</html>

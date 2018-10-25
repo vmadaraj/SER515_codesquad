@@ -4,10 +4,6 @@ var port = process.env.PORT || 8080;
 var morgan = require('morgan');
 var path= require('path');
 
-var bodyParser = require('body-parser');
-var flights = require('./routes/flights');
-//require('./front-end/app/config')(app);
-
 app.use(morgan('dev'));
 app.use(express.static(__dirname+ '/front-end'));
 var mongoose= require('mongoose');
@@ -23,12 +19,6 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
-
-
-//app.get('/api', function(req, res){
-  //  res.sendFile(path.join(__dirname+ '/routes/flights.js'));
-//})
-
 app.get('/contacts', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
 })
@@ -41,13 +31,18 @@ app.get('/about', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/about.html'));
 });
 
+app.get('/flightDetails', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/flightDetails.html'));
+});
+
+app.get('/booking', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
+})
+
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 })
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.listen(port || 8080,function(){
