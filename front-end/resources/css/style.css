@@ -416,7 +416,7 @@ header .intro-text .intro-heading {
 }
 
 section {
-    padding: 100px 0;
+    /* padding: 100px 0; */
 }
 
 section h2.section-heading {
@@ -436,7 +436,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        
     }
 }
 
@@ -1038,8 +1038,8 @@ START: Registration
     background-image: url('http://pavbca.com/walldb/original/c/e/0/141945.jpg');
     
     height: 100%;
-    overflow-y:hidden;
-   
+    overflow:hidden;
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1192,7 +1192,7 @@ display-flex, .display-flex, .display-flex-center {
     -o-background-size: cover;
     -ms-background-size: cover;
     background-position: center center;
-    padding: 115px 0; }
+     }
   
   .container {
     width: 660px;

@@ -6,7 +6,8 @@ angular.module('airlineApp', ['ngRoute'])
         templateUrl: 'app/views/index.html'
     });
 
-   
+
+
     // $routeProvider .when('/login', {
     //     templateUrl: 'app/views/pages/login.html'
     // });
