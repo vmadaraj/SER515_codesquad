@@ -1,4 +1,4 @@
-angular.module('airlineApp',['appRoutes']).config(function(){
+var app = angular.module('airlineApp',['appRoutes', 'userController']).config(function(){
  console.log('angular');
 });
  
@@ -14,5 +14,14 @@ angular.module('airlineApp',['appRoutes']).config(function(){
 
     .when('/about', {
         templateUrl: 'front-end/app/views/pages/about.html'
+    });
+
+    $routeProvider
+
+    .when('/register', {
+        templateUrl: 'front-end/app/views/pages/register.html',
+        controller: 'regController',
+        controllerAs: 'register'
+
     });
 });
