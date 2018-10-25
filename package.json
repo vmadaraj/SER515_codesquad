@@ -26,5 +26,7 @@
     "url": "https://github.com/shirikvs/SER515_codesquad/issues"
   },
   "homepage": "https://github.com/shirikvs/SER515_codesquad#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "sabre-dev-studio": "^1.2.0"
+  }
 }

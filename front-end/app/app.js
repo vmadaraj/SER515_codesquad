@@ -23,3 +23,8 @@ var app = angular.module('airlineApp',['appRoutes']).config(function(){
     });
 
 });
+
+angular.module('airlineApp',[]).config(function(){
+ console.log('angular');
+});
+

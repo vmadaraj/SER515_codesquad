@@ -42,9 +42,15 @@ app.get('/about', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/about.html'));
 });
 
+
 app.get('/userProfile', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/userProfile.html'));
 });
+
+app.get('/booking', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
+})
+
 
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
@@ -55,3 +61,4 @@ app.get('*', function(req, res){
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
 });
+
