@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+    <link rel="stylesheet" href="resources/css/style.css">
 <style type="text/css">
 	.login-form {
 		width: 340px;
@@ -53,6 +55,55 @@
 </style>
 </head>
 <body>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+                <div class="container">
+                    <div class="navbar-header page-scroll">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+        
+                        <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
+                    </div> 
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                     <!--  <div class="dummy"> -->
+                              
+                        <!-- </div> -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="hidden active">
+                                <a href="#page-top"></a>
+                            </li>
+                            <li class="">
+                                <a class="page-scroll" href="/home">Home</a>
+                            </li>  
+                            
+                            <li class="">
+                                <a class="page-scroll" href="/login">Login</a>
+                            </li>   
+        
+        
+                            <li class="">
+                                <a class="page-scroll" href="/contacts">Contacts</a>
+                            </li>
+                             
+                            <li class="">
+                                <a class="page-scroll" href="/about">About Us</a>
+                            </li>  
+                            <li class="">
+                              <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
+                            </li>                                 
+                        </ul>
+                        
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <div ng-view></div>
+        
+            </nav>
+            <div ng-view></div>
         <div class="bg">
 <div class="login-form">
        
@@ -67,12 +118,9 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>
-        <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right">Forgot Password?</a>
-        </div>        
+           
     </form>
-    <!-- <p class="text-center"><a href="#">Create an Account</a></p> -->
+    <p class="text-center" style="color: black" ><a href="/register">Create an Account</a></p>
 </div> </div>
 </body>
 </html>                
