@@ -1,10 +1,17 @@
 angular.module('airlineApp', ['ngRoute'])
-.config(function($routeProvider)
+.config(function($routeProvider, $locationProvider)
 {
     $routeProvider
     .when('/home',{
         templateUrl: 'app/views/index.html'
     });
+
+
+    $locationProvider.html5Mode({
+        enabled : true,
+        requireBase : false
+    });
+    
 
 
 
@@ -15,5 +22,6 @@ angular.module('airlineApp', ['ngRoute'])
     // $routeProvider .when('/about',{
     //     templateUrl: 'app/views/pages/about.html'
     // });
+
 });
 

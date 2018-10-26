@@ -10,6 +10,14 @@ body {
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
+
+.details li {
+      list-style: none;
+}
+li {
+    margin-bottom:10px;
+}
+
 .carousel {
     /* any dimensions are fine, it can be responsive with max-width */
     width: 1200px;
