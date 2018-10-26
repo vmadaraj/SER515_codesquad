@@ -5,7 +5,8 @@ angular.module('appRoutes', ['ngRoute'])
     $routeProvider
     .when('/search',{
         templateUrl: 'app/views/pages/booking.html',
-        controller:'TestCtrl1'
+        controller:'searchController',
+        controllerAs:'search'
     })
     .when('/home',{
         templateUrl: 'app/views/index.html'
