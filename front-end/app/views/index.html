@@ -23,7 +23,7 @@
 
 </head>
 
-<body ng-app="airlineApp">
+<body ng-app="airlineApp" ng-controller="TestCtrl1">
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -46,7 +46,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="">
-                        <a class="page-scroll" href="/home">Home</a>
+                        <a class="page-scroll" href="/">Home</a>
                     </li>  
 			
 
@@ -72,10 +72,9 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <div ng-view></div>
+        
 
     </nav>
-    <div ng-view></div>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
 	
@@ -114,7 +113,7 @@
        				</div>
 					<div class="input-group">
 						<span class="input-group-btn">
-						<button class="btn btn-primary " name="search" type="search">
+						<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="search">
         				Search
        					</button>
 					</span>
@@ -124,6 +123,8 @@
 			</center>
 		</div>
   </div>
+  <div ng-view></div>
+
   <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">

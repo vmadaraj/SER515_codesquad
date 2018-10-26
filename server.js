@@ -3,10 +3,18 @@ var app= express();
 var port = process.env.PORT || 8080;
 var morgan = require('morgan');
 var path= require('path');
+var mongoose= require('mongoose');
+var bodyParser= require('body-parser');
+var router = express.Router();
+var appRoutes = require('./app/routes/api')(router);
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname+ '/front-end'));
-var mongoose= require('mongoose');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use('/api',appRoutes);
+
+
 mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
     if(err){
         console.log('Not connected');
