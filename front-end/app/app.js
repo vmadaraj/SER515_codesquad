@@ -1,4 +1,4 @@
-var app = angular.module('airlineApp',['appRoutes']).config(function(){
+var app = angular.module('airlineApp',['appRoutes', 'userController']).config(function(){
  console.log('angular');
 });
  
@@ -20,8 +20,14 @@ var app = angular.module('airlineApp',['appRoutes']).config(function(){
 
     .when('/userProfile', {
         templateUrl: 'front-end/app/views/pages/userProfile.html'
-    });
+    })
 
+    .when('/register', {
+        templateUrl: 'front-end/app/views/pages/register.html',
+        controller: 'regController',
+        controllerAs: 'register'
+
+    });
 });
 
 angular.module('airlineApp',[]).config(function(){

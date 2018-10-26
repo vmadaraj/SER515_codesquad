@@ -8,6 +8,7 @@ var mongoose= require('mongoose');
 var router = express.Router();
 var appRoutes = require('./app/routes/api')(router);
 
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -47,6 +48,10 @@ app.get('/userProfile', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/userProfile.html'));
 });
 
+app.get('/register', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/register.html'));
+});
+
 app.get('/booking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
 })
@@ -54,9 +59,9 @@ app.get('/booking', function(req, res){
 
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
-})
+});
 
- 
+
 
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );

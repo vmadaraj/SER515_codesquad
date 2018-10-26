@@ -6,10 +6,22 @@ angular.module('airlineApp', ['ngRoute'])
         templateUrl: 'app/views/index.html'
     });
 
+
     $locationProvider.html5Mode({
         enabled : true,
         requireBase : false
     });
     
+
+
+
+    // $routeProvider .when('/login', {
+    //     templateUrl: 'app/views/pages/login.html'
+    // });
+
+    // $routeProvider .when('/about',{
+    //     templateUrl: 'app/views/pages/about.html'
+    // });
+
 });
 
