@@ -31,5 +31,3 @@ var app = angular.module('airlineApp',['appRoutes', 'userController']).config(fu
 
     });
 });
-
-
