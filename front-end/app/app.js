@@ -20,7 +20,9 @@ var app = angular.module('airlineApp',['appRoutes', 'userController']).config(fu
 
     .when('/userProfile', {
         templateUrl: 'front-end/app/views/pages/userProfile.html'
-    })
+    });
+
+    $routeProvider
 
     .when('/register', {
         templateUrl: 'front-end/app/views/pages/register.html',
@@ -30,7 +32,4 @@ var app = angular.module('airlineApp',['appRoutes', 'userController']).config(fu
     });
 });
 
-angular.module('airlineApp',[]).config(function(){
- console.log('angular');
-});
 

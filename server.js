@@ -29,11 +29,11 @@ mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
-})
+});
 
 app.get('/contacts', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/contacts.html'));
-})
+});
 
 app.get('/login', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/login.html'));
@@ -54,7 +54,7 @@ app.get('/register', function(req, res){
 
 app.get('/booking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
-})
+});
 
 
 app.get('*', function(req, res){
