@@ -30,7 +30,3 @@ var app = angular.module('airlineApp',['appRoutes', 'userController']).config(fu
     });
 });
 
-angular.module('airlineApp',[]).config(function(){
- console.log('angular');
-});
-
