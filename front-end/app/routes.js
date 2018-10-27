@@ -7,8 +7,12 @@ angular.module('airlineApp', ['ngRoute'])
     });
 
    
-    $routeProvider .when('/login', {
-        templateUrl: 'app/views/pages/login.html'
-    });
+    // $routeProvider .when('/login', {
+    //     templateUrl: 'app/views/pages/login.html'
+    // });
+
+    // $routeProvider .when('/about',{
+    //     templateUrl: 'app/views/pages/about.html'
+    // });
 });
 
