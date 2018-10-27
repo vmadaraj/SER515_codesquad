@@ -1,5 +1,5 @@
 angular.module('airlineApp', ['ngRoute'])
-.config(function($routeProvider, $locationProvider)
+.config(function($routeProvider)
 {
     $routeProvider
     .when('/home',{
@@ -7,10 +7,10 @@ angular.module('airlineApp', ['ngRoute'])
     });
 
 
-    $locationProvider.html5Mode({
-        enabled : true,
-        requireBase : false
-    });
+    // $locationProvider.html5Mode({
+    //     enabled : true,
+    //     requireBase : false
+    // });
     
 
 
