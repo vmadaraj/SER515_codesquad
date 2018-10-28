@@ -54,7 +54,7 @@
 }
 </style>
 </head>
-<body>
+<body ng-app="userApp" ng-controller="mainCtrl as main">
         <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
                 <div class="container">
                     <div class="navbar-header page-scroll">
@@ -107,7 +107,7 @@
         <div class="bg">
 <div class="login-form">
        
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="login" ng-controller="mainCtrl" class="login-form" ng-submit="main.regUser(regData);">
         <h2 class="text-center">Log in</h2>       
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" required="required">
