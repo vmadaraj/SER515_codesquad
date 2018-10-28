@@ -1,4 +1,4 @@
-var app = angular.module('airlineApp',['appRoutes', 'userController']).config(function(){
+var app = angular.module('airlineApp',['appRoutes', 'userController','mainController','authServices']).config(function(){
  console.log('angular');
 });
  
@@ -8,6 +8,8 @@ var app = angular.module('airlineApp',['appRoutes', 'userController']).config(fu
 
     .when('/login', {
         templateUrl: 'front-end/app/views/pages/login.html'
+	controller: 'mainCtrl',
+        controllerAs: 'authServices.js'
     });
 
     $routeProvider
