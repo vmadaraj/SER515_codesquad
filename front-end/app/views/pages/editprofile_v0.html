@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit Profile</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style type="text/css">
+	.login-form {
+		width: 540px;
+    		margin: 50px auto;
+	}
+    .login-form form {
+        
+        width:100%;
+        height: 100%;
+    	margin-bottom: 15px;
+        background: #f0f8ff;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+        font-weight: bold;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+    body, html {
+  height: 100%;
+
+  
+}
+.bg {
+ 
+  background-image: url('http://pavbca.com/walldb/original/c/e/0/141945.jpg');
+  
+  height: 100%;
+  overflow-y:hidden;
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+        <div class="bg">
+	<!--div class="container homepage"-->
+        <div class="login-form" >
+	<h2 class="text-center">Edit Profile</h2>
+                <!--div class="container"-->
+		<div ng-controller="ExampleController">
+	  		<form novalidate class="simple-form">
+    			<label>First Name:<input type="text" ng-model="user.fname" 	placeholder="Alice" required="required" /></label><br />
+    			<label>Last Name:<input type="text" ng-model="user.lname"	placeholder="John" required="required" /></label><br />
+			<label>Address:	<input type="text" ng-model="user.address" /></label><br /> 	
+			<label>Phone Number:<input type="text" ng-model="user.phonenumber" /></label><br />
+    			<label>E-mail:<input type="email" ng-model="user.email" /></label><br />
+
+			<input type="button" ng-click="reset()" value="Retrieve Profile" />
+    			<input type="submit" ng-click="update(user)" value="Save Changes" />
+  			</form>
+	
+	</div>
+	<!--/div-->
+	<!--/div-->
+	</div>
+</body>
+</html>                
