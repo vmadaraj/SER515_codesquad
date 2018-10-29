@@ -10,6 +10,9 @@
   "author": "Naren Konchada",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "global": "^4.3.2",
     "mongoose": "^5.2.17",
