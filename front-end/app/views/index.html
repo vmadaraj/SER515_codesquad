@@ -5,6 +5,8 @@
     <script src="resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script> 
+    <script src="app/controllers/searchCtrl.js"></script> 
+
 
     <!-- This is our Google Arvo font and Font-Awesome -->
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
@@ -22,7 +24,7 @@
 
 </head>
 <base href="/">
-<body ng-app="airlineApp">
+<body ng-app="airlineApp" ng-controller="searchController">
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -45,7 +47,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="">
-                        <a class="page-scroll" href="/home">Home</a>
+                        <a class="page-scroll" href="/">Home</a>
                     </li>  
                     
                     <li class="">
@@ -65,10 +67,9 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <div ng-view></div>
+        
 
     </nav>
-    <div ng-view></div>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
 	
@@ -91,23 +92,25 @@
   					<input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline2">One-Way</label>
 				</div>
-				<form class="form-inline">
+				<form class="form-inline" id= "searchForm">
 					<div class="form-group">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From" ng-model="source">
 						<span class="glyphicon glyphicon-transfer"></span>
 					</div>
 					<div class="form-group">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="To">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="To"ng-model="destination">
 					</div>
 					<div class="form-group">
-       					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text"/>
+       					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text" ng-model="departDate"/>
        				</div>
        				<div class="form-group">
-       					<input class="form-control" id="return" name="return" placeholder="Return" type="text"/>
+       					<input class="form-control" id="return" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
        				</div>
 					<div class="input-group">
 						<span class="input-group-btn">
-						<button class="btn btn-primary " name="search" type="search">
+                        <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
+                            <button ng-click="submit(searchForm)" class="btn btn-primary " name="search" type="submit">
+
         				Search
        					</button>
 					</span>
@@ -117,6 +120,8 @@
 			</center>
 		</div>
   </div>
+  <div ng-view></div>
+
   <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">

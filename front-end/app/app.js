@@ -1,6 +1,7 @@
-var app = angular.module('airlineApp',['appRoutes', 'userController']).config(function(){
- console.log('angular');
-});
+
+var app = angular.module('airlineApp',['appRoutes', 'flightController']).config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}])
  
  app.config(function($routeProvider)
 {

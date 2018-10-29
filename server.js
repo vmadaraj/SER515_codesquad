@@ -2,9 +2,9 @@ var express= require('express');
 var app= express();
 var port = process.env.PORT || 8080;
 var morgan = require('morgan');
-var path = require('path');
-var bodyParser = require('body-parser');
+var path= require('path');
 var mongoose= require('mongoose');
+var bodyParser= require('body-parser');
 var router = express.Router();
 var appRoutes = require('./app/routes/api')(router);
 
@@ -13,7 +13,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static(__dirname+ '/front-end'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api',appRoutes);
+
+
 
 mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
     if(err){
@@ -67,3 +71,20 @@ app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
 });
 
+// var SabreDevStudio = require('sabre-dev-studio');
+// var sabre_dev_studio = new SabreDevStudio({
+//   client_id:     'V1:f2jll8xn1qn0k1ah:DEVCENTER:EXT',
+//   client_secret: 'iNNi1Wo2',
+//   //uri:           'https://api.test.sabre.com'
+//   uri: 'https://api.havail.sabre.com'
+// });
+// var options = {};
+// var callback = function(error, data) {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(JSON.stringify(JSON.parse(data)));
+//   }
+// };
+// console.log(sabre_dev_studio.get('v1/shop/flights?origin=ATL&destination=LAS&departuredate=2016-08-13&returndate=2016-08-15&limit=1&enabletagging=true HTTP/1.1', options, callback));
+// //sabre_dev_studio.get('/v1/shop/flights/fares?origin=NYC&departuredate=2015-05-25&returndate=2015-05-30&maxfare=200', options, callback);
