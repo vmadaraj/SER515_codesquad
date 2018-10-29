@@ -53,3 +53,20 @@ app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
 });
 
+// var SabreDevStudio = require('sabre-dev-studio');
+// var sabre_dev_studio = new SabreDevStudio({
+//   client_id:     'V1:f2jll8xn1qn0k1ah:DEVCENTER:EXT',
+//   client_secret: 'iNNi1Wo2',
+//   //uri:           'https://api.test.sabre.com'
+//   uri: 'https://api.havail.sabre.com'
+// });
+// var options = {};
+// var callback = function(error, data) {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(JSON.stringify(JSON.parse(data)));
+//   }
+// };
+// console.log(sabre_dev_studio.get('v1/shop/flights?origin=ATL&destination=LAS&departuredate=2016-08-13&returndate=2016-08-15&limit=1&enabletagging=true HTTP/1.1', options, callback));
+// //sabre_dev_studio.get('/v1/shop/flights/fares?origin=NYC&departuredate=2015-05-25&returndate=2015-05-30&maxfare=200', options, callback);

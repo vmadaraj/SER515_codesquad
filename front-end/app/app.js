@@ -4,7 +4,7 @@ config(['$locationProvider', function($locationProvider) {
   }])
 
 
-
+  
 
 
 
