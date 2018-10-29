@@ -21,6 +21,12 @@
 
     <title>Airline Reservation System</title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+   <script src="app.js"></script>
+
 </head>
 
 <body ng-app="airlineApp">
@@ -49,9 +55,6 @@
                         <a class="page-scroll" href="/home">Home</a>
                     </li>
 
-
-
-
                     <li class="">
                         <a class="page-scroll" href="/login">Login</a>
                     </li>
@@ -76,33 +79,71 @@
 
     </nav>
     <div ng-view></div>
-    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
+<h1 style="font-size:150%;
+    margin-left: 10px;
+    color: brown;">Departing Flights</h1>
+    	<div class="container_flights" ng-controller="flightsListCtrl">
 
-    <!-- <div ng-controller="FlightsCtrl">
-      <p>    Click <a ng-click="loadFlights()">here</a> to load data.</p> -->
-    <!--<div class="container_flights"> -->
-    	<div class="container_details">
-    		<h3>
-          <center>
-            Flight Details
-          </center></h3>
-          <table st-table="flights" class="table table-striped">
-            <thead>
+	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
+        <table st-table="flights" class="table table-striped">
+          <thead>
             <tr>
               <th>FlightNo</th>
               <th>Source</th>
               <th>Destination</th>
-              <th>Depature</th>
-              <th>Return</th>
+              <th>DepatureTime</th>
               <th>Price</th>
             </tr>
-            <!-- <tr ng-repeat="flight in flights">
-              <td>{{flight.id}}</td>
-              <td>{{flight.source}}</td>
-              <td>{{flight.destination}}</td>
-            </tr> -->
+          </thead>
+          <tbody>
+            <tr ng-repeat="flight in flights">
+              <td>{{flight.FlightNo}}</td>
+              <td>{{flight.Source}}</td>
+              <td>{{flight.Destination}}</td>
+              <td>{{flight.DepatureTime}}</td>
+              <td>{{flight.Price}}</td>
+            <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
+              <!-- <td>
+                <button>BOOK</button>
+              </td> -->
+            </tr>
+          </tbody>
           </table>
       </div>
+
+      <br><br>
+  <h1 style="font-size:150%;margin-left: 10px;
+  color: brown;">Return Flights</h1>
+      	<div class="container_flights" ng-controller="flightsListCtrl">
+
+  	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
+          <table st-table="flights" class="table table-striped">
+            <thead>
+              <tr>
+                <th>FlightNo</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>DepatureTime</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="flight in flights">
+                <td>{{flight.FlightNo}}</td>
+                <td>{{flight.Source}}</td>
+                <td>{{flight.Destination}}</td>
+                <td>{{flight.DepatureTime}}</td>
+                <td>{{flight.Price}}</td>
+              <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
+                <!-- <td>
+                  <button>BOOK</button>
+                </td> -->
+              </tr>
+            </tbody>
+            </table>
+        </div>
+
 <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/jquery-3.1.1.min.js"></script>

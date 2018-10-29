@@ -1,6 +1,15 @@
-angular.module('airlineApp',['appRoutes', 'smart-table']).config(function(){
+var app = angular.module('airlineApp',['appRoutes', 'smart-table']).config(function(){
  console.log('angular');
 });
+// app.controller('flightsListCtrl', function($scope, $http) {
+//   // $http.get('./flightDetails.json').success(function(data) {
+//     $scope.flights = [
+//       {"FlightID":"101","Source":"HYD","Destination":"DEL","DepatureTime":"01/07/2010","Price":"300"}
+//     ]
+//   });
+// });
+
+
 
 
 
@@ -37,6 +46,7 @@ app.config(function($routeProvider)
 
     .when('/flightDetails', {
         templateUrl: 'front-end/app/views/pages/flightDetails.html'
+        Controller: 'flightsListCtrl'
     });
 
     $routeProvider
