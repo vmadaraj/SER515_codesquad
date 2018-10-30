@@ -1,5 +1,5 @@
 
-var app = angular.module('airlineApp',['appRoutes', 'flightController', 'smart-table']).config(['$locationProvider', function($locationProvider) {
+var app = angular.module('airlineApp',['appRoutes', 'flightController']).config(['$locationProvider', function($locationProvider) {
   $locationProvider.hashPrefix('');
 }])
 

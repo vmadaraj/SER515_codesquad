@@ -2,7 +2,7 @@ angular.module('flightController',[]).config(function(){
     console.log('testing ctrl');
 })
 .controller("TestCtrl1", function($scope, $location) {
-   
+
 })
 
 .controller("searchController", function($scope, $location) {
@@ -25,4 +25,8 @@ angular.module('flightController',[]).config(function(){
     };
 })
 
-
+.controller("flightsListCtrl", function($scope, $http) {
+  $http.get("../../resources/JSON/flightDetails.json") {
+    $scope.flights = data;
+  };
+})
