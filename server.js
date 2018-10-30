@@ -41,7 +41,6 @@ app.get('/about', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/about.html'));
 });
 
-<<<<<<< HEAD
 
 app.get('/userProfile', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/userProfile.html'));
@@ -56,28 +55,19 @@ app.get('/booking', function(req, res){
 });
 
 
-=======
 app.get('/editprofile', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/editprofile.html'));
 });
 
->>>>>>> 55709069f6634b30bc92c993cf531932311668cd
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
 });
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 app.get('/register', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/register.html'));
 });
  
->>>>>>> 55709069f6634b30bc92c993cf531932311668cd
-
->>>>>>> 48b5c93d72ab966999ef12d08ba94aff2fa2ca5f
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
 });
