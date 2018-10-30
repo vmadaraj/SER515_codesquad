@@ -1,39 +1,17 @@
-// 'use strict';
-// var SabreDevStudio = require('sabre-dev-studio');
-// var sabreDevStudio = new SabreDevStudio({
-//   client_id: 'V1:odq3eobh4jli2est:DEVCENTER:EXT',
-//   client_secret: '84MJmlDu',
-//   uri:  'https://api.test.sabre.com'
-// });
-// var options = {};
-//
-// app.get('/api/v1/cities', function(req, res) {
-//   sabreCall('/v1/lists/supported/cities', res);
-// });
-//
-// app.get('/api/v1/flights', function(req,res) {
-//   sabreCall('/v1/shop/flights', res);
-// });
-//
-// function sabreCall(q, res) {
-//   sabreDevStudio.get(q, options, function(err, data) {
-//     response(res, err, data);
-//   });
-// }
-// function response(res, err, data) {
-//   if(err) {
-//     res.status(200).send({
-//       'status' : false,
-//       'message' : 'Error',
-//       'info' : data
-//     });
-//   }
-// }
-
-angular.module('airlineApp', ['ngRoute'])
-.config(function($routeProvider)
+angular.module('appRoutes', ['ngRoute'])
+.config(function($routeProvider,$locationProvider)
 {
+    console.log('testing routes...');
     $routeProvider
+    .when('/search',{
+        templateUrl: 'app/views/pages/booking.html',
+
+    })
+    .when('/',{
+
+        controller:'searchController',
+        controllerAs:'search'
+    })
     .when('/home',{
         templateUrl: 'app/views/index.html',
         //controller: 'MainCtrl'
@@ -47,4 +25,5 @@ angular.module('airlineApp', ['ngRoute'])
     // $routeProvider .when('/about',{
     //     templateUrl: 'app/views/pages/about.html'
     // });
+
 });

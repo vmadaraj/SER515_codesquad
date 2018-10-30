@@ -8,10 +8,16 @@
 body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background: url("/front-end/images/flight-background") no-repeat center center fixed;
-        background-size:100%;
 
 }
+
+.details li {
+      list-style: none;
+}
+li {
+    margin-bottom:10px;
+}
+
 .carousel {
     /* any dimensions are fine, it can be responsive with max-width */
     width: 1200px;
@@ -23,6 +29,9 @@ body {
     height: 100%;
     width: 100%;
   }
+  .carousel-caption  {
+    color: rgb(15, 2, 73);
+}
 
 
   .item {
@@ -425,7 +434,7 @@ header .intro-text .intro-heading {
 }
 
 section {
-    padding: 100px 0;
+    /* padding: 100px 0; */
 }
 
 section h2.section-heading {
@@ -445,7 +454,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        
     }
 }
 

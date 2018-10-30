@@ -1,40 +1,9 @@
-var app = angular.module('airlineApp',['appRoutes', 'smart-table']).config(function(){
- console.log('angular');
-});
-// app.controller('flightsListCtrl', function($scope, $http) {
-//   // $http.get('./flightDetails.json').success(function(data) {
-//     $scope.flights = [
-//       {"FlightID":"101","Source":"HYD","Destination":"DEL","DepatureTime":"01/07/2010","Price":"300"}
-//     ]
-//   });
-// });
 
+var app = angular.module('airlineApp',['appRoutes', 'flightController', 'smart-table']).config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}])
 
-
-
-
-// angular.module('airlineApp',['appRoutes']).
-// controller('MainCtrl', function($rootScope, $scope, $mdToast, $animate, $http, $timeout, $q, $log) {
-// console.log("dummy");
-//   // Initialize the scope variables
-//   $scope.credentials={
-//     'source' : '',
-//     'destination' : ''
-//   }
-//
-//   $scope.search = function() {
-//     var credentials = {
-//       source : $scope.source,
-//       destination : $scope.destination
-//     }
-//       console.log(credentials.source);
-//     }
-//
-//
-//   })
-//
-//
-app.config(function($routeProvider)
+ app.config(function($routeProvider)
 {
     $routeProvider
 
@@ -53,5 +22,20 @@ app.config(function($routeProvider)
 
     .when('/about', {
         templateUrl: 'front-end/app/views/pages/about.html'
+    });
+
+    $routeProvider
+
+    .when('/userProfile', {
+        templateUrl: 'front-end/app/views/pages/userProfile.html'
+    });
+
+    $routeProvider
+
+    .when('/register', {
+        templateUrl: 'front-end/app/views/pages/register.html',
+        controller: 'regController',
+        controllerAs: 'register'
+
     });
 });
