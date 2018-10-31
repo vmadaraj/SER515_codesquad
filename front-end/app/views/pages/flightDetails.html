@@ -5,7 +5,8 @@
     <script src="resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
-    <script src="../../../app/controllers/searchCtrl.js"></script>
+
+    <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
 
     <!-- This is our Google Arvo font and Font-Awesome -->
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
@@ -13,24 +14,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
 
     <title>Airline Reservation System</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
-   <script src="app.js"></script>
+
 
 </head>
 
-<body ng-app="airlineApp">
+<body ng-app="airlineApp" >
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -84,7 +80,7 @@
 <h1 style="font-size:150%;
     margin-left: 10px;
     color: brown;">Departing Flights</h1>
-    	<div class="container_flights" ng-controller="flightsListCtrl">
+    	<div class="container_flights" ng-contoller="flightDetailsController">
 
 	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
         <table st-table="flights" class="table table-striped">
@@ -116,7 +112,7 @@
       <br><br>
   <h1 style="font-size:150%;margin-left: 10px;
   color: brown;">Return Flights</h1>
-      	<div class="container_flights" ng-controller="flightsListCtrl">
+      	<div class="container_flights">
 
   	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
           <table st-table="flights" class="table table-striped">

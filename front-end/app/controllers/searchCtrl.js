@@ -24,9 +24,3 @@ angular.module('flightController',[]).config(function(){
         $location.path(page);
     };
 })
-
-.controller("flightsListCtrl", function($scope, $http) {
-  $http.get("../../resources/JSON/flightDetails.json") {
-    $scope.flights = data;
-  };
-})
