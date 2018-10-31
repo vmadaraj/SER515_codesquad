@@ -39,6 +39,24 @@ router.post('/users', function(req, res) {
         });
     }
 });
+router.post('/authenticateFlights',function(req,res){
+    Flight.findOne({source:req.body.source}).select('source destination departDate returnDate').exec(function(err,flight){
+        if(err) throw err
+
+        if(!flight){
+            res.json({success:false, message: 'Could not find flights'})
+        }
+        else{
+            res.json({
+                source : flight.source,
+                destination : flight.destination,
+                departDate:flight.departDate,
+                returnDate :flight.returnDate,
+                fare :flight.fare
+            })
+        }
+    });
+})
 return router;
 }
 

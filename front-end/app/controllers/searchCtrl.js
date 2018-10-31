@@ -6,7 +6,7 @@ angular.module('flightController',[]).config(function(){
    
 })
 
-.controller("searchController", function($scope, $location) {
+.controller("searchController", function($scope, $location, $http) {
     console.log('testing s');
     $scope.submit = function(form){
         console.log('submitted');
@@ -18,6 +18,9 @@ angular.module('flightController',[]).config(function(){
               'returnDate' : $scope.returnDate,
             }
      console.log(flight);
+     $http.post('/api/authenticateFlights',flight).then(function(res){
+         console.log(res.data);
+     });
     // $http.post('api/searchFlightOn',this.flight);
     }
     $scope.goto = function(page) {
