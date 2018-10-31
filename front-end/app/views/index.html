@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    
+    <base href="/">
     <script src="resources/js/angular.js"></script>
     <script src="resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
@@ -28,9 +28,9 @@
     <title>Airline Reservation System</title>
 
 </head>
-<base href="/">
-<body ng-app="airlineApp" ng-controller="searchController">
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
+
+<body ng-app="airlineApp" ng-controller="searchController" ng-controller="mainCtrl as main">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,9 +48,9 @@
                       
                 <!-- </div> -->
                 <ul class="nav navbar-nav navbar-right" style="height : 10px">
-                    <li class="hidden active">
+                    <!-- <li class="hidden active">
                         <a href="#page-top"></a>
-                    </li>
+                    </li> -->
                     <li class="">
                         <a class="page-scroll" href="/">Home</a>
                     </li>  
