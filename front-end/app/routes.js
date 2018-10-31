@@ -34,7 +34,7 @@ angular.module('appRoutes', ['ngRoute'])
 
     .when('/register', {
         templateUrl: 'front-end/app/views/pages/register.html',
-        controller: 'regController',
+        controller: 'regCtrl',
         controllerAs: 'register'
 
     });
