@@ -1,7 +1,8 @@
 angular.module('flightController',[]).config(function(){
     console.log('testing ctrl');
 })
-.controller("TestCtrl1", function($scope, $location) {
+.controller("TestCtrl1", function($scope, $location,$http) {
+
    
 })
 
