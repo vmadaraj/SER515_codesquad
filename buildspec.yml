@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - npm init
+      - npm install express --save
+      - npm install bcrypt
+  build:
+    commands:
+      - npm start server.js
+  post_build:
+    commands:
+      - aws s3 sync ./frontend/dist s3://letsfly-env.gpdgr2dp9r.us-east-1.elasticbeanstalk.com
