@@ -1,4 +1,4 @@
-var app = angular.module('airlineApp',['appRoutes', 'userController']).config(function(){
+var app = angular.module('airlineApp',['appRoutes', 'userController', 'mainController']).config(function(){
  console.log('angular');
 });
  
