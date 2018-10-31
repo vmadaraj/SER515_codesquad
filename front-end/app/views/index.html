@@ -1,30 +1,37 @@
 <html lang="en">
 <head>
-    <base href="/">
+    
     <script src="resources/js/angular.js"></script>
     <script src="resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script> 
+    <script src="app/controllers/searchCtrl.js"></script> 
 
 
+    <!-- This is our Google Arvo font and Font-Awesome -->
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel= "stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 
-  <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
 
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/animate.css"> 
 
     <title>Airline Reservation System</title>
 
 </head>
-
-<body ng-app="airlineApp">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+<base href="/">
+<body ng-app="airlineApp" ng-controller="searchController">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -35,40 +42,40 @@
                 </button>
 
                 <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
-            </div>
+            </div> 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+             <!--  <div class="dummy"> -->
+                      
+                <!-- </div> -->
+                <ul class="nav navbar-nav navbar-right" style="height : 10px">
                     <li class="hidden active">
                         <a href="#page-top"></a>
                     </li>
                     <li class="">
-                        <a class="page-scroll" href="/home">Home</a>
+                        <a class="page-scroll" href="/">Home</a>
                     </li>  
-			
-
-                       
-
+                    
                     <li class="">
                         <a class="page-scroll" href="/login">Login</a>
-                    </li>   
-
-
+                    </li> 
+                      
                     <li class="">
                         <a class="page-scroll" href="/contacts">Contacts</a>
                     </li>
                      
                     <li class="">
                         <a class="page-scroll" href="/about">About Us</a>
-                    </li>                                    
+                    </li>  
+                    <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>                               
                 </ul>
+                
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <div ng-view></div>
+        
 
     </nav>
-    <div ng-view></div>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
 	
@@ -91,23 +98,25 @@
   					<input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline2">One-Way</label>
 				</div>
-				<form class="form-inline">
+				<form class="form-inline" id= "searchForm">
 					<div class="form-group">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From" ng-model="source">
 						<span class="glyphicon glyphicon-transfer"></span>
 					</div>
 					<div class="form-group">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="To">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="To"ng-model="destination">
 					</div>
 					<div class="form-group">
-       					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text"/>
+       					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text" ng-model="departDate"/>
        				</div>
        				<div class="form-group">
-       					<input class="form-control" id="return" name="return" placeholder="Return" type="text"/>
+       					<input class="form-control" id="return" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
        				</div>
 					<div class="input-group">
 						<span class="input-group-btn">
-						<button class="btn btn-primary " name="search" type="search">
+                        <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
+                            <button ng-click="submit(searchForm)" class="btn btn-primary " name="search" type="submit">
+
         				Search
        					</button>
 					</span>
@@ -117,8 +126,9 @@
 			</center>
 		</div>
   </div>
-  
-  <div class="container">
+  <div ng-view></div>
+
+  <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -127,19 +137,19 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
-  
+      
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
   
         <div class="item active">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDBw83Kx6y_uUBZ02EVP-G290plaoOTfaEj32s2c6BkaSj0ZrR1Q" alt="Flight"  >
+          <img src="http://yesofcorsa.com/wp-content/uploads/2018/07/4K-Flights-Wallpaper-Download-Free.jpg" alt="Flight"  >
           <div class="carousel-caption">
             <h3>Book Flights at cheaper prices </h3>
           </div>
         </div>
   
         <div class="item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgVuIYl39N-uXFo5EiTDqE8iYzLJJygoTLneSengov5dL1hBzE"  >
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2QBXcbpjcNaSVGuS8M6iRhAmnitu_SjdFaJ-Wc9OLBrQvsSdX2g"  >
           <div class="carousel-caption">
             <h3>Apply promo codes</h3>
           </div>
@@ -147,13 +157,14 @@
       
   
         <div class="item">
-          <img src="https://images.all-free-download.com/images/graphicthumb/aircraft_in_flight_picture_7_168555.jpg"  >
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBoZc6Ltfyc-4qFMmAhK4ivzzwPgLSgFfN0efUkMr0zBqULWw3yQ"  >
           <div class="carousel-caption">
             <h3>Bookings open </h3>
           </div>
         </div>
     
       </div>
+      
   
       <!-- Left and right controls -->
       <a style="width: 4%; height:100%;" class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -193,4 +204,3 @@
 </script>
 </body>
 </html>
-

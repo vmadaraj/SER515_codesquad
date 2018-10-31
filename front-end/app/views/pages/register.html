@@ -1,0 +1,114 @@
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+    <script src="resources/js/angular.js"></script>
+    <script src="resources/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src= "../../../app/controllers/userCtrl.js"></script>
+
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/reg.css">
+    
+</head>
+
+<body ng-app="airlineApp">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    
+                    <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
+                </div> 
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <!--  <div class="dummy"> -->
+                          
+                    <!-- </div> -->
+                    <ul class="nav navbar-nav navbar-right" style = "height : 5px">
+                        <li class="hidden active">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="">
+                            <a class="page-scroll" href="/home">Home</a>
+                        </li>  
+                        
+                        <li class="">
+                            <a class="page-scroll" href="/login">Login</a>
+                        </li>   
+    
+    
+                        <li class="">
+                            <a class="page-scroll" href="/contacts">Contacts</a>
+                        </li>
+                         
+                        <li class="">
+                            <a class="page-scroll" href="/about">About Us</a>
+                        </li>  
+                        <li class="">
+                          <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
+                        </li>                                 
+                    </ul>
+                    
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <div ng-view></div>
+      
+        <div class="main">
+        
+            </nav>
+            <div ng-view></div>
+            <section class="signup">
+               <div class = "bg">
+                <br>
+                <div class="container">
+                    <div class="signup-content">
+                        <form method="POST" id="signup-form" class="signup-form">
+                            <h2 class="form-title">Create account</h2>
+                            <div class="form-group">
+                                <input type="text" class="form-input" name="fname" id="fname" placeholder="First Name"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" class="form-input" name="lname" id="lname" placeholder="Last Name"/>
+                                </div>
+                            <div class="form-group">
+                                <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input" name="dob" id="dob" placeholder="Date of Birth"/>
+                            </div>
+                        
+                            <div class="form-group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                            </div>
+                        </form>
+                        <p class="loginhere">
+                            Have already an account ? <a href="/login" class="loginhere-link">Login here</a>
+                        </p>                    
+                    </div>
+                </div>
+            </section>
+    
+        </div>
+    </div>
+    
+    </body>
+
+
+</html>

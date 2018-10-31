@@ -1,7 +1,7 @@
-angular.module('airlineApp',['appRoutes']).config(function(){
- console.log('angular');
-});
- 
+var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController']).config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}])
+
  app.config(function($routeProvider)
 {
     $routeProvider
@@ -14,5 +14,20 @@ angular.module('airlineApp',['appRoutes']).config(function(){
 
     .when('/about', {
         templateUrl: 'front-end/app/views/pages/about.html'
+    });
+
+    $routeProvider
+
+    .when('/userProfile', {
+        templateUrl: 'front-end/app/views/pages/userProfile.html'
+    });
+
+    $routeProvider
+
+    .when('/register', {
+        templateUrl: 'front-end/app/views/pages/register.html',
+        controller: 'regController',
+        controllerAs: 'register'
+
     });
 });

@@ -10,7 +10,10 @@
   "author": "Naren Konchada",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "bcrypt": "^3.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "global": "^4.3.2",
     "mongoose": "^5.2.17",
     "morgan": "^1.9.1",
@@ -24,5 +27,7 @@
     "url": "https://github.com/shirikvs/SER515_codesquad/issues"
   },
   "homepage": "https://github.com/shirikvs/SER515_codesquad#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "sabre-dev-studio": "^1.2.0"
+  }
 }
