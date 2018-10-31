@@ -1,4 +1,5 @@
 var Flight = require('../models/flight');
+var User = require('../models/user');
 
 module.exports =function(router){
 
@@ -17,13 +18,8 @@ router.post('/searchFlightOn',function(req,res){
 
     });
 });
-return router;
-}
-var User = require('../models/user');
-
-module.exports =  function(router){
-        // http://localtest:8080/users
-        router.post('/users', function(req, res) {
+       // http://localtest:8080/users
+       router.post('/users', function(req, res) {
         var user = new User();
         user.username = req.body.username;
         user.password = req.body.password;
@@ -44,8 +40,12 @@ module.exports =  function(router){
         }
     });
     router.post('/authenticateFlight',function(req,res){
-        Flight.findOne({source : req.body.source}).select('source destination departDate returnDate')
+        Flight.findOne({source : req.body.source}).select('source destination departDate returnDate').exec(function(err){
+            if(err)
+            throw err;
+        })
 
     });
-    return router;
+return router;
 }
+

@@ -7,7 +7,7 @@ var mongoose= require('mongoose');
 var bodyParser= require('body-parser');
 var router = express.Router();
 var appRoutes = require('./app/routes/api')(router);
-
+var Flight = require('./app/models/flight')
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -27,9 +27,6 @@ mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
         console.log("Connected to MONGODB");
     }
 });
-
-
-
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
