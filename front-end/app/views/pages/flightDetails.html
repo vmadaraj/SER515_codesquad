@@ -26,7 +26,7 @@
 
 </head>
 
-<body ng-app="airlineApp" >
+<body ng-app="airlineApp" ng-contoller="flightDetailsController">
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -80,7 +80,7 @@
 <h1 style="font-size:150%;
     margin-left: 10px;
     color: brown;">Departing Flights</h1>
-    	<div class="container_flights" ng-contoller="flightDetailsController">
+    	<div class="container_flights">
 
 	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
         <table st-table="flights" class="table table-striped">
