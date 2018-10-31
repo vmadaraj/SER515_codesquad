@@ -1,4 +1,4 @@
-var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController']).config(['$locationProvider', function($locationProvider) {
+var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController', 'authServices']).config(['$locationProvider', function($locationProvider) {
   $locationProvider.hashPrefix('');
 }])
 
@@ -26,7 +26,7 @@ var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainCon
 
     .when('/register', {
         templateUrl: 'front-end/app/views/pages/register.html',
-        controller: 'regController',
+        controller: 'regCtrl',
         controllerAs: 'register'
 
     });
