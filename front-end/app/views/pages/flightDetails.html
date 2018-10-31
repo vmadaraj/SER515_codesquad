@@ -5,6 +5,10 @@
     <script src="resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
+    <script src="app/controllers/searchCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/flightDetailsCtrl.js"></script>
 
     <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
 
@@ -26,7 +30,7 @@
 
 </head>
 
-<body ng-app="airlineApp" ng-contoller="flightDetailsController">
+<body ng-app="airlineApp" ng-controller="flightsDetailsController">
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -86,24 +90,24 @@
         <table st-table="flights" class="table table-striped">
           <thead>
             <tr>
-              <th>FlightNo</th>
+              <th>FlightID</th>
               <th>Source</th>
               <th>Destination</th>
-              <th>DepatureTime</th>
+              <th>DepatureDate</th>
               <th>Price</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="flight in flights">
-              <td>{{flight.FlightNo}}</td>
+              <td>{{flight.FlightID}}</td>
               <td>{{flight.Source}}</td>
               <td>{{flight.Destination}}</td>
               <td>{{flight.DepatureTime}}</td>
               <td>{{flight.Price}}</td>
             <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
-              <!-- <td>
+              <td>
                 <button>BOOK</button>
-              </td> -->
+              </td>
             </tr>
           </tbody>
           </table>
@@ -118,7 +122,7 @@
           <table st-table="flights" class="table table-striped">
             <thead>
               <tr>
-                <th>FlightNo</th>
+                <th>FlightID</th>
                 <th>Source</th>
                 <th>Destination</th>
                 <th>DepatureTime</th>
@@ -127,15 +131,14 @@
             </thead>
             <tbody>
               <tr ng-repeat="flight in flights">
-                <td>{{flight.FlightNo}}</td>
+                <td>{{flight.FlightID}}</td>
                 <td>{{flight.Source}}</td>
                 <td>{{flight.Destination}}</td>
                 <td>{{flight.DepatureTime}}</td>
                 <td>{{flight.Price}}</td>
-              <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
-                <!-- <td>
+                <td>
                   <button>BOOK</button>
-                </td> -->
+                </td>
               </tr>
             </tbody>
             </table>
