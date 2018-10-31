@@ -43,5 +43,9 @@ module.exports =  function(router){
             });
         }
     });
+    router.post('/authenticateFlight',function(req,res){
+        Flight.findOne({source : req.body.source}).select('source destination departDate returnDate')
+
+    });
     return router;
 }
