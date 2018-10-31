@@ -1,5 +1,5 @@
 <html>
-<head> 
+<head>
     <meta charset="UTF-8">
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="resources/css/reg.css">
     <script src= "../../../app/controllers/mainCtrl.js"></script>
     <script src= "../../../app/controllers/userCtrl.js"></script>
+    <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
     <script src= "../../../app/controllers/searchCtrl.js"></script>
     <!-- <script src= "../../../app/services/userServices.js"></script> -->
 
-    
+
 </head>
 
 <body ng-app="airlineApp" ng-controller = "regCtrl as register" ng-controller="mainCtrl as main">
@@ -32,42 +33,42 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-    
+
                     <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
-                </div> 
+                </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                          
+
                     <ul class="nav navbar-nav navbar-right" style = "height : 5px">
                         <li class="hidden active">
                             <a href="#page-top"></a>
                         </li>
                         <li class="">
                             <a class="page-scroll" href="/home">Home</a>
-                        </li>  
-                        
+                        </li>
+
                         <li class="">
                             <a class="page-scroll" href="/login">Login</a>
-                        </li>   
-    
-    
+                        </li>
+
+
                         <li class="">
                             <a class="page-scroll" href="/contacts">Contacts</a>
                         </li>
-                         
+
                         <li class="">
                             <a class="page-scroll" href="/about">About Us</a>
-                        </li>  
+                        </li>
                         <li class="">
                           <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
-                        </li>                                 
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- <div ng-view></div> -->
-      
+
         <div class="main">
-        
+
             <!-- <div ng-view></div> -->
             <section class="signup">
                <div class = "bg">
@@ -85,14 +86,14 @@
                             <div class="form-group">
                                 <input type="text" class="form-input" name="password" id="password" placeholder="Password" ng-model="password"/>
                                 <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                            </div>       
+                            </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" ng-click = "submit(signup-form)"/>
                             </div>
                         </form>
                         <p class="loginhere">
                             Have already an account ? <a href="/login" class="loginhere-link">Login here</a>
-                        </p>                    
+                        </p>
                     </div>
                 <!-- </div> -->
                 <br>
@@ -103,10 +104,10 @@
                 <div class="alert alert-danger"> {{ register.errorMsg }}</div>
             </div>
             </section>
-            
+
         </div>
     </div>
-    
+
     </body>
 
 
