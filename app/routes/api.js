@@ -40,7 +40,7 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res){
-    Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.departDate, returnDate:req.body.returnDate}).select('source destination departDate returnDate').exec(function(err,flights){
+    Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.departDate, returnDate:req.body.returnDate}).select('source destination departDate returnDate fare').exec(function(err,flights){
         if(err) throw err;
         console.log('flight data')
 
