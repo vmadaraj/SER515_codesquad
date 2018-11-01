@@ -3,7 +3,7 @@ angular.module('flightController',[]).config(function(){
 })
 .controller("TestCtrl1", function($scope, $location,$http) {
 
-   
+
 })
 
 .controller("searchController", function($scope, $location, $http) {
@@ -28,5 +28,3 @@ angular.module('flightController',[]).config(function(){
         $location.path(page);
     };
 })
-
-
