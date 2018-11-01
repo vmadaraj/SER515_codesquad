@@ -40,20 +40,23 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res){
-    Flight.findOne({source:req.body.source}).select('source destination departDate returnDate').exec(function(err,flight){
-        if(err) throw err
+    Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.departDate, returnDate:req.body.returnDate}).select('source destination departDate returnDate').exec(function(err,flights){
+        if(err) throw err;
+        console.log('flight data')
 
-        if(!flight){
+        if(!flights){
             res.json({success:false, message: 'Could not find flights'})
         }
         else{
-            res.json({
-                source : flight.source,
-                destination : flight.destination,
-                departDate:flight.departDate,
-                returnDate :flight.returnDate,
-                fare :flight.fare
-            })
+                console.log(flights)
+            // console.log(flight)
+            // res.json({
+            //     source : flight.source,
+            //     destination : flight.destination,
+            //     departDate:flight.departDate,
+            //     returnDate :flight.returnDate,
+            //     fare :flight.fare
+            // })
         }
     });
 })
