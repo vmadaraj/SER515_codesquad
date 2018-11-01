@@ -39,7 +39,7 @@ router.post('/users', function(req, res) {
         });
     }
 });
-router.post('/authenticateFlights',function(req,res){
+router.post('/authenticateFlights',function(req,res,$http){
     Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.departDate, returnDate:req.body.returnDate}).select('source destination departDate returnDate fare').exec(function(err,flights){
         if(err) throw err;
         console.log('flight data')
@@ -49,6 +49,8 @@ router.post('/authenticateFlights',function(req,res){
         }
         else{
                 console.log(flights)
+                res.json(flights)
+
             // console.log(flight)
             // res.json({
             //     source : flight.source,
@@ -59,7 +61,7 @@ router.post('/authenticateFlights',function(req,res){
             // })
         }
     });
-})
+});
 
 router.post('/authenticate', function(req, res) {
     User.findOne({ username : req.body.username}).select('email username password').exec(function(err, user) {
