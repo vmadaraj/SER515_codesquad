@@ -19,7 +19,7 @@ app.use('/api',appRoutes);
 
 
 
-mongoose.connect('mongodb://shirisha:Shirisha!1@ds249233.mlab.com:49233/airline', function(err){
+mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err){
     if(err){
         console.log('Not connected');
     }
