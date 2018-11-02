@@ -96,7 +96,7 @@
 			</h3>
 			<center>
 				<!-- Default inline 1-->
-				<div class="custom-control custom-radio custom-control-inline">
+				<div class="custom-control custom-radio custom-control-inline" id = "radioButton">
   					<input type="radio" class="custom-control-input" id="defaultInline1" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline1">Roundtrip</label>
   					<input type="radio" class="custom-control-input" id="defaultInline2" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
@@ -133,13 +133,12 @@
   <div ng-view></div>
 
   <script type="text/javascript">
-  $(function yesnoCheck() {
+  function yesnoCheck() {
     if (document.getElementById('defaultInline1').checked) {
         document.getElementById('return').style.visibility = 'visible';
     }
-    else document.getElementById('return').style.visibility = 'hidden';
-
-  });
+	else document.getElementById('return').style.visibility = 'hidden';
+  }
   </script>
   
   
