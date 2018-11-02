@@ -3,11 +3,13 @@ angular.module('detailsController',[]).config(function(){
 })
 
 .controller("flightsDetailsController", function($scope, $http,flightFactory) {
-
-  console.log('testingggggg');
-
-  console.log(flightFactory.flightData)
-  $http.get("../../resources/JSON/temp.json").success(function(data){
+  console.log('test');
+  $http.get("../../resources/JSON/departFlights.JSON").success(function(data){
     $scope.flights = data;
   });
+
+  $http.get("../../resources/JSON/returnFlights.JSON").success(function(data){
+    console.log(data)
+     $scope.rflights = data;
+   });
 });

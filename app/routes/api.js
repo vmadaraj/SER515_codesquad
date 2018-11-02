@@ -41,36 +41,111 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res,$http){
-    Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.date}).select('flightID source destination date fare').exec(function(err,flights){
+    Flight.find({source:req.body.source, destination:req.body.destination,date:req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
         if(err) throw err;
         console.log('flight data')
 
-        if(!flights){
+        if(!dflights){
             res.json({success:false, message: 'Could not find flights'})
         }
         else{
-                console.log(flights)
-                res.json(flights)
+                console.log(dflights)
+                res.json(dflights)
                 var fs = require('fs');
 
                 var data = "New File Contents";
-                console.log(res)
+                //console.log(res)
                // angular.json(flights)
-                fs.writeFile('front-end/resources/JSON/temp.JSON',JSON.stringify (flights), function(err, data){
+                fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
                 if (err) console.log(err);
-                console.log("Successfully Written to File.");
+               // console.log("Successfully Written to File.");
 });
 
-            // console.log(flight)
-            // res.json({
-            //     source : flight.source,
-            //     destination : flight.destination,
-            //     departDate:flight.departDate,
-            //     returnDate :flight.returnDate,
-            //     fare :flight.fare
-            // })
         }
+        Flight.find({source:req.body.destination, destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec(function(err,rflights){
+            console.log("hey")
+            res.json(rflights)
+
+            fs.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (rflights), function(err, data){
+                if (err) console.log(err);
+               // console.log("Successfully Written to File.");
+});
+            });
     });
+
+
+
+    // var q = require('q');
+    // var fs1 = require('fs')
+    // var promises = [
+    // Flight.find({source:req.body.source, destination:req.body.destination,date:req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
+    //         //   if(err) throw err;
+    //         //   if(!dflights){
+    //         //    res.json({success:false, message: 'Could not find flights'})
+    //         // }
+    //         // else{
+    //         //     // console.log(flights)
+    //         //     res.json(dflights)
+    //         //      var fs = require('fs');
+    //         //     fs.writeFile('front-end/resources/JSON/departFlight.JSON',JSON.stringify (dflights), function(err, data){
+    //         //                     if (err) console.log(err);
+    //         //                     console.log("Successfully Written to File.");
+    //         //     });
+    //         // }
+    //        // console.log(dflights)
+
+
+            
+
+    // }),
+    // Flight.find({source:req.body.destination, destination:req.body.source,date:req.body.returnDate}).exec(function(err, rflights){
+    // //     if(err) throw err;
+    // //     //console.log(rflights)
+    //     if(!rflights){
+    //      res.json({success:false, message: 'Could not find flights'})
+    //   }
+    //   else{
+    //       // console.log(flights)
+    //       res.json(rflights)
+    //        var fs = require('fs');
+    //       fs.writeFile('front-end/resources/JSON/returnFlight.JSON',JSON.stringify (rflights), function(err, data){
+    //                       if (err) console.log(err);
+    //                       console.log("Successfully Written to File.");
+    //       });
+    //   }  
+    //console.log(rflights) 
+    
+
+//  })
+//       ]
+      
+//       q.all(promises).then(function(results){
+//           console.log(results)
+//           var fs = require('fs');
+//           fs.writeFile('front-end/resources/JSON/departFlight.JSON',JSON.stringify (dflights), function(err, data){
+//                               if (err) console.log("notwirrteen");
+//                               console.log("Successfully Written to File.");
+//               });
+//       });
+//     Flight.find({source:req.body.source, destination:req.body.destination,date:req.body.departDate}).select('flightID source destination date fare').exec(function(err,flights){
+//         if(err) throw err;
+//         console.log('flight data')
+
+//         if(!flights){
+//             res.json({success:false, message: 'Could not find flights'})
+//         }
+//         else{
+//                 console.log(flights)
+//                 res.json(flights)
+//                 var fs = require('fs');
+//                // console.log(res)
+//                // angular.json(flights)
+//                 fs.writeFile('front-end/resources/JSON/departFlight.JSON',JSON.stringify (flights), function(err, data){
+//                 if (err) console.log(err);
+//                 console.log("Successfully Written to File.");
+// });
+//         }
+//     });
 });
 
 router.post('/authenticate', function(req, res) {
@@ -96,6 +171,10 @@ router.post('/authenticate', function(req, res) {
            }
         }
     });
+});
+
+router.post('/authenticateFlightReturn', function(req, res) {
+    console.log(req.body)
 });
 return router;
 }

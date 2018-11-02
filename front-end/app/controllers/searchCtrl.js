@@ -6,7 +6,7 @@ angular.module('flightController',[]).config(function(){
 
 })
 
-.controller("searchController", function($scope, $location,$window, $http,flightFactory) {
+.controller("searchController", function($scope, $location,$window, $http) {
     console.log('testing s');
     $scope.submit = function(form){
         console.log('submitted');
@@ -19,15 +19,14 @@ angular.module('flightController',[]).config(function(){
             }
      $http.post('/api/authenticateFlights',flight).then(function(res,$http){
          console.log(res.data);
-         flightFactory.set(res.data)
          console.log("flight details:")
-         //$http.post('/api/authenticateFlightReturn',flight).then(function())
-         console.log(flightFactory.get())
-         $window.location.href = '/flightDetails';
+    
+        //
 
 
     })
 
+    $window.location.href = '/flightDetails';
 
    
      

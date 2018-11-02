@@ -121,7 +121,7 @@
       	<div class="container_flights">
 
   	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
-          <table st-table="flights" class="table table-striped">
+          <table st-table="rflights" class="table table-striped">
             <thead>
               <tr>
                 <th>FlightID</th>
@@ -132,12 +132,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="flight in flights">
-                <td>{{flight.FlightID}}</td>
-                <td>{{flight.Source}}</td>
-                <td>{{flight.Destination}}</td>
-                <td>{{flight.DepatureTime}}</td>
-                <td>{{flight.Price}}</td>
+              <tr ng-repeat="rflight in rflights">
+                <td>{{rflight.flightID}}</td>
+                <td>{{rflight.source}}</td>
+                <td>{{rflight.destination}}</td>
+                <td>{{rflight.date}}</td>
+                <td>{{rflight.fare}}</td>
                 <td>
                   <button>BOOK</button>
                 </td>
