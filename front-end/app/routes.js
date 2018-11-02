@@ -27,6 +27,9 @@ angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'front-end/app/views/pages/login.html'
     })
 
+    .when('/logout', {
+        templateUrl: 'front-end/app/views/pages/logout.html'
+    })
 
 
     .when('/about', {

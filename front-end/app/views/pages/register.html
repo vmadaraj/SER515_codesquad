@@ -18,12 +18,16 @@
     <script src= "../../../app/controllers/userCtrl.js"></script>
     <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
     <script src= "../../../app/controllers/searchCtrl.js"></script>
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/services/userServices.js"></script>
+
+
     <!-- <script src= "../../../app/services/userServices.js"></script> -->
 
 
 </head>
 
-<body ng-app="airlineApp" ng-controller = "regCtrl as register" ng-controller="mainCtrl as main">
+<body ng-app="airlineApp" ng-controller = "regCtrl as register" >
         <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
             <div class="container">
                 <div class="navbar-header page-scroll">
@@ -61,13 +65,16 @@
                         <li class="">
                           <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
                         </li>
+                        <li class="">
+                            <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- <div ng-view></div> -->
 
-        <div class="main">
+        <div class="main" ng-controller="mainCtrl as main">
 
             <!-- <div ng-view></div> -->
             <section class="signup">
@@ -75,20 +82,21 @@
                 <br>
                 <!-- <div class="container"> -->
                     <div class="signup-content">
-                        <form id="signup-form" class="signup-form" >
+                        <form id="signup-form" class="signup-form" ng-submit="register.registerUser(data);">
                             <h2 class="form-title">Create account</h2>
                             <div class="form-group">
-                                <input type="text" class="form-input" name="username" id="username" placeholder="User Name" ng-model="username"/>
+                                <input type="text" class="form-input" name="username" id="username" placeholder="User Name" ng-model="register.data.username"/>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-input" name="email" id="email" placeholder="Email" ng-model="email"/>
+                                <input type="email" class="form-input" name="email" id="email" placeholder="Email" ng-model="register.data.email"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" name="password" id="password" placeholder="Password" ng-model="password"/>
+                                <input type="text" class="form-input" name="password" id="password" placeholder="Password" ng-model="register.data.password"/>
                                 <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" ng-click = "submit(signup-form)"/>
+                                <!-- <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" ng-click = "submit(signup-form)"/> -->
+                                <button class="btn btn-primary" type="submit">"Sign up"</button>
                             </div>
                         </form>
                         <p class="loginhere">
@@ -97,12 +105,19 @@
                     </div>
                 <!-- </div> -->
                 <br>
-            <div class="row show-hide-message" style="margin: 0px 150px" ng-show = "register.successMsg">
-                <div class="alert alert-success">{{ register.successMsg }}</div>
-            </div>
-            <div class = "row show-hide-message" style="margin: 0px 150px" ng-show = "register.errorMsg">
-                <div class="alert alert-danger"> {{ register.errorMsg }}</div>
-            </div>
+            <div  class="row show-hide-message" style="margin: 0px 150px" ng-show="register.successMessage">
+                <div class="alert alert-success">
+                    {{ register.successMessage }}	
+                </div>
+                </div>
+                
+                <br>
+                
+                <div class="row show-hide-message" style="margin: 0px 150px" ng-show="register.errorMessage">
+                <div class="alert alert-danger">
+                    {{ register.errorMessage }}		
+                </div>
+                </div>
             </section>
 
         </div>
