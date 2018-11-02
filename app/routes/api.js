@@ -5,10 +5,11 @@ module.exports =function(router){
 
 router.post('/searchFlightOn',function(req,res){
     var flight = new Flight();
+    flight.flightID = req.body.flightID
     flight.source = req.body.source;
     flight.destination = req.body.destination;
-    flight.departDate =req.body.departDate;
-    flight.returnDate = req.body.returnDate;
+    flight.date =req.body.date;
+    flight.fare = req.body.fare;
     flight.save(function(err){
         if(err)
         res.send(err);
@@ -40,7 +41,7 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res,$http){
-    Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.departDate, returnDate:req.body.returnDate}).select('source destination departDate returnDate fare').exec(function(err,flights){
+    Flight.find({source:req.body.source, destination:req.body.destination,departDate:req.body.date}).select('flightID source destination date fare').exec(function(err,flights){
         if(err) throw err;
         console.log('flight data')
 

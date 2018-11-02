@@ -5,8 +5,7 @@ var FlightSchema = new Schema({
 flightID:{type:String},
 source: {type:String},
 destination:{type:String},
-departDate :{type:String},
-returnDate :{type:String},
+date :{type:String},
 fare :{type:String}
 });
 
