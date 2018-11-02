@@ -13,6 +13,11 @@ angular.module('appRoutes', ['ngRoute'])
         controllerAs:'search'
     })
 
+    .when('/booking',{
+
+          templateUrl: 'app/views/pages/booking.html'
+    })
+
     .when('/flightDetails', {
         templateUrl: 'front-end/app/views/pages/flightDetails.html',
         controller:'flightDetailsController',
