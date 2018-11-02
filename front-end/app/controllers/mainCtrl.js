@@ -1,6 +1,6 @@
 angular.module('mainController', [])
 
-.controller("mainCtrl", function($scope, $http, $location){
+.controller("mainCtrl", function($scope, $http, $location, $timeout){
     var app = this;
     console.log('testing login module11111');
     $scope.submit = function(form) {
@@ -16,7 +16,9 @@ angular.module('mainController', [])
             console.log(res.data.message);
             if (res.data.success){
                 app.successMsg = res.data.message;
-                $location.path('/home');  // check not working
+                $timeout(function() {
+                    window.location.href = "/home";
+                }, 1200);
             }
             else {
                 app.errorMsg = res.data.message;

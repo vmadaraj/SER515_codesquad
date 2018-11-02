@@ -31,10 +31,11 @@ module.exports =function(router){
         else {
             user.save(function(err){
                 if (err) {
-                    res.json({success : true, message : 'UserName or email already exists!!'});
+                    res.json({success : true, message : 'UserName or Email already exists!!'});
                 }
                 else {
-                    res.json({success : true, message : 'user created'});
+                    res.json({success : true, message : 'User Created'});
+                   
                 }
             });
         }
@@ -59,7 +60,7 @@ module.exports =function(router){
                    res.json({success : false, message : "Could not authenticate password"});
                }
                else {
-                   res.json({success : true, message : 'User authenticate'});
+                   res.json({success : true, message : 'User authenticated'});
                }
             }
         });
