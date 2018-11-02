@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <base href="/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -19,6 +20,11 @@
 
     <!-- Custom styles for this template -->
     <link href="resources/css/aboutUs.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+    <link href="resources/css/aboutUs.css" rel="stylesheet">
+    <script src= "../../../app/controllers/mainCtrl.js"></script>
+    <script src= "../../../app/controllers/userCtrl.js"></script>
+    <script src= "../../../app/controllers/searchCtrl.js"></script>
   </head>
 
   <body>
@@ -35,8 +41,24 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#who">WHO WE ARE</a></li>
-            <li><a href="#our-team">OUR TEAM</a></li>
+            <!-- <li><a href="#who">WHO WE ARE</a></li>
+            <li><a href="#our-team">OUR TEAM</a></li> -->
+            <li class="">
+                <a class="page-scroll" href="/">Home</a>
+            </li>  
+            
+            <li class="">
+                <a class="page-scroll" href="/login">Login</a>
+            </li> 
+              
+            <li class="">
+                <a class="page-scroll" href="/contacts">Contacts</a>
+            </li>
+             
+            <li class="">
+                <a class="page-scroll" href="/about">About Us</a>
+            </li>  
+            <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li> 
           </ul>
         </div><!--/.nav-collapse -->
       </div>

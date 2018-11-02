@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+    <base href="/">
+    <script src="resources/js/angular.js"></script>
+    <script src="resources/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="app/controllers/searchCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/flightDetailsCtrl.js"></script>
+
+    <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
+
+    <!-- This is our Google Arvo font and Font-Awesome -->
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+
+    <title>Airline Reservation System</title>
+
+
+
+</head>
+
+<body ng-app="airlineApp" ng-controller="flightsDetailsController">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <!--  <div class="dummy"> -->
+
+                <!-- </div> -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="/home">Home</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/login">Login</a>
+                    </li>
+
+
+                    <li class="">
+                        <a class="page-scroll" href="/contacts">Contacts</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/about">About Us</a>
+                    </li>
+                    <li>
+                      <a href="/about"><img id="profile" src= "images/userprofile.jpg"></a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <div ng-view></div>
+
+    </nav>
+    <div ng-view></div>
+    <br><br><br><br>
+<h1 style="font-size:150%;
+    margin-left: 10px;
+    color: brown;">Departing Flights</h1>
+    	<div class="container_flights">
+
+	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
+        <table st-table="flights" class="table table-striped">
+          <thead>
+            <tr>
+              <th>FlightID</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>DepatureDate</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="flight in flights">
+              <td>{{flight.FlightID}}</td>
+              <td>{{flight.Source}}</td>
+              <td>{{flight.Destination}}</td>
+              <td>{{flight.DepatureTime}}</td>
+              <td>{{flight.Price}}</td>
+            <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
+              <td>
+                <button>BOOK</button>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
+
+      <br><br>
+  <h1 style="font-size:150%;margin-left: 10px;
+  color: brown;">Return Flights</h1>
+      	<div class="container_flights">
+
+  	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
+          <table st-table="flights" class="table table-striped">
+            <thead>
+              <tr>
+                <th>FlightID</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>DepatureTime</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="flight in flights">
+                <td>{{flight.FlightID}}</td>
+                <td>{{flight.Source}}</td>
+                <td>{{flight.Destination}}</td>
+                <td>{{flight.DepatureTime}}</td>
+                <td>{{flight.Price}}</td>
+                <td>
+                  <button>BOOK</button>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+
+<script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</script>
+</body>
+</html>

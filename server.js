@@ -45,6 +45,11 @@ app.get('/about', function(req, res){
 });
 
 
+app.get('/flightDetails', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/flightDetails.html'));
+
+});
+
 app.get('/userProfile', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/userProfile.html'));
 });

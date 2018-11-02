@@ -5,24 +5,48 @@ angular.module('appRoutes', ['ngRoute'])
     $routeProvider
     .when('/search',{
         templateUrl: 'app/views/pages/booking.html',
-        
+
     })
     .when('/',{
-        
+
         controller:'searchController',
         controllerAs:'search'
     })
+
+    .when('/flightDetails', {
+        templateUrl: 'front-end/app/views/pages/flightDetails.html',
+        controller:'flightDetailsController',
+        controllerAs:'filghtDetails'
+    })
+
     .when('/home',{
         templateUrl: 'app/views/index.html'
+    })
+
+    .when('/login', {
+        templateUrl: 'front-end/app/views/pages/login.html'
+    })
+
+
+
+    .when('/about', {
+        templateUrl: 'front-end/app/views/pages/about.html'
+    })
+
+
+    .when('/userProfile', {
+        templateUrl: 'front-end/app/views/pages/userProfile.html'
+    })
+
+
+    .when('/register', {
+        templateUrl: 'front-end/app/views/pages/register.html',
+        controller: 'regCtrl',
+        controllerAs: 'register'
+
     });
 
 
-
-    // $locationProvider.html5Mode({
-    //     enabled : true,
-    //     requireBase : false
-    // });
-    
     // $routeProvider .when('/login', {
     //     templateUrl: 'app/views/pages/login.html'
     // });
@@ -32,4 +56,3 @@ angular.module('appRoutes', ['ngRoute'])
     // });
 
 });
-
