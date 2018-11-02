@@ -50,6 +50,15 @@ router.post('/authenticateFlights',function(req,res,$http){
         else{
                 console.log(flights)
                 res.json(flights)
+                var fs = require('fs');
+
+                var data = "New File Contents";
+                console.log(res)
+               // angular.json(flights)
+                fs.writeFile('front-end/resources/JSON/temp.JSON',JSON.stringify (flights), function(err, data){
+                if (err) console.log(err);
+                console.log("Successfully Written to File.");
+});
 
             // console.log(flight)
             // res.json({

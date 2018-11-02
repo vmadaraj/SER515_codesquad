@@ -1,0 +1,2 @@
+[
+    {"_id":"5bd90cd0b4bf461680b55ac3","source":"LA","destination":"PHX","departDate":"10/20/2018","returnDate":"11/20/2018","fare":"200"},{"_id":"5bd90cedb4bf461680b55ac4","source":"LA","destination":"PHX","departDate":"10/20/2018","returnDate":"11/20/2018","fare":"300"},{"_id":"5bd90cf5b4bf461680b55ac5","source":"LA","destination":"PHX","departDate":"10/20/2018","returnDate":"11/20/2018","fare":"105"},{"_id":"5bd90cfbb4bf461680b55ac6","source":"LA","destination":"PHX","departDate":"10/20/2018","returnDate":"11/20/2018","fare":"125"}]

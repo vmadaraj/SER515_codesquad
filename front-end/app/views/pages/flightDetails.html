@@ -11,6 +11,8 @@
     <script src="app/controllers/flightDetailsCtrl.js"></script>
 
     <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
+    <script src="../../../app/services/flightServices.js"></script>
+
 
     <!-- This is our Google Arvo font and Font-Awesome -->
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
@@ -99,11 +101,11 @@
           </thead>
           <tbody>
             <tr ng-repeat="flight in flights">
-              <td>{{flight.FlightID}}</td>
-              <td>{{flight.Source}}</td>
-              <td>{{flight.Destination}}</td>
-              <td>{{flight.DepatureTime}}</td>
-              <td>{{flight.Price}}</td>
+              <td>{{flight.flightID}}</td>
+              <td>{{flight.source}}</td>
+              <td>{{flight.destination}}</td>
+              <td>{{flight.departDate}}</td>
+              <td>{{flight.fare}}</td>
             <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
               <td>
                 <button>BOOK</button>
