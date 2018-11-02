@@ -97,9 +97,9 @@
 			<center>
 				<!-- Default inline 1-->
 				<div class="custom-control custom-radio custom-control-inline">
-  					<input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
+  					<input type="radio" class="custom-control-input" id="defaultInline1" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline1">Roundtrip</label>
-  					<input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+  					<input type="radio" class="custom-control-input" id="defaultInline2" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline2">One-Way</label>
 				</div>
 				<form class="form-inline" id= "searchForm">
@@ -114,7 +114,7 @@
        					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text" ng-model="departDate"/>
        				</div>
        				<div class="form-group">
-       					<input class="form-control" id="return" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
+       					<input class="form-control" id="return" style="visibility:hidden" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
        				</div>
 					<div class="input-group">
 						<span class="input-group-btn">
@@ -132,6 +132,17 @@
   </div>
   <div ng-view></div>
 
+  <script type="text/javascript">
+  $(function yesnoCheck() {
+    if (document.getElementById('defaultInline1').checked) {
+        document.getElementById('return').style.visibility = 'visible';
+    }
+    else document.getElementById('return').style.visibility = 'hidden';
+
+  });
+  </script>
+  
+  
   <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">
