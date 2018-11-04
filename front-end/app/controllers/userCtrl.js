@@ -1,7 +1,8 @@
 angular.module('userController', [])
 
-.controller("regCtrl", function($scope, $http, $location) {
+.controller("regCtrl", function($scope, $http, $location, $timeout) {
     var app = this;
+    app.errorMsg = false;
     console.log('testing new  Button');
     $scope.submit = function(form) {
         console.log("tets babu here");
@@ -18,7 +19,9 @@ angular.module('userController', [])
             console.log(res.data.message);
             if (res.data.success){
                 app.successMsg = res.data.message;
-                // $location.path('/home');  // check not working
+                $timeout(function() {
+                    window.location.href = "/home";
+                }, 1200);     
             }
             else {
                 app.errorMsg = res.data.message;
@@ -27,5 +30,7 @@ angular.module('userController', [])
         });
     };
 });
+
+
 
 // $http.post('/api/users', user)
