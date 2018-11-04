@@ -14,12 +14,19 @@
 
 
 
+    <script src="app/services/flightServices.js"></script>
+
+
 
 
     <!-- This is our Google Arvo font and Font-Awesome -->
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel= "stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -101,10 +108,10 @@
 			</h3>
 			<center>
 				<!-- Default inline 1-->
-				<div class="custom-control custom-radio custom-control-inline">
-  					<input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
+				<div class="custom-control custom-radio custom-control-inline" id = "radioButton">
+  					<input type="radio" class="custom-control-input" id="defaultInline1" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline1">Roundtrip</label>
-  					<input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+  					<input type="radio" class="custom-control-input" id="defaultInline2" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline2">One-Way</label>
 				</div>
 				<form class="form-inline" id= "searchForm">
@@ -119,7 +126,7 @@
        					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text" ng-model="departDate"/>
        				</div>
        				<div class="form-group">
-       					<input class="form-control" id="return" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
+       					<input class="form-control" id="return" style="visibility:hidden" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
        				</div>
 					<div class="input-group">
 						<span class="input-group-btn">
@@ -137,6 +144,16 @@
   </div>
   <div ng-view></div>
 
+  <script type="text/javascript">
+  function yesnoCheck() {
+    if (document.getElementById('defaultInline1').checked) {
+        document.getElementById('return').style.visibility = 'visible';
+    }
+	else document.getElementById('return').style.visibility = 'hidden';
+  }
+  </script>
+  
+  
   <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">
@@ -197,25 +214,19 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-<script>
-    $(document).ready(function(){
-        var date_depart=$('input[name="depart"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_depart.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-        var date_return=$('input[name="return"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_return.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
+<script type="text/javascript">
+    $(function () {
+        $('#depart').datepicker();
+        $('#return').datepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#depart").on("dp.change", function (e) {
+            $('#return').data("DatePicker").minDate(e.date);
+        });
+        $("#return").on("dp.change", function (e) {
+            $('#depart').data("DatePicker").maxDate(e.date);
+        });
+    });
 </script>
 </body>
 </html>

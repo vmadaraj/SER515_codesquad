@@ -13,7 +13,7 @@
     <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
     <script src= "../../../app/services/authServices.js"></script>
     <script src= "../../../app/services/userServices.js"></script>
-
+    <script src="../../../app/services/flightServices.js"></script>
 
 
     <!-- This is our Google Arvo font and Font-Awesome -->
@@ -106,11 +106,11 @@
           </thead>
           <tbody>
             <tr ng-repeat="flight in flights">
-              <td>{{flight.FlightID}}</td>
-              <td>{{flight.Source}}</td>
-              <td>{{flight.Destination}}</td>
-              <td>{{flight.DepatureTime}}</td>
-              <td>{{flight.Price}}</td>
+              <td>{{flight.flightID}}</td>
+              <td>{{flight.source}}</td>
+              <td>{{flight.destination}}</td>
+              <td>{{flight.date}}</td>
+              <td>{{flight.fare}}</td>
             <!-- <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records"> -->
               <td>
                 <button>BOOK</button>
@@ -126,7 +126,7 @@
       	<div class="container_flights">
 
   	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
-          <table st-table="flights" class="table table-striped">
+          <table st-table="rflights" class="table table-striped">
             <thead>
               <tr>
                 <th>FlightID</th>
@@ -137,12 +137,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="flight in flights">
-                <td>{{flight.FlightID}}</td>
-                <td>{{flight.Source}}</td>
-                <td>{{flight.Destination}}</td>
-                <td>{{flight.DepatureTime}}</td>
-                <td>{{flight.Price}}</td>
+              <tr ng-repeat="rflight in rflights">
+                <td>{{rflight.flightID}}</td>
+                <td>{{rflight.source}}</td>
+                <td>{{rflight.destination}}</td>
+                <td>{{rflight.date}}</td>
+                <td>{{rflight.fare}}</td>
                 <td>
                   <button>BOOK</button>
                 </td>
@@ -157,6 +157,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-</script>
+
 </body>
 </html>
