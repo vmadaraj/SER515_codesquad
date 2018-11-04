@@ -1,5 +1,38 @@
-<div class="page-header">
-    <h1>
-        Logging Out.....Please...Wait
-    </h1>
-</div>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+    <script src="resources/js/angular.js"></script>
+    <script src="resources/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/reg.css">
+    <script src= "../../../app/controllers/mainCtrl.js"></script>
+    <script src= "../../../app/controllers/userCtrl.js"></script>
+    <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
+    <script src= "../../../app/controllers/searchCtrl.js"></script>
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/services/userServices.js"></script>
+
+
+    <!-- <script src= "../../../app/services/userServices.js"></script> -->
+
+
+</head>
+  <body ng-app="airlineApp" ng-controller="mainCtrl as main">
+    <div  style=" text-align: center" class="page-header">
+        <h1>
+            User Logged Out....
+        </h1>
+    </div>
+    <div style=" text-align: center">
+        <button  ng-click="main.afterLogout();">Back to Home</button>
+    </div>
+</body>

@@ -34,8 +34,8 @@
 
 </head>
 
-<body ng-app="airlineApp" ng-controller="searchController" ng-controller="mainCtrl as main">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body ng-app="airlineApp" ng-controller="searchController" >
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -57,11 +57,11 @@
                         <a href="#page-top"></a>
                     </li> -->
                     <li class="">
-                        <a class="page-scroll" href="/">Home</a>
+                        <a  class="page-scroll" href="/">Home</a>
                     </li>
 
                     <li class="">
-                        <a class="page-scroll" href="/login">Login</a>
+                        <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                     </li>
 
                     <li class="">
@@ -73,7 +73,7 @@
                     </li>
                     <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
                     <li class="">
-                        <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                        <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
                     </li>
                 </ul>
 
@@ -85,7 +85,9 @@
     </nav>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
+    <!-- <div ng-view> -->
 
+    </div>
 	<br><br><br><br><br>
 
 

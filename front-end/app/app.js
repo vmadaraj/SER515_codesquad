@@ -1,4 +1,4 @@
-var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController', 'detailsController', 'authService', 'userServices'])
+var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController', 'detailsController', 'userServices', 'authServices'])
 
 .config(function($httpProvider){
 

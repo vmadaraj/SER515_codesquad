@@ -1,7 +1,7 @@
 var Flight = require('../models/flight');
 var User = require('../models/user');
 var jsonWebToken = require('jsonwebtoken');
-var secret = 'tokenTest'
+var secret = 'tokenTest';
 
 module.exports =function(router){
 
