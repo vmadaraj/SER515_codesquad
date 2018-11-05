@@ -5,5 +5,3 @@ var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainCon
 
 	$httpProvider.interceptors.push('AuthInterceptors');
 });
-
-
