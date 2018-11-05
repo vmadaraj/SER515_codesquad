@@ -5,22 +5,22 @@ var secret = 'tokenTest';
 
 module.exports =function(router){
 
-router.post('/searchFlightOn',function(req,res){
-    var flight = new Flight();
-    flight.flightID = req.body.flightID
-    flight.source = req.body.source;
-    flight.destination = req.body.destination;
-    flight.date =req.body.date;
-    flight.fare = req.body.fare;
-    flight.save(function(err){
-        if(err)
-        res.send(err);
-        else
-        res.send('Flight created');
-
-
-    });
-});
+// router.post('/searchFlightOn',function(req,res){
+//     var flight = new Flight();
+//     flight.flightID = req.body.flightID
+//     flight.source = req.body.source;
+//     flight.destination = req.body.destination;
+//     flight.date =req.body.date;
+//     flight.fare = req.body.fare;
+//     flight.save(function(err){
+//         if(err)
+//         res.send(err);
+//         else
+//         res.send('Flight created');
+//
+//
+//     });
+// });
 // http://localtest:8080/users
 router.post('/users', function(req, res) {
     var user = new User();
@@ -29,52 +29,52 @@ router.post('/users', function(req, res) {
     user.email = req.body.email;
 
     if (user.username == null || user.username == '' || user.password == null || user.password == '' || user.email == null || user.email == '') {
-        res.send('Please provide the username, password and email')
+        res.json({success : false, message : 'Please provide the username, password and email'});
     }
     else {
         user.save(function(err){
             if (err) {
-                res.send('UserName or Email already exists');
+                res.json({success : true, message : 'UserName or email already exists!!'});
             }
             else {
-                res.send('user created');
+                res.json({success : true, message : 'user created'});
             }
         });
     }
 });
-router.post('/authenticateFlights',function(req,res,$http){
-    Flight.find({source:req.body.source, destination:req.body.destination,date:req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
-        if(err) throw err;
-        console.log('flight data')
-
-        if(!dflights){
-            res.json({success:false, message: 'Could not find flights'})
-        }
-        else{
-                console.log(dflights)
-                res.json(dflights)
-                var fs = require('fs');
-
-                var data = "New File Contents";
-                //console.log(res)
-               // angular.json(flights)
-                fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
-                if (err) console.log(err);
-               // console.log("Successfully Written to File.");
-});
-
-
-        }
-        Flight.find({source:req.body.destination, destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec(function(err,rflights){
-            console.log("hey")
-            res.json(rflights)
-
-            fs.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (rflights), function(err, data){
-                if (err) console.log(err);
-               // console.log("Successfully Written to File.");
-});
-            });
-    });
+// router.post('/authenticateFlights',function(req,res,$http){
+//     Flight.find({source:req.body.source, destination:req.body.destination,date:req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
+//         if(err) throw err;
+//         console.log('flight data')
+//
+//         if(!dflights){
+//             res.json({success:false, message: 'Could not find flights'})
+//         }
+//         else{
+//                 console.log(dflights)
+//                 res.json(dflights)
+//                 var fs = require('fs');
+//
+//                 var data = "New File Contents";
+//                 //console.log(res)
+//                // angular.json(flights)
+//                 fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
+//                 if (err) console.log(err);
+//                // console.log("Successfully Written to File.");
+// });
+//
+//
+//         }
+//         Flight.find({source:req.body.destination, destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec(function(err,rflights){
+//             console.log("hey")
+//             res.json(rflights)
+//
+//             fs.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (rflights), function(err, data){
+//                 if (err) console.log(err);
+//                // console.log("Successfully Written to File.");
+// });
+//             });
+//     });
 
     router.post('/authenticate', function(req, res) {
         if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {
@@ -83,7 +83,7 @@ router.post('/authenticateFlights',function(req,res,$http){
         else {
             User.findOne({ username : req.body.username}).select('email username password').exec(function(err, user) {
                 if (err) throw err;
-    
+
                 if (!user) {
                     res.json({success : false, message : 'Could not authenticate user'});
                 }
@@ -121,17 +121,17 @@ router.post('/authenticateFlights',function(req,res,$http){
         } else {
             res.json({success : false, message : "No token Provided"})
         }
-    
+
     });
 
     router.post('/me', function(req, res){
         res.send(req.decoded);
 
     });
-});
+// });
 
-router.post('/authenticateFlightReturn', function(req, res) {
-    console.log(req.body)
-});
-return router;
+// router.post('/authenticateFlightReturn', function(req, res) {
+//     console.log(req.body)
+// });
+  return router;
 }
