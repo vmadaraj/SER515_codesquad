@@ -77,13 +77,14 @@ router.post('/authenticateFlights',function(req,res,$http){
     });
 
     router.post('/authenticate', function(req, res) {
+      console.log("came here after hit");
         if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {
             res.json({success : false, message : 'Please provide Valid username and password'});
         }
         else {
             User.findOne({ username : req.body.username}).select('email username password').exec(function(err, user) {
                 if (err) throw err;
-    
+
                 if (!user) {
                     res.json({success : false, message : 'Could not authenticate user'});
                 }
@@ -121,7 +122,7 @@ router.post('/authenticateFlights',function(req,res,$http){
         } else {
             res.json({success : false, message : "No token Provided"})
         }
-    
+
     });
 
     router.post('/me', function(req, res){

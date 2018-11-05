@@ -29,21 +29,22 @@ angular.module('mainController', ['authServices'])
 
     this.dologin=function(logindata)
     {
+      console.log("check the hit 1");
         app.errorMessage=false;
-
+        console.log(logindata);
           Auth.login(app.logindata).then(function(responsedata){
-
+            console.log("check the hit 2");
            if(responsedata.data.success)
            {
                 app.successMessage = responsedata.data.message;
-                  
+
                 $timeout(function() {
                     $window.location.href='/home';
                     app.logindata = '';
                     app.successMessage = false;
                 }, 2000);
 
-               
+
            }
            else
            {
