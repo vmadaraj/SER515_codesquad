@@ -1,6 +1,4 @@
-var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController', 'detailsController', 'userServices', 'authServices'])
+var app = angular.module('airlineApp',['appRoutes', 'flightController', 'mainController', 'userController', 'detailsController','flightService']).config(['$locationProvider', function($locationProvider) {
 
-.config(function($httpProvider){
-
-	$httpProvider.interceptors.push('AuthInterceptors');
-});
+	$locationProvider.hashPrefix('');
+}]);
