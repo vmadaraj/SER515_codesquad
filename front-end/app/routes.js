@@ -24,6 +24,10 @@ angular.module('appRoutes', ['ngRoute'])
         controllerAs:'filghtDetails'
     })
 
+    .when('/bookingDetails', {
+        templateUrl: 'front-end/app/views/pages/bookingDetails.html'
+    })
+
     .when('/home',{
         templateUrl: 'app/views/index.html'
     })

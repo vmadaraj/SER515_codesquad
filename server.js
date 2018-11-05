@@ -61,7 +61,9 @@ app.get('/register', function(req, res){
 app.get('/booking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
 });
-
+app.get('/bookingDetails', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/bookingDetails.html'));
+});
 app.get('/logout', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/logout.html'));
 });
