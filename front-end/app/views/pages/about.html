@@ -25,9 +25,12 @@
     <script src= "../../../app/controllers/mainCtrl.js"></script>
     <script src= "../../../app/controllers/userCtrl.js"></script>
     <script src= "../../../app/controllers/searchCtrl.js"></script>
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/services/userServices.js"></script>
+
   </head>
 
-  <body>
+  <body ng-app="airlineApp" ng-controller="mainCtrl as main">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -58,7 +61,10 @@
             <li class="">
                 <a class="page-scroll" href="/about">About Us</a>
             </li>  
-            <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li> 
+            <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
+            <li class="">
+              <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+          </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

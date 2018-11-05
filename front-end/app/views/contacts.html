@@ -6,7 +6,15 @@
     <script src="resources/js/angular.js"></script>
     <script src="resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/routes.js"></script> 
+    <script src="app/routes.js"></script>
+    <script src="app/controllers/searchCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/flightDetailsCtrl.js"></script>
+    <script src="../../app/services/authServices.js"></script>
+    <script src="../../app/services/userServices.js"></script> 
+
+
 
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,7 +26,7 @@
 
 </head>
 
-<body  >
+<body ng-app="airlineApp" ng-controller="mainCtrl as main">
     <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <div class="navbar-header page-scroll">
