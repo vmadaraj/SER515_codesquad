@@ -62,6 +62,10 @@ app.get('/booking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
 });
 
+app.get('/logout', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/logout.html'));
+});
+
 
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
