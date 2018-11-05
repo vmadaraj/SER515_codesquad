@@ -76,13 +76,11 @@ router.post('/authenticateFlights',function(req,res,$http){
             });
     });
 
-
-
     router.post('/authenticate', function(req, res) {
-        // if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {
-        //     res.json({success : false, message : 'Please provide Valid username and password'});
-        // }
-        // else {
+        if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {
+            res.json({success : false, message : 'Please provide Valid username and password'});
+        }
+        else {
             User.findOne({ username : req.body.username}).select('email username password').exec(function(err, user) {
                 if (err) throw err;
     
@@ -106,7 +104,7 @@ router.post('/authenticateFlights',function(req,res,$http){
                     }
                 }
             });
-        // }
+        }
     });
 
     router.use(function(req, res, next){
@@ -128,6 +126,7 @@ router.post('/authenticateFlights',function(req,res,$http){
 
     router.post('/me', function(req, res){
         res.send(req.decoded);
+
     });
 });
 
@@ -136,4 +135,3 @@ router.post('/authenticateFlightReturn', function(req, res) {
 });
 return router;
 }
-
