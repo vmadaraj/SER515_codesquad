@@ -1,36 +1,40 @@
-angular.module('userController', [])
 
-.controller("regCtrl", function($scope, $http, $location, $timeout) {
-    var app = this;
-    app.errorMsg = false;
-    console.log('testing new  Button');
-    $scope.submit = function(form) {
-        console.log("tets babu here");
-        var user = {
-            'username' : $scope.username,
-            'email' : $scope.email,
-            'password' : $scope.password
-        }
-        app.errorMsg = false;
-        console.log(user);
-        $http.post('/api/users', user).then(function(res) {
-            console.log("vnfbdsfbdsbfsdbfhusdbfusd")
-            console.log(res.data.success);
-            console.log(res.data.message);
-            if (res.data.success){
-                app.successMsg = res.data.message;
+angular.module('userController',['userServices'])
+
+.controller('regCtrl',function(User, $http, $location, $timeout, $window){
+
+var app=this;
+
+    this.registerUser=function(data)
+    {
+      console.log("hit 1");
+        app.errorMessage=false;
+        console.log("hit 2");
+        console.log(this.data);
+
+          User.create(app.data).then(function(responsedata){
+            console.log("hit 4")
+            console.log(responsedata)
+
+          	// console.log(responsedata.data.message);
+          	console.log(responsedata.data.success);
+
+           if(responsedata.data.success)
+           {
+                app.successMessage=responsedata.data.message;
+
                 $timeout(function() {
-                    window.location.href = "/home";
-                }, 1200);     
-            }
-            else {
-                app.errorMsg = res.data.message;
-            }
+                    $window.location.href='/home';
+                }, 2000);
 
-        });
+
+           }
+           else
+           {
+                app.errorMessage=responsedata.data.message;
+           }
+
+
+          });
     };
 });
-
-
-
-// $http.post('/api/users', user)

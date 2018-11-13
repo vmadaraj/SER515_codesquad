@@ -24,6 +24,10 @@ angular.module('appRoutes', ['ngRoute'])
         controllerAs:'filghtDetails'
     })
 
+    .when('/bookingDetails', {
+        templateUrl: 'front-end/app/views/pages/bookingDetails.html'
+    })
+
     .when('/home',{
         templateUrl: 'app/views/index.html'
     })
@@ -32,6 +36,9 @@ angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'front-end/app/views/pages/login.html'
     })
 
+    .when('/logout', {
+        templateUrl: 'front-end/app/views/pages/logout.html'
+    })
 
 
     .when('/about', {
