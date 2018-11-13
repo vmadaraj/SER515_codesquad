@@ -55,11 +55,21 @@ div.container_flights{
 	margin: 0 auto;
 }
 
+
+div.container_payment{
+	border: 1px solid green;
+	height: 150px;
+    width: 80%;
+    border-radius: 30px;
+	display: table;
+	margin: 0 auto;
+}
+
 div.container_details{
 	border: 1px solid green;
-	height: 200px;
-    width: 50%;
-    border-radius: 20px;
+	height: 300px;
+    width: 80%;
+    border-radius: 30px;
 	display: table;
 	margin: 0 auto;
 }
@@ -454,7 +464,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        
+
     }
 }
 

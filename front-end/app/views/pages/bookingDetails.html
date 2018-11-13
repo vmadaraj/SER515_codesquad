@@ -9,15 +9,15 @@
                 <script src="app/controllers/mainCtrl.js"></script>
                 <script src="app/controllers/userCtrl.js"></script>
                 <script src="app/controllers/flightDetailsCtrl.js"></script>
-            
+
                 <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
                 <!-- <script src="../../../app/services/flightServices.js"></script> -->
-            
+
                 <script src= "../../../app/services/authServices.js"></script>
                 <script src= "../../../app/services/userServices.js"></script>
-            
-            
-            
+
+
+
                 <!-- This is our Google Arvo font and Font-Awesome -->
                 <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
                 <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
@@ -29,11 +29,11 @@
                 <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
                 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
                 <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
-            
+
                 <title>Airline Reservation System</title>
-            
-            
-            
+
+
+
             </head>
     <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
@@ -45,13 +45,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-    
+
                     <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  <!--  <div class="dummy"> -->
-    
+
                     <!-- </div> -->
                     <ul class="nav navbar-nav navbar-right" style="height : 10px">
                         <!-- <li class="hidden active">
@@ -60,15 +60,15 @@
                         <li class="">
                             <a  class="page-scroll" href="/">Home</a>
                         </li>
-    
+
                         <li class="">
                             <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                         </li>
-    
+
                         <li class="">
                             <a class="page-scroll" href="/contacts">Contacts</a>
                         </li>
-    
+
                         <li class="">
                             <a class="page-scroll" href="/about">About Us</a>
                         </li>
@@ -77,17 +77,19 @@
                             <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
                         </li>
                     </ul>
-    
+
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
-    
-    
+
+
         </nav>
         <br>
         <br>
-        <h2><center>Enter passenger details:</center></h2>
-
+        <h2 style="font-size:150%;
+            margin-left: 10px;
+            color: brown;">Enter passenger details:</h2>
+        <div class = container_details>
         <form class="form-horizontal" action="/action_page.php">
             <div class="form-group">
               <label class="control-label col-sm-2" for="firstName">First Name</label>
@@ -97,31 +99,31 @@
             </div>
             <div class="form-group">
               <label class="control-label col-sm-2" for="lastName">Last Name</label>
-              <div class="col-sm-10"> 
+              <div class="col-sm-10">
                 <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
               </div>
             </div>
- 
+
             <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Email</label>
-                    <div class="col-sm-10"> 
+                    <div class="col-sm-10">
                       <input type="email" class="form-control" id="email" placeholder="Enter email">
                     </div>
             </div>
             <div class="form-group">
                     <label class="control-label col-sm-2" for="Phone">Preferred Phone Number</label>
-                    <div class="col-sm-10"> 
+                    <div class="col-sm-10">
                       <input type="password" class="form-control" id="phone" placeholder="Enter Preferred Phone Number">
                     </div>
             </div>
             <div class="form-group">
-                    <label for="radiobtn control-label col-sm-2" class="col-sm-2 control-label">Gender</label>   
+                    <label for="radiobtn control-label col-sm-2" class="col-sm-2 control-label">Gender</label>
                     <div class="col-sm-5">
                     <div class="radio radio-danger">
                     <input type="radio" name="survey" id="Radios1" value="Male" >
-                    <label> 
-                    Male      
-                    </label>  
+                    <label>
+                    Male
+                    </label>
                     </div>
                     <div class="radio radio-danger">
                     <input type="radio" name="survey" id="Radios1" value="Female">
@@ -130,17 +132,61 @@
                     </label>
                     </div>
                     <div class="radio radio-danger disabled ">
-                    <input type="radio" name="survey" id="Radios1" value="Other">        
-                    <label>        
-                    Other     
-                    </label>    
-                    </div>     
+                    <input type="radio" name="survey" id="Radios1" value="Other">
+                    <label>
+                    Other
+                    </label>
+                    </div>
             </div>
-            <div class="form-group"> 
+          </div>
+        </div>
+            <h1 style="font-size:150%;
+                margin-left: 10px;
+                color: brown;">Payment Information</h1>
+                <center>
+                <label for="yes">PayPal</label>
+  <input id="yes" name="seen" type="radio" value="yes">
+  <label for="no">Card</label>
+  <input id="no" name="seen" type="radio" value="no">
+</center>
+
+            <div class = "container_payment">
+              <br><br>
+              <form class="form-inline" id= "searchForm">
+
+
+
+      					<div class="col-md-4">
+      						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Card Number" >
+
+      					</div>
+      					<div class="col-md-4">
+      						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Card Type">
+      					</div>
+      					<div class="col-md-4">
+             					<input class="form-control" id="depart" name="depart" placeholder="Exp.Date" type="text" />
+             		</div>
+                <br> <br>
+                <div class="col-md-4">
+      						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="CVV">
+      					</div>
+
+                <div class="col-md-4">
+      						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="First Name">
+      					</div>
+                <div class="col-md-4">
+      						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Last Name">
+      					</div>
+
+            </div>
+            <br>
+
+            <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </div>
+          
           </form>
     </body>
 </html>
