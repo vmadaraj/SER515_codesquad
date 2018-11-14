@@ -50,6 +50,10 @@ angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'front-end/app/views/pages/userProfile.html'
     })
 
+    .when('/bookingHistory', {
+        templateUrl: 'front-end/app/views/pages/bookingHistory.html'
+    })
+
 
     .when('/register', {
         templateUrl: 'front-end/app/views/pages/register.html',

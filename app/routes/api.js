@@ -60,17 +60,17 @@ router.post('/authenticateFlights',function(req,res,$http){
             }
 
     });
-                Flight.find({source:req.body.destination,destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec(function(err,rflights){
-                console.log(rflights)
-                res.json(rflights)
-                // var fs = require('fs');
-                // fs.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (rflights), function(err, data){
-                //                 if (err) console.log(err);
-                //                // console.log("Successfully Written to File.");
-                //              });
-            
-            
-            });
+            //     Flight.find({source:req.body.destination,destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec(function(err,rflights){
+            //     console.log(rflights)
+            //     res.json(rflights)
+            //     // var fs = require('fs');
+            //     // fs.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (rflights), function(err, data){
+            //     //                 if (err) console.log(err);
+            //     //                // console.log("Successfully Written to File.");
+            //     //              });
+            //
+            //
+            // });
   });
 
     router.post('/authenticate', function(req, res) {
