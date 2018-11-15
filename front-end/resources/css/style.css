@@ -65,9 +65,18 @@ div.container_payment{
 	margin: 0 auto;
 }
 
+div.container_paypal{
+	border: 1px solid green;
+	height: 150px;
+    width: 50%;
+    border-radius: 30px;
+	display: table;
+	margin: 0 auto;
+}
+
 div.container_details{
 	border: 1px solid green;
-	height: 300px;
+	height: 150px;
     width: 80%;
     border-radius: 30px;
 	display: table;
