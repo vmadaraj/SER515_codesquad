@@ -13,10 +13,19 @@ angular.module('appRoutes', ['ngRoute'])
         controllerAs:'search'
     })
 
+    .when('/booking',{
+
+          templateUrl: 'app/views/pages/booking.html'
+    })
+
     .when('/flightDetails', {
         templateUrl: 'front-end/app/views/pages/flightDetails.html',
         controller:'flightDetailsController',
         controllerAs:'filghtDetails'
+    })
+
+    .when('/bookingDetails', {
+        templateUrl: 'front-end/app/views/pages/bookingDetails.html'
     })
 
     .when('/home',{
@@ -27,6 +36,9 @@ angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'front-end/app/views/pages/login.html'
     })
 
+    .when('/logout', {
+        templateUrl: 'front-end/app/views/pages/logout.html'
+    })
 
 
     .when('/about', {
@@ -36,6 +48,10 @@ angular.module('appRoutes', ['ngRoute'])
 
     .when('/userProfile', {
         templateUrl: 'front-end/app/views/pages/userProfile.html'
+    })
+
+    .when('/bookingHistory', {
+        templateUrl: 'front-end/app/views/pages/bookingHistory.html'
     })
 
 

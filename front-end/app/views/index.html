@@ -9,6 +9,15 @@
     <script src="app/controllers/mainCtrl.js"></script>
     <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/flightDetailsCtrl.js"></script>
+    <script src="app/controllers/bookingCtrl.js"></script>
+
+    <script src="../../app/services/authServices.js"></script>
+    <script src="../../app/services/userServices.js"></script>
+
+
+
+    <script src="app/services/flightServices.js"></script>
+
 
 
 
@@ -34,8 +43,8 @@
 
 </head>
 
-<body ng-app="airlineApp" ng-controller="searchController" ng-controller="mainCtrl as main">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body ng-app="airlineApp" ng-controller="searchController" >
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -57,11 +66,11 @@
                         <a href="#page-top"></a>
                     </li> -->
                     <li class="">
-                        <a class="page-scroll" href="/">Home</a>
+                        <a  class="page-scroll" href="/">Home</a>
                     </li>
 
                     <li class="">
-                        <a class="page-scroll" href="/login">Login</a>
+                        <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                     </li>
 
                     <li class="">
@@ -72,6 +81,9 @@
                         <a class="page-scroll" href="/about">About Us</a>
                     </li>
                     <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
+                    <li class="">
+                        <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
+                    </li>
                 </ul>
 
             </div>
@@ -82,7 +94,9 @@
     </nav>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
+    <!-- <div ng-view> -->
 
+    </div>
 	<br><br><br><br><br>
 
 
@@ -119,7 +133,7 @@
 					<div class="input-group">
 						<span class="input-group-btn">
                         <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
-                            <button ng-click="submit(searchForm)" class="btn btn-primary " name="search" type="submit">
+                            <button ng-click="submit(searchForm)" class="btn btn-primary "  type="submit">
 
         				Search
        					</button>
@@ -140,8 +154,8 @@
 	else document.getElementById('return').style.visibility = 'hidden';
   }
   </script>
-  
-  
+
+
   <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">

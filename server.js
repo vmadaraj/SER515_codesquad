@@ -19,7 +19,7 @@ app.use('/api',appRoutes);
 
 
 
-mongoose.connect('mongodb://localhost:27017/SER_515', function(err){
+mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err){
     if(err){
         console.log('Not connected');
     }
@@ -60,6 +60,16 @@ app.get('/register', function(req, res){
 
 app.get('/booking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/booking.html'));
+});
+app.get('/bookingDetails', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/bookingDetails.html'));
+});
+app.get('/logout', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/logout.html'));
+});
+
+app.get('/bookingHistory', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/bookingHistory.html'));
 });
 
 
