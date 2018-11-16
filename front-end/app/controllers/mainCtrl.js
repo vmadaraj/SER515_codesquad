@@ -3,11 +3,10 @@ angular.module('mainController', ['authServices'])
 
 
 .controller('mainCtrl',function(Auth, $timeout, $location, $window, $rootScope){
+
+
     var app = this;
 
-    // app.loadme = false;
-
-    // $rootScope.$on('$routeChangeStart', function() {
         if (Auth.isLoggedIn()) {
             console.log('Success : User is Logged in.');
             app.isLoggedIn = true;
@@ -23,8 +22,6 @@ angular.module('mainController', ['authServices'])
             app.email = '';
             // app.loadme = true;
         }
-
-    // });
 
 
     this.dologin=function(logindata)
@@ -50,8 +47,6 @@ angular.module('mainController', ['authServices'])
            {
                 app.errorMessage = responsedata.data.message;
            }
-
-
         });
     };
 
