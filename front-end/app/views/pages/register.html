@@ -18,10 +18,9 @@
     <script src= "../../../app/controllers/userCtrl.js"></script>
     <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
     <script src= "../../../app/controllers/searchCtrl.js"></script>
-    <script src="../../../app/services/flightServices.js"></script>
-
     <script src= "../../../app/services/authServices.js"></script>
     <script src= "../../../app/services/userServices.js"></script>
+    <script src="../../../app/services/flightServices.js"></script>
 
 
     <!-- <script src= "../../../app/services/userServices.js"></script> -->
@@ -106,22 +105,20 @@
                         </p>
                     </div>
                 <!-- </div> -->
-
                 <br>
             <div  class="row show-hide-message" style="margin: 0px 150px" ng-show="register.successMessage">
                 <div class="alert alert-success">
-                    {{ register.successMessage }}	
-                </div>
-                </div>
-                
-                <br>
-                
-                <div class="row show-hide-message" style="margin: 0px 150px" ng-show="register.errorMessage">
-                <div class="alert alert-danger">
-                    {{ register.errorMessage }}		
+                    {{ register.successMessage }}
                 </div>
                 </div>
 
+                <br>
+
+                <div class="row show-hide-message" style="margin: 0px 150px" ng-show="register.errorMessage">
+                <div class="alert alert-danger">
+                    {{ register.errorMessage }}
+                </div>
+                </div>
             </section>
 
         </div>
