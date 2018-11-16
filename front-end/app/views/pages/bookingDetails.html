@@ -1,146 +1,172 @@
 <html>
-        <head>
-                <base href="/">
-                <script src="resources/js/angular.js"></script>
-                <script src="resources/js/angular-route.js"></script>
-                <script src="app/app.js"></script>
-                <script src="app/routes.js"></script>
-                <script src="app/controllers/searchCtrl.js"></script>
-                <script src="app/controllers/mainCtrl.js"></script>
-                <script src="app/controllers/userCtrl.js"></script>
-                <script src="app/controllers/flightDetailsCtrl.js"></script>
-            
-                <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
-                <!-- <script src="../../../app/services/flightServices.js"></script> -->
-            
-                <script src= "../../../app/services/authServices.js"></script>
-                <script src= "../../../app/services/userServices.js"></script>
-            
-            
-            
-                <!-- This is our Google Arvo font and Font-Awesome -->
-                <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-                <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
-                <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
-                <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-                <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
-            
-                <title>Airline Reservation System</title>
-            
-            
-            
-            </head>
-    <body>
+  <head>
+    <base href="/">
+    <script src="resources/js/angular.js"></script>
+    <script src="resources/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="app/controllers/searchCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/flightDetailsCtrl.js"></script>
+    <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/services/userServices.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+    <title>Airline Reservation System</title>
+  </head>
+  <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
-            <div class="container">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-    
-                    <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                 <!--  <div class="dummy"> -->
-    
-                    <!-- </div> -->
-                    <ul class="nav navbar-nav navbar-right" style="height : 10px">
-                        <!-- <li class="hidden active">
-                            <a href="#page-top"></a>
-                        </li> -->
-                        <li class="">
-                            <a  class="page-scroll" href="/">Home</a>
-                        </li>
-    
-                        <li class="">
-                            <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
-                        </li>
-    
-                        <li class="">
-                            <a class="page-scroll" href="/contacts">Contacts</a>
-                        </li>
-    
-                        <li class="">
-                            <a class="page-scroll" href="/about">About Us</a>
-                        </li>
-                        <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
-                        <li class="">
-                            <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
-                        </li>
-                    </ul>
-    
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-    
-    
-        </nav>
-        <br>
-        <br>
-        <h2><center>Enter passenger details:</center></h2>
+    <div class="container">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right" style="height : 10px">
+          <li class="">
+            <a  class="page-scroll" href="/">Home</a>
+          </li>
+          <li class="">
+              <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
+          </li>
+          <li class="">
+              <a class="page-scroll" href="/contacts">Contacts</a>
+          </li>
+          <li class="">
+              <a class="page-scroll" href="/about">About Us</a>
+          </li>
+          <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
+          <li class="">
+              <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    <br><br>
+    <h2 style="font-size:150%;margin-left: 10px;color: brown;">Enter passenger details:</h2>
+    <div class = container_details>
+      <br><br>
+      <form class="form-inline" action="/action_page.php">
+        <div class="col-md-4">
+          <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+        </div>
+        <div class="col-md-4">
+          <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <br><br>
+        <div class="col-md-4">
+          <input type="password" class="form-control" id="phone" placeholder="Enter Preferred Phone Number">
+        </div>
+        <label for="radiobtn control-label col-sm-2" class="col-sm-4 control-label">Gender</label>
+        <div class="col-sm-5">
+        <div class="radio radio-danger">
+        <input type="radio" name="survey" id="Radios1" value="Male" >
+        <label>
+        Male
+        </label>
+        </div>
+        <div class="radio radio-danger">
+        <input type="radio" name="survey" id="Radios1" value="Female">
+        <label>
+        Female
+        </label>
+        </div>
+        <div class="radio radio-danger disabled ">
+        <input type="radio" name="survey" id="Radios1" value="Other">
+        <label>
+        Other
+        </label>
+        </div>
+        </div>
+    </div>
+    </form>
+    <h1 style="font-size:150%;margin-left: 10px;color: brown;">Payment Information</h1>
+    <center>
 
-        <form class="form-horizontal" action="/action_page.php">
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="firstName">First Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="lastName">Last Name</label>
-              <div class="col-sm-10"> 
-                <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
-              </div>
-            </div>
- 
-            <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Email</label>
-                    <div class="col-sm-10"> 
-                      <input type="email" class="form-control" id="email" placeholder="Enter email">
-                    </div>
-            </div>
-            <div class="form-group">
-                    <label class="control-label col-sm-2" for="Phone">Preferred Phone Number</label>
-                    <div class="col-sm-10"> 
-                      <input type="password" class="form-control" id="phone" placeholder="Enter Preferred Phone Number">
-                    </div>
-            </div>
-            <div class="form-group">
-                    <label for="radiobtn control-label col-sm-2" class="col-sm-2 control-label">Gender</label>   
-                    <div class="col-sm-5">
-                    <div class="radio radio-danger">
-                    <input type="radio" name="survey" id="Radios1" value="Male" >
-                    <label> 
-                    Male      
-                    </label>  
-                    </div>
-                    <div class="radio radio-danger">
-                    <input type="radio" name="survey" id="Radios1" value="Female">
-                    <label>
-                    Female
-                    </label>
-                    </div>
-                    <div class="radio radio-danger disabled ">
-                    <input type="radio" name="survey" id="Radios1" value="Other">        
-                    <label>        
-                    Other     
-                    </label>    
-                    </div>     
-            </div>
-            <div class="form-group"> 
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </form>
-    </body>
+      <div class="custom-control custom-radio custom-control-inline" id = "radioButton">
+          <input type="radio" class="custom-control-input" id="defaultInline2" onclick= "javascript:paymentCheck();" name="inlineDefaultRadiosExample" checked>
+          <label class="custom-control-label" for="defaultInline2">Card</label>
+          <input type="radio" class="custom-control-input" id="defaultInline1" onclick= "javascript:paymentCheck();" name="inlineDefaultRadiosExample">
+          <label class="custom-control-label" for="defaultInline1">PayPal</label>
+
+      </div></center>
+    <script type="text/javascript">
+    function paymentCheck() {
+      if (document.getElementById('defaultInline1').checked) {
+          document.getElementById('paypal').style.visibility = 'visible';
+          document.getElementById('card').style.visibility = 'hidden';
+      }
+  	else if (document.getElementById('defaultInline2').checked){
+        document.getElementById('paypal').style.visibility = 'hidden';
+        document.getElementById('card').style.visibility = 'visible';
+    }
+
+
+    }
+
+    </script>
+    <form class="form-inline" action="/action_page.php">
+      <div class = "container_payment" id= "card">
+        <br><br>
+        <form class="form-inline" >
+					<div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Card Number" >
+					</div>
+					<div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Card Type">
+					</div>
+					<div class="col-md-4">
+       			<input class="form-control" id="depart" name="depart" placeholder="Exp.Date" type="text" />
+       		</div>
+          <br> <br>
+          <div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="CVV">
+					</div>
+          <div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="First Name">
+					</div>
+          <div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Last Name">
+					</div>
+      </div>
+    </form>
+
+      <div class = "container_paypal" id= "paypal" style="visibility:hidden">
+        <br><br>
+        <form class="form-inline" >
+					<div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Email" >
+					</div>
+					<div class="col-md-4">
+						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Password">
+					</div>
+      </form>
+      </div>
+    <br>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    <div ng-view></div>
+  </body>
 </html>
