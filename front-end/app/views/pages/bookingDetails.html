@@ -62,9 +62,10 @@
     </nav>
     <br><br>
     <h2 style="font-size:150%;margin-left: 10px;color: brown;">Enter passenger details:</h2>
-    <div class = container_details ng-controller="bookController">
+    <div ng-controller="bookController">
+    <div class = container_details >
       <br><br>
-      <form class="form-inline" action="/action_page.php">
+      <form id="detailsForm" class="form-inline" action="/action_page.php">
         <div class="col-md-4">
           <input type="text" class="form-control" id="firstName" placeholder="Enter first name" ng-model="firstName">
         </div>
@@ -72,7 +73,7 @@
           <input type="text" class="form-control" id="lastName" placeholder="Enter last name" ng-model="lastName">
         </div>
         <div class="col-md-4">
-          <input type="email" class="form-control" id="email" placeholder="Enter email" value="{{main.email}}" ng-model="email">
+          <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email">
         </div>
         <br><br>
         <div class="col-md-4">
@@ -158,10 +159,17 @@
       </form>
       </div>
     <br>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+    <center>
+    <div class="input-group">
+      <span class="input-group-btn">
+                  <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
+                      <button ng-click="submit(detailsForm)" class="btn btn-primary "  type="submit">
+
+          Book
+           </button>
+    </span>
+    </div>
+  </center>
     </div>
     <div ng-view></div>
   </body>

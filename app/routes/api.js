@@ -1,5 +1,6 @@
 var Flight = require('../models/flight');
 var User = require('../models/user');
+var Booking = require('../models/booking')
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
 
@@ -17,6 +18,25 @@ router.post('/searchFlightOn',function(req,res){
         res.send(err);
         else
         res.send('Flight created');
+
+
+    });
+});
+
+router.post('/bookingFlight',function(req,res){
+    var booking = new Booking();
+    booking.bookingid = req.body.bookingid
+    booking.firstName = req.body.firstName;
+    booking.lastName = req.body.lastName;
+    booking.email =req.body.email;
+    booking.phone = req.body.phone;
+    booking.gender = req.body.gender;
+    booking.Isactive = req.body.Isactive;
+    booking.save(function(err){
+        if(err)
+        res.send(err);
+        else
+        res.send('booking');
 
 
     });
