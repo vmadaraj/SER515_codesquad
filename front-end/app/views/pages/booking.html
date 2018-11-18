@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/front-end/resources/css/style.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="../../../resources/css/booking.css" rel="stylesheet">
     <script src= "../../../app/controllers/mainCtrl.js"></script>
     <script src= "../../../app/controllers/userCtrl.js"></script>
@@ -338,7 +339,7 @@ function proceed(){
     console.log(selected);
     sessionStorage.setItem('seats',selected);
     window.location.href = "/bookingDetails";
- }
+    }
   
   $('.seat-layout input').on('click', function(e){
    console.log("clicked "+ e);
