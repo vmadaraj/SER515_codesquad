@@ -47,11 +47,21 @@ angular.module('appRoutes', ['ngRoute'])
 
 
     .when('/userProfile', {
-        templateUrl: 'front-end/app/views/pages/userProfile.html'
+        templateUrl: 'front-end/app/views/pages/userProfile.html',
+        controller: 'bookingHistoryCtrl',
+        controllerAs: 'bookingList'
     })
 
     .when('/bookingHistory', {
-        templateUrl: 'front-end/app/views/pages/bookingHistory.html'
+        templateUrl: 'front-end/app/views/pages/bookingHistory.html',
+        controller: 'bookingHistoryCtrl',
+        controllerAs: 'bookingList'
+    })
+
+    .when('/cancelBooking', {
+        templateUrl: 'front-end/app/views/pages/cancelBooking.html',
+        controller: 'cancelBookingHistoryCtrl',
+        controllerAs: 'cancelBookings'
     })
 
 

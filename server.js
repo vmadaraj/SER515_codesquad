@@ -17,16 +17,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api',appRoutes);
 
+module.exports = {
 
 
-mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err){
+
+db : mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err, database){
     if(err){
         console.log('Not connected');
     }
     else{
         console.log("Connected to MONGODB");
+        return database;
     }
-});
+})
+};
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
@@ -70,6 +74,10 @@ app.get('/logout', function(req, res){
 
 app.get('/bookingHistory', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/bookingHistory.html'));
+});
+
+app.get('/cancelBooking', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/cancelBooking.html'));
 });
 
 

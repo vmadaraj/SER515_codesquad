@@ -18,17 +18,17 @@ angular.module('bookingController',[]).config(function(){
             'email':$scope.email,
             'phone':$scope.phone,
             'gender':gender,
-            'Isactive':true
+            'Isactive':false
 
 
         }
         console.log(booking)
         $http.post('/api/bookingFlight',booking).then(function(res,$http){
             console.log(res.data);
-       
+
            //
-   
-   
+
+
        })
     }
     // $scope.submit = function(form){
@@ -43,7 +43,7 @@ angular.module('bookingController',[]).config(function(){
     //  $http.post('/api/authenticateFlights',flight).then(function(res,$http){
     //      console.log(res.data);
     //      console.log("flight details:")
-    
+
     //     //
 
 
@@ -51,8 +51,8 @@ angular.module('bookingController',[]).config(function(){
 
     // $window.location.href = '/flightDetails';
 
-   
-     
+
+
     // // $http.post('api/searchFlightOn',this.flight);
     // }
     // $scope.goto = function(page) {
