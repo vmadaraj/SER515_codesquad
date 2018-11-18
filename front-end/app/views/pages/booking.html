@@ -329,4 +329,16 @@
   <br>
   <br>
 </body>
-  </html>
+<script>
+function proceed(){
+  var selected = [];
+    $('.seat-layout input:checked').each(function() {
+        selected.push($(this).val());
+    });
+    console.log(selected);
+    sessionStorage.setItem('seats',selected);
+    window.location.href = "/bookingDetails";
+
+}
+</script>
+</html>
