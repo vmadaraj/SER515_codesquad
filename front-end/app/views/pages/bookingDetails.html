@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
     <title>Airline Reservation System</title>
   </head>
-  <body ng-app="airlineApp" ng-controller="mainCtrl as main">
+  <body ng-app="airlineApp" ng-controller="mainCtrl as main" onload="getSelSeats()">
     <nav class="navbar navbar-inverse navbar-fixed-top" >
     <div class="container">
       <div class="navbar-header page-scroll">
@@ -177,4 +177,14 @@
     </div>
     <div ng-view></div>
   </body>
+  <script>
+      function getSelSeats(){
+        let seats = sessionStorage.getItem('seats');
+        if(!seats || seats.length == 0){
+          alert("Seats not selected");
+        }
+        console.log("seats passed from booking page - " + seats);
+        //sessionStorage.removeItem('seats');
+      }
+    </script>
 </html>
