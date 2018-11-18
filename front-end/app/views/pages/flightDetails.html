@@ -99,6 +99,7 @@
         <table st-table="flights" class="table table-striped">
           <thead>
             <tr>
+              <th> </th>
               <th>FlightID</th>
               <th>Source</th>
               <th>Destination</th>
@@ -108,14 +109,15 @@
           </thead>
           <tbody>
             <tr ng-repeat="flight in flights">
+              <td>
+                <input type="checkbox" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
+                <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
+              </td>
               <td>{{flight.flightID}}</td>
               <td>{{flight.source}}</td>
               <td>{{flight.destination}}</td>
               <td>{{flight.date}}</td>
               <td>{{flight.fare}}</td>
-              <td>
-                <button type="submit"><a href= "/booking">Book</a></button>
-              </td>
             </tr>
           </tbody>
           </table>
@@ -130,6 +132,7 @@
           <table st-table="rflights" class="table table-striped">
             <thead>
               <tr>
+                <th> </th>
                 <th>FlightID</th>
                 <th>Source</th>
                 <th>Destination</th>
@@ -139,20 +142,27 @@
             </thead>
             <tbody>
               <tr ng-repeat="rflight in rflights">
+                <td>
+                  <input type="checkbox" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
+                  <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
+                </td>
                 <td>{{rflight.flightID}}</td>
                 <td>{{rflight.source}}</td>
                 <td>{{rflight.destination}}</td>
                 <td>{{rflight.date}}</td>
                 <td>{{rflight.fare}}</td>
-                <td>
-                  <button type="submit"><a href= "/booking">Book</a></button>
-                </td>
               </tr>
             </tbody>
             </table>
         </div>
+        <br>
+        <center>
+          <button type="submit" class="btn btn-primary"><a href= "/booking">Book</a></button>
+        </center>
 
-<script src="resources/js/bootstrap.js"></script>
+
+
+    <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

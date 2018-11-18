@@ -43,6 +43,15 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res,$http){
+//   var promises = [Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(),
+//
+//       Flight.find({source:req.body.destination,destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec()];
+// console.log('xyz');
+//   Promise.all(promises).then(function(results){
+//     console.log(results);
+// }).catch(function(err){
+//     console.log(err);
+//   });
     console.log(req.body);
     Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
         console.log(dflights);
@@ -68,8 +77,8 @@ router.post('/authenticateFlights',function(req,res,$http){
                 //                 if (err) console.log(err);
                 //                // console.log("Successfully Written to File.");
                 //              });
-            
-            
+
+
             });
   });
 
