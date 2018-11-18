@@ -338,7 +338,16 @@ function proceed(){
     console.log(selected);
     sessionStorage.setItem('seats',selected);
     window.location.href = "/bookingDetails";
-
-}
+ }
+  
+  $('.seat-layout input').on('click', function(e){
+   console.log("clicked "+ e);
+   let status = false;
+   if(e.target.checked){
+     status = true;
+   }
+   $('.seat-layout input').removeAttr('checked');
+   e.target.checked = status;
+ })
 </script>
 </html>
