@@ -18,7 +18,7 @@ angular.module('bookingController',[]).config(function(){
             'email':$scope.email,
             'phone':$scope.phone,
             'gender':gender,
-            'Isactive':false
+            'Isactive':true
 
 
         }

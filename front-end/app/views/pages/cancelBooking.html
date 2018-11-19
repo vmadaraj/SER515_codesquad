@@ -81,31 +81,33 @@
 </nav>
 <div ng-view></div>
 <br><br><br><br>
-  <!-- <h1>
-    {{ main.username1 }}
-  </h1> -->
-  <!-- <form role="form">
-    	  <div class="form-group">
-    		<input type="text" class="form-control" placeholder="Search here..."
-    			ng-model="searchStr">
-    	  </div>
-    	</form> -->
-    	<!-- <ul class="list-unstyled">
-    		<li class="book" ng-repeat=" bookingHistoryItem in bookingHistory | filter:searchStr"
-    			style="background: white url('imgs/{{book.imgUrl}}') no-repeat">
-          <li class="book" ng-repeat=" bookingHistoryItem in bookingHistoryItemList">
-    			<div class="book-details clearfix">
-    				<h3>{{bookingHistoryItem.bookingid}}</h3>
-    				<ul>
-    					<li>FirstName: {{bookingHistoryItem.firstName}}</li>
-    					<li>LastName: {{bookingHistoryItem.lastName}}</li>
-    					<li>Email: {{bookingHistoryItem.email}}</li>
-    					<li>Phone: {{bookingHistoryItem.phone}}</li>
-              <li>Gender: {{bookingHistoryItem.gender}}</li>
-              <li>Phone: {{bookingHistoryItem.phone}}</li>
-    				</ul>
-    			</div>
-    		</li>
-      </ul> -->
+  <h1 style="font-size:150%; margin-left: 10px; color: brown;">Available for Cancellation</h1>
+      <div class="container_flights">
+        <table st-table="Bookings" class="table table-striped">
+          <thead>
+            <tr>
+              <th>BookingID</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="cancelbookingHistoryItem in cancelBookings">
+              <td>{{cancelbookingHistoryItem.bookingid}}</td>
+              <td>{{cancelbookingHistoryItem.firstName}}</td>
+              <td>{{cancelbookingHistoryItem.lastName}}</td>
+              <td>{{cancelbookingHistoryItem.email}}</td>
+              <td>{{cancelbookingHistoryItem.phone}}</td>
+              <td>{{cancelbookingHistoryItem.gender}}</td>
+              <td>
+                <button ng-click=cancelOneBooking(cancelbookingHistoryItem);>Cancel</button>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
 </body>
 </html>
