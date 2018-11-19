@@ -17,8 +17,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api',appRoutes);
 
-
-
 mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err){
     if(err){
         console.log('Not connected');
@@ -27,6 +25,7 @@ mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline'
         console.log("Connected to MONGODB");
     }
 });
+
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
@@ -66,6 +65,14 @@ app.get('/bookingDetails', function(req, res){
 });
 app.get('/logout', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/logout.html'));
+});
+
+app.get('/bookingHistory', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/bookingHistory.html'));
+});
+
+app.get('/cancelBooking', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/cancelBooking.html'));
 });
 
 

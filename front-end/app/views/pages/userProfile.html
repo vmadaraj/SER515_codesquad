@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <base href="/">
-    
+
     <title>User Profile</title>
     <!-- This is our Google Arvo font and Font-Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,18 +16,22 @@
     <script src= "../../../app/services/authServices.js"></script>
     <script src= "../../../app/controllers/userCtrl.js"></script>
     <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
-    <script src= "../../../app/controllers/searchCtrl.js"></script>
-    <script src="../../../app/services/flightServices.js"></script>
+    <script src= "../../../app/controllers/bookingCtrl.js"></script>
 
+    <script src= "../../../app/controllers/searchCtrl.js"></script>
+    <script src= "../../../app/services/bookingHistoryServices.js"></script>
+    <script src= "../../../app/controllers/bookingHistoryCtrl.js"></script>
     <script src= "../../../app/services/authServices.js"></script>
     <script src= "../../../app/services/userServices.js"></script>
+    <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
+    <script src="../../../app/services/flightServices.js"></script>
 
 
   </head>
 
-  <body ng-app="airlineApp" ng-controller="mainCtrl as main">
+  <body ng-app="airlineApp" ng-controller="bookingHistoryCtrl as bookingList">
 
-    
+
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
           <a class="navbar-brand" style="font-size: 35px" href="/home">LETS FLY</a>
@@ -36,8 +40,8 @@
     </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    
-    <div class="container">    
+
+    <div class="container" ng-controller="mainCtrl as main">
         <div class="jumbotron">
           <div class="row">
               <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
@@ -46,19 +50,28 @@
               <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
                   <div class="container" style="border-bottom:1px solid black">
                     <h2>{{ main.username }} </h2>
+                    <!-- <h1>{{ main.bookingHistoryItem[firstName]}}</h1> -->
                   </div>
                     <hr>
                   <ul class="container details">
-                    <!-- <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>+91 90000 00000</p></li> -->
-                    <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{ main.email }}</p></li>
-                    <!-- <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>Hyderabad</p></li> -->
+                    <li ng-model="email">{{ main.email }}</li>
                   </ul>
               </div>
-
-              </div></div>
-
-          </div>
+            </div>
         </div>
+        <div class = "booking" >
+          <a>
+              <button class="btn btn-primary" ng-click="main.getBookingsHistory();">
+                <span>Booking History</span>
+              </button>
+          </a>
+          <a>
+              <button class="btn btn-danger" ng-click="main.getCancelBookings();">
+                <span>Cancel Bookings</span>
+              </button>
+          </a>
+        </div>
+    </div>
         <br>
         <br>
         <br>
@@ -66,7 +79,7 @@
         <br>
         <br>
         <br>
-  
+
     <footer>
       <div class="container">
           <h2>
@@ -74,7 +87,7 @@
           </h2>
       </div>
     </footer>
-    
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

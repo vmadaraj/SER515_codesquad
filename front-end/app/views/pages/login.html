@@ -19,11 +19,13 @@
     <script src= "../../../app/controllers/userCtrl.js"></script>
     <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
     <script src= "../../../app/controllers/searchCtrl.js"></script>
-    <script src="../../../app/services/flightServices.js"></script>
-
+    <script src= "../../../app/services/bookingHistoryServices.js"></script>
+    <script src= "../../../app/controllers/bookingHistoryCtrl.js"></script>
     <script src= "../../../app/services/authServices.js"></script>
     <script src= "../../../app/services/userServices.js"></script>
-
+    <script src="../../../app/services/flightServices.js"></script>
+    <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingCtrl.js"></script>
 
 
 
@@ -65,7 +67,7 @@
                         <li class="">
                             <a class="page-scroll" href="/about">About Us</a>
                         </li>
-                        <li class="">
+                        <li>
                             <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
                         </li>
                     </ul>
@@ -94,16 +96,16 @@
             <br>
             <div  class="row show-hide-message" ng-show="main.successMessage">
                 <div class="alert alert-success">
-                    {{ main.successMessage }}	
+                    {{ main.successMessage }}
                     <!-- {{ main.username }} -->
                 </div>
                 </div>
-                
+
                 <br>
-                
+
                 <div class="row show-hide-message" ng-show="main.errorMessage">
                 <div class="alert alert-danger">
-                    {{ main.errorMessage }}		
+                    {{ main.errorMessage }}
                 </div>
                 </div>
         </div>

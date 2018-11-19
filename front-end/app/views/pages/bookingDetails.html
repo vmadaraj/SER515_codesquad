@@ -10,8 +10,14 @@
     <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/flightDetailsCtrl.js"></script>
     <script src="../../../app/controllers/flightDetailsCtrl.js"></script>
+    <script src="../../../app/controllers/bookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingHistoryCtrl.js"></script>
+    <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
+
+
     <script src= "../../../app/services/authServices.js"></script>
     <script src= "../../../app/services/userServices.js"></script>
+    <script src= "../../../app/services/bookingHistoryServices.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,8 +30,8 @@
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
     <title>Airline Reservation System</title>
   </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
+  <body ng-app="airlineApp" ng-controller="mainCtrl as main">
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
     <div class="container">
       <div class="navbar-header page-scroll">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -60,40 +66,35 @@
     </nav>
     <br><br>
     <h2 style="font-size:150%;margin-left: 10px;color: brown;">Enter passenger details:</h2>
-    <div class = container_details>
+    <div ng-controller="bookController">
+    <div class = container_details >
       <br><br>
-      <form class="form-inline" action="/action_page.php">
+      <form id="detailsForm" class="form-inline" action="/action_page.php">
         <div class="col-md-4">
-          <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+          <input type="text" class="form-control" id="firstName" placeholder="Enter first name" ng-model="firstName">
         </div>
         <div class="col-md-4">
-          <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+          <input type="text" class="form-control" id="lastName" placeholder="Enter last name" ng-model="lastName">
         </div>
         <div class="col-md-4">
-          <input type="email" class="form-control" id="email" placeholder="Enter email">
+          <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email">
         </div>
         <br><br>
         <div class="col-md-4">
-          <input type="password" class="form-control" id="phone" placeholder="Enter Preferred Phone Number">
+          <input type="number" class="form-control" id="phone" placeholder="Enter Preferred Phone Number" ng-model="phone">
         </div>
         <label for="radiobtn control-label col-sm-2" class="col-sm-4 control-label">Gender</label>
         <div class="col-sm-5">
         <div class="radio radio-danger">
-        <input type="radio" name="survey" id="Radios1" value="Male" >
+        <input type="radio" name="survey" id="Radios1" value="Male" ng-model="male" >
         <label>
         Male
         </label>
         </div>
         <div class="radio radio-danger">
-        <input type="radio" name="survey" id="Radios1" value="Female">
+        <input type="radio" name="survey" id="Radios2" value="Female" ng-model="female">
         <label>
         Female
-        </label>
-        </div>
-        <div class="radio radio-danger disabled ">
-        <input type="radio" name="survey" id="Radios1" value="Other">
-        <label>
-        Other
         </label>
         </div>
         </div>
@@ -129,23 +130,23 @@
         <br><br>
         <form class="form-inline" >
 					<div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Card Number" >
+						<input type="text" id="search_field1" class="form-control" name="search_title" placeholder="Card Number" >
 					</div>
 					<div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Card Type">
+						<input type="text" id="search_field2" class="form-control" name="search_title" placeholder="Card Type">
 					</div>
 					<div class="col-md-4">
        			<input class="form-control" id="depart" name="depart" placeholder="Exp.Date" type="text" />
        		</div>
           <br> <br>
           <div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="CVV">
+						<input type="text" id="search_field3" class="form-control" name="search_title" placeholder="CVV">
 					</div>
           <div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="First Name">
+						<input type="text" id="search_field4" class="form-control" name="search_title" placeholder="First Name">
 					</div>
           <div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Last Name">
+						<input type="text" id="search_field5" class="form-control" name="search_title" placeholder="Last Name">
 					</div>
       </div>
     </form>
@@ -154,18 +155,25 @@
         <br><br>
         <form class="form-inline" >
 					<div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Email" >
+						<input type="text" id="search_field6" class="form-control" name="search_title" placeholder="Email" >
 					</div>
 					<div class="col-md-4">
-						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="Password">
+						<input type="text" id="search_field7" class="form-control" name="search_title" placeholder="Password">
 					</div>
       </form>
       </div>
     <br>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+    <center>
+    <div class="input-group">
+      <span class="input-group-btn">
+                  <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
+                      <button ng-click="submit(detailsForm)" class="btn btn-primary "  type="submit">
+
+          Book
+           </button>
+    </span>
+    </div>
+  </center>
     </div>
     <div ng-view></div>
   </body>

@@ -2,12 +2,11 @@ angular.module('mainController', ['authServices'])
 
 
 
-.controller('mainCtrl',function(Auth, $timeout, $location, $window, $rootScope){
+.controller('mainCtrl',function(Auth, $timeout, $location, $window, $rootScope, $scope, $http){
+
+
     var app = this;
 
-    // app.loadme = false;
-
-    // $rootScope.$on('$routeChangeStart', function() {
         if (Auth.isLoggedIn()) {
             console.log('Success : User is Logged in.');
             app.isLoggedIn = true;
@@ -23,8 +22,6 @@ angular.module('mainController', ['authServices'])
             app.email = '';
             // app.loadme = true;
         }
-
-    // });
 
 
     this.dologin=function(logindata)
@@ -43,15 +40,11 @@ angular.module('mainController', ['authServices'])
                     app.logindata = '';
                     app.successMessage = false;
                 }, 2000);
-
-
            }
            else
            {
                 app.errorMessage = responsedata.data.message;
            }
-
-
         });
     };
 
@@ -69,5 +62,45 @@ angular.module('mainController', ['authServices'])
             $window.location.href='/';
         }, 1000);
     };
+
+    this.getBookingsHistory = function(){
+      console.log("naren")
+      console.log(app.email)
+      var booking = {
+            'email' : app.email
+          }
+       $http.post('/api/bookings',booking).then(function(res,$http){
+           console.log("hekkooo");
+           console.log(res.data)
+        // app.username1 = res.data.list
+        // console.log(app.bookingHistoryItemList)
+        //    app.bookingHistoryItem = res.data.list[0]
+        //    console.log(app.bookingHistoryItem)
+           // console.log("flight details:")
+      })
+    //   app.username1 = res.data.gender
+    // $window.location.href = '/flightDetails';
+      $window.location.href = '/bookingHistory';
+    };
+
+    this.getCancelBookings = function(){
+        console.log("naren")
+        console.log(app.email)
+        var booking = {
+              'email' : app.email
+            }
+         $http.post('/api/cancelBookings',booking).then(function(res,$http){
+             console.log("hekkooo");
+             console.log(res.data)
+          // app.username1 = res.data.list
+          // console.log(app.bookingHistoryItemList)
+          //    app.bookingHistoryItem = res.data.list[0]
+          //    console.log(app.bookingHistoryItem)
+             // console.log("flight details:")
+        })
+      //   app.username1 = res.data.gender
+      // $window.location.href = '/flightDetails';
+        $window.location.href = '/cancelBooking';
+      };
 
 });
