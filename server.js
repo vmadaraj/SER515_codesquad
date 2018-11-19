@@ -17,20 +17,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api',appRoutes);
 
-module.exports = {
-
-
-
-db : mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err, database){
+mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err){
     if(err){
         console.log('Not connected');
     }
     else{
         console.log("Connected to MONGODB");
-        return database;
     }
-})
-};
+});
+
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
