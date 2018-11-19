@@ -3,8 +3,9 @@ var User = require('../models/user');
 var Booking = require('../models/booking');
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
-var database  = require('../../server');
-var dbObjectID = require('../../server').ObjectID;
+var mongoose= require('mongoose');
+// var database  = require('../../server');
+// var dbObjectID = require('../../server').ObjectID;
 
 module.exports =function(router){
 // app.use(constant.USER_PATH, router);
@@ -45,86 +46,28 @@ router.post('/bookingFlight',function(req,res){
     });
 });
 
-// router.post('/cancelBookingItem',function(req,res){
-//     var booking = new Booking();
-//     booking.bookingid = req.body.bookingid
-//     booking.firstName = req.body.firstName;
-//     booking.lastName = req.body.lastName;
-//     booking.email =req.body.email;
-//     booking.phone = req.body.phone;
-//     booking.gender = req.body.gender;
-//     booking.Isactive = "false";
-//     booking.save(function(err){
-//         if(err)
-//         res.send(err);
-//         else
-//         res.send('booking updated');
-//     });
-// });
-
-// app.post("/update/:id", function (req,res){
-//     var guestMessage = {
-//           username:req.body.username,
-//           country:req.body.country,
-//           message:req.body.message,
-//           date:req.body.date
-//         };
-//         var Gid = req.params.id;
-
-//     database.collection('bookings').findById(Gid, {$set: guestMessage}, function(err, result) {
-//       if (err) return console.log(err);
-//       result.save(function (err,result) {
-//        console.log('Message Updated');
-//           res.redirect('/guestbook');
-//       })
-
-
-//     });
-
-
-//       });
-// router.post('/cancelBookingItem',function(req,res){
-//     var booking = new Booking();
-//     booking.bookingid = req.body.bookingid
-//     booking.firstName = req.body.firstName;
-//     booking.lastName = req.body.lastName;
-//     booking.email =req.body.email;
-//     booking.phone = req.body.phone;
-//     booking.gender = req.body.gender;
-//     booking.Isactive = "false";
-
-//     db.getCollection('bookings').update({},{$unset: booking}, {multi: false})
-//     // booking.save(function(err){
-//     //     if(err)
-//     //     res.send(err);
-//     //     else
-//     //     res.send('booking updated');
-//     // });
-// });
-router.put('/cancelBookingItem',function(req,res){
-    // var booking = new Booking();
-    // booking.bookingid = req.body.bookingid
-    // booking.firstName = req.body.firstName;
-    // booking.lastName = req.body.lastName;
-    // booking.email =req.body.email;
-    // booking.phone = req.body.phone;
-    // booking.gender = req.body.gender;
-    // booking.Isactive = "false";
-
-    // db.getCollection('bookings').update({},{$unset: booking}, {multi: false})
-    var myquery = { "_id": dbObjectID(req.params.id)};
-    var newvalues = { $set: { Isactive : "false" } };
-    // db1 = database.db;
-    console.log(database.db);
-    // db1.collection('bookings').updateOne(myquery, newvalues, function(err, res) {
-    //   if (err) throw err;
-    //   console.log("1 document updated");
-    //   db.close();
-    // });
+router.put('/bookings/:id/update', function (req, res) {
+    console.log("Hellooo   fdsfdsfsdf");
+    
+    console.log(req.body);
+    // var tempID = mongoose.Types.ObjectID(req.params.id);
+    // Booking.findByIdAndUpdate(tempID, { Isactive : "false" }, function (err, booking) {
+    //     console.log("Inside func");
+    //     if (err) {
+    //         console.log("err is triggered");
+    //         console.log(err);
+    //     }
+    //     res.send('Product udpated.');
+    // });  
+    var query = { bookingid: req.body.bookingid };
+    Booking.findOneAndUpdate(query, { Isactive : "false" }, {
+          sort: {_id: -1},
+          upsert: true
+        }, (err, result) => {
+          if (err) return res.send(err)
+          res.send(result)
+        });
 });
-
-
-
 
 //get Booking Details
 router.post('/bookings',function(req,res){

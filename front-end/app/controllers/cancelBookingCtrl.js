@@ -11,9 +11,10 @@ angular.module('cancelBookingHistoryController',[]).config(function(){
 
     $scope.cancelOneBooking = function(bookingItem){
         console.log(bookingItem)
-        $http.put('/api/cancelBookingItem',bookingItem).then(function(res,$http){
+        $http.put('api/bookings/:id/update',bookingItem).then(function(res,$http){
+        // $http.put('/api/cancelBookingItem',bookingItem).then(function(res,$http){
             console.log(res.data);
             // console.log("flight details:")
-       })
-    }
+       });
+    };
   });
