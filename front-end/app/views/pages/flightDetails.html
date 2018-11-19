@@ -110,7 +110,7 @@
           <tbody>
             <tr ng-repeat="flight in flights">
               <td>
-                <input type="checkbox" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
+                <input type="radio" name="xyz" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
                 <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
               </td>
               <td>{{flight.flightID}}</td>
@@ -143,7 +143,7 @@
             <tbody>
               <tr ng-repeat="rflight in rflights">
                 <td>
-                  <input type="checkbox" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
+                  <input type="radio" name="pqr" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
                   <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
                 </td>
                 <td>{{rflight.flightID}}</td>
