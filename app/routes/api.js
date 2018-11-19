@@ -1,10 +1,14 @@
 var Flight = require('../models/flight');
 var User = require('../models/user');
-var Booking = require('../models/booking')
+var Booking = require('../models/booking');
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
+var mongoose= require('mongoose');
+// var database  = require('../../server');
+// var dbObjectID = require('../../server').ObjectID;
 
 module.exports =function(router){
+// app.use(constant.USER_PATH, router);
 
 router.post('/searchFlightOn',function(req,res){
     var flight = new Flight();
@@ -41,8 +45,68 @@ router.post('/bookingFlight',function(req,res){
 
     });
 });
+
+router.put('/bookings/:id/update', function (req, res) {
+    console.log("Hellooo   fdsfdsfsdf");
+    
+    console.log(req.body);
+    // var tempID = mongoose.Types.ObjectID(req.params.id);
+    // Booking.findByIdAndUpdate(tempID, { Isactive : "false" }, function (err, booking) {
+    //     console.log("Inside func");
+    //     if (err) {
+    //         console.log("err is triggered");
+    //         console.log(err);
+    //     }
+    //     res.send('Product udpated.');
+    // });  
+    var query = { bookingid: req.body.bookingid };
+    Booking.findOneAndUpdate(query, { Isactive : "false" }, {
+          sort: {_id: -1},
+          upsert: true
+        }, (err, result) => {
+          if (err) return res.send(err)
+          res.send(result)
+        });
+});
+
+//get Booking Details
+router.post('/bookings',function(req,res){
+    console.log(req.body.email)
+    Booking.find({email:req.body.email}).select('bookingid  firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+        if (!bookings) {
+            res.json({success : false, message : "Couldnot get Bookings"})
+        }
+        else {
+            res.json(bookings);
+            console.log(bookings);
+            var fs = require('fs');
+            fs.writeFile('front-end/resources/JSON/bookingHistory.JSON', JSON.stringify(bookings), function(err, data){
+                if (err) console.log(err);
+            });
+        }
+    });
+});
+
+router.post('/cancelBookings',function(req,res){
+    console.log(req.body.email)
+    Booking.find({email:req.body.email, Isactive: "true"}).select('bookingid  firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+        if (!bookings) {
+            res.json({success : false, message : "Couldnot get Cancel Bookings"})
+        }
+        else {
+            res.json(bookings);
+            console.log(bookings);
+            var fs = require('fs');
+            fs.writeFile('front-end/resources/JSON/cancelBookings.JSON', JSON.stringify(bookings), function(err, data){
+                if (err) console.log(err);
+            });
+        }
+    });
+});
+
 // http://localtest:8080/users
 router.post('/users', function(req, res) {
+
     var user = new User();
     user.username = req.body.username;
     user.password = req.body.password;
