@@ -30,6 +30,9 @@ angular.module('bookingController',[]).config(function(){
 
 
        })
+       $window.location.href = '/bookedFlight';
+
+
     }
     // $scope.submit = function(form){
     //     console.log('submitted');

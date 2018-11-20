@@ -1,6 +1,7 @@
 var Flight = require('../models/flight');
 var User = require('../models/user');
 var Booking = require('../models/booking');
+var q= require('q');
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
 var mongoose= require('mongoose');
@@ -48,7 +49,7 @@ router.post('/bookingFlight',function(req,res){
 
 router.put('/bookings/:id/update', function (req, res) {
     console.log("Hellooo   fdsfdsfsdf");
-    
+
     console.log(req.body);
     // var tempID = mongoose.Types.ObjectID(req.params.id);
     // Booking.findByIdAndUpdate(tempID, { Isactive : "false" }, function (err, booking) {
@@ -58,7 +59,7 @@ router.put('/bookings/:id/update', function (req, res) {
     //         console.log(err);
     //     }
     //     res.send('Product udpated.');
-    // });  
+    // });
     var query = { bookingid: req.body.bookingid };
     Booking.findOneAndUpdate(query, { Isactive : "false" }, {
           sort: {_id: -1},
@@ -127,24 +128,57 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res,$http){
-    console.log(req.body);
-    Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
-        console.log(dflights);
-        if(!dflights){
-            res.json({success:false, message: 'Could not find flights'})
-        }
-        else{
-            res.json(dflights)
-            console.log(dflights);
-            var fs = require('fs');
-            fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
+    var promises = [
+        Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(),
+        Flight.find({source:req.body.destination,destination:req.body.source,date :req.body.returnDate}).select('flightID source destination date fare').exec()
+          ];
+    q.all(promises).then(function(results){
+             var fs = require('fs');
+            fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (results[0]), function(err, data){
+
                             if (err) console.log(err);
                            // console.log("Successfully Written to File.");
                          });
-            }
+            
+            var fs1=require('fs');
+            console.log(results[1]);
 
-    });
-  });
+            fs1.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (results[1]), function(err, data){
+                if (err) console.log(err);
+               // console.log("Successfully Written to File.");
+             });
+            });
+});
+   
+
+    // console.log(req.body);
+    // var promise = Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(
+    //     // function(err,dflights){
+    //     // console.log(dflights);
+    //     // if(!dflights){
+    //     //     res.json({success:false, message: 'Could not find flights'})
+    //     // }
+    //     // else{
+    //     //     res.json(dflights)
+    //     //     console.log(dflights);
+    //     //     var fs = require('fs');
+    //     //     fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
+    //     //                     if (err) console.log(err);
+    //     //                    // console.log("Successfully Written to File.");
+    //     //                  });
+    // //         }
+
+    // // }
+    // );
+    // promise.then(function(dflights){
+    //     console.log(dflights);
+       
+
+    // });
+    // Flight.find({source:req.body.destination,destination:req.body.source,date :req.body.returnDate}).select('flightID source destination date fare').exec(function(dflights){
+    //     console.log(dflights)
+    // });
+
 
     router.post('/authenticate', function(req, res) {
         if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {

@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <base href="/">
+    <script src="resources/js/angular.js"></script>
+    <script src="resources/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="app/controllers/searchCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/flightDetailsCtrl.js"></script>
+    <script src="app/controllers/bookingCtrl.js"></script>
+    <script src="app/controllers/bookingHistoryCtrl.js"></script>
+    <script src= "app/controllers/cancelBookingCtrl.js"></script>
+
+    <script src="../../app/services/authServices.js"></script>
+    <script src="../../app/services/userServices.js"></script>
+    <script src="../../app/services/bookingHistoryServices.js"></script>
+
+
+    <script src="app/services/flightServices.js"></script>
+
+
+
+
+    <!-- This is our Google Arvo font and Font-Awesome -->
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel= "stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+
+    <title>Airline Reservation System</title>
+
+</head>
+
+<body ng-app="airlineApp" ng-controller="searchController" >
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <!--  <div class="dummy"> -->
+
+                <!-- </div> -->
+                <ul class="nav navbar-nav navbar-right" style="height : 10px">
+                    <!-- <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li> -->
+                    <li class="">
+                        <a  class="page-scroll" href="/">Home</a>
+                    </li>
+
+                    <li class="">
+                        <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/contacts">Contacts</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/about">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  
+                    </li>
+                    <li class="">
+                        <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+
+
+    </nav>
+ 
+
+  <br><br><br>
+  <h1> Successfully booked flight!!!</h1>
+<script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+</body>
+</html>
