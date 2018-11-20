@@ -24,7 +24,7 @@ var app=this;
                 app.successMessage=responsedata.data.message;
 
                 $timeout(function() {
-                    $window.location.href='/home';
+                    $window.location.href='/login';
                 }, 2000);
 
 
