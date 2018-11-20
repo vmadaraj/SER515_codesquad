@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var BookingSchema = new Schema({
-    bookingid:{type:String},
+    bookingid:{type:String ,unique:true},
     firstName:{type:String},
     lastName: {type:String},
     email:{type:String},

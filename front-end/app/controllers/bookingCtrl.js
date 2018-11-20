@@ -1,18 +1,42 @@
+
+
 angular.module('bookingController',[]).config(function(){
 })
 
 .controller("bookController", function($scope, $location,$window, $http) {
     console.log('testing book');
+    var idString;
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+      }
     $scope.submit = function(form){
-        var gender
+        var gender;
+        var bookingID;
+        var id;
+        rand = getRandomInt(120000,205608);
+        console.log(rand)
         if($scope.male==null)
         gender=$scope.female;
         else
         gender=$scope.male;
-        rand = Math.floor((Math.random()*6)+1)
-        console.log(rand)
+    //     $http.post('/api/bookingIDS',booking).then(function(res,$http){
+    //         console.log("booking isd")
+    //         console.log(res.data);
+    //         bookingID = res.data;
+    //         id=parseInt(bookingID)+1
+    //         console.log(id);
+    //         idString = id.toString();
+    //         console.log(idString);
+
+           
+
+
+    //    })    
+       
         var booking ={
-            'bookingid':rand,
+            'bookingid':rand.toString(),
             'firstName':$scope.firstName,
             'lastName':$scope.lastName,
             'email':$scope.email,
@@ -24,13 +48,13 @@ angular.module('bookingController',[]).config(function(){
         }
         console.log(booking)
         $http.post('/api/bookingFlight',booking).then(function(res,$http){
-            console.log(res.data);
+            //console.log(res.data);
 
            //
 
 
        })
-       $window.location.href = '/bookedFlight';
+      $window.location.href = '/bookedFlight';
 
 
     }

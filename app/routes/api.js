@@ -37,6 +37,11 @@ router.post('/bookingFlight',function(req,res){
     booking.phone = req.body.phone;
     booking.gender = req.body.gender;
     booking.Isactive = req.body.Isactive;
+    var fs = require('fs');
+            fs.writeFile('front-end/resources/JSON/bookingData.JSON',JSON.stringify (booking), function(err, data){
+                            if (err) console.log(err);
+                           // console.log("Successfully Written to File.");
+                         });
     booking.save(function(err){
         if(err)
         res.send(err);
@@ -44,6 +49,13 @@ router.post('/bookingFlight',function(req,res){
         res.send('booking');
 
 
+    });
+});
+
+router.post('/bookingIDS',function(req,res){
+    console.log("heelloo")
+    Booking.find().sort({bookingid:-1}).limit(1).select('bookingid').exec(function(err, bookings) {
+        res.json(bookings[0].bookingid)
     });
 });
 
