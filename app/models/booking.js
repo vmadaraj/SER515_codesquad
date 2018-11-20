@@ -8,6 +8,7 @@ var BookingSchema = new Schema({
     email:{type:String},
     phone :{type:String},
     gender :{type:String},
+    seat :{type:String},
     Isactive :{type:String}
 
 });
