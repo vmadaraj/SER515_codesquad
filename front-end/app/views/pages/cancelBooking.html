@@ -90,6 +90,7 @@
           <thead>
             <tr>
               <th>BookingID</th>
+              <th>Seat Info</th>
               <th>FirstName</th>
               <th>LastName</th>
               <th>Email</th>
@@ -100,6 +101,7 @@
           <tbody>
             <tr ng-repeat="cancelbookingHistoryItem in cancelBookings">
               <td>{{cancelbookingHistoryItem.bookingid}}</td>
+              <td>{{cancelbookingHistoryItem.seat}}</td>
               <td>{{cancelbookingHistoryItem.firstName}}</td>
               <td>{{cancelbookingHistoryItem.lastName}}</td>
               <td>{{cancelbookingHistoryItem.email}}</td>
