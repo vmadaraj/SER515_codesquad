@@ -8,7 +8,7 @@ var bodyParser= require('body-parser');
 var router = express.Router();
 var appRoutes = require('./app/routes/api')(router);
 var Flight = require('./app/models/flight')
-
+var q = require('q');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -17,20 +17,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api',appRoutes);
 
-module.exports = {
-
-
-
-db : mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err, database){
+mongoose.connect('mongodb://shirisha:password_1@ds249233.mlab.com:49233/airline', function(err){
     if(err){
         console.log('Not connected');
     }
     else{
         console.log("Connected to MONGODB");
-        return database;
     }
-})
-};
+});
+
 
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
@@ -80,6 +75,10 @@ app.get('/cancelBooking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/cancelBooking.html'));
 });
 
+app.get('/bookedFlight', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/successBooking.html'));
+});
+
 
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
@@ -90,6 +89,7 @@ app.get('*', function(req, res){
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
 });
+
 
 // var SabreDevStudio = require('sabre-dev-studio');
 // var sabre_dev_studio = new SabreDevStudio({

@@ -18,7 +18,7 @@ angular.module('bookingController',[]).config(function(){
             'email':$scope.email,
             'phone':$scope.phone,
             'gender':gender,
-            'Isactive':false
+            'Isactive':true
 
 
         }
@@ -30,6 +30,9 @@ angular.module('bookingController',[]).config(function(){
 
 
        })
+       $window.location.href = '/bookedFlight';
+
+
     }
     // $scope.submit = function(form){
     //     console.log('submitted');

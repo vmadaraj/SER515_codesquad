@@ -1,10 +1,12 @@
 var Flight = require('../models/flight');
 var User = require('../models/user');
 var Booking = require('../models/booking');
+var q= require('q');
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
-var database  = require('../../server');
-var dbObjectID = require('../../server').ObjectID;
+var mongoose= require('mongoose');
+// var database  = require('../../server');
+// var dbObjectID = require('../../server').ObjectID;
 
 module.exports =function(router){
 // app.use(constant.USER_PATH, router);
@@ -45,86 +47,28 @@ router.post('/bookingFlight',function(req,res){
     });
 });
 
-// router.post('/cancelBookingItem',function(req,res){
-//     var booking = new Booking();
-//     booking.bookingid = req.body.bookingid
-//     booking.firstName = req.body.firstName;
-//     booking.lastName = req.body.lastName;
-//     booking.email =req.body.email;
-//     booking.phone = req.body.phone;
-//     booking.gender = req.body.gender;
-//     booking.Isactive = "false";
-//     booking.save(function(err){
-//         if(err)
-//         res.send(err);
-//         else
-//         res.send('booking updated');
-//     });
-// });
+router.put('/bookings/:id/update', function (req, res) {
+    console.log("Hellooo   fdsfdsfsdf");
 
-// app.post("/update/:id", function (req,res){
-//     var guestMessage = {
-//           username:req.body.username,
-//           country:req.body.country,
-//           message:req.body.message,
-//           date:req.body.date
-//         };
-//         var Gid = req.params.id;
-
-//     database.collection('bookings').findById(Gid, {$set: guestMessage}, function(err, result) {
-//       if (err) return console.log(err);
-//       result.save(function (err,result) {
-//        console.log('Message Updated');
-//           res.redirect('/guestbook');
-//       })
-
-
-//     });
-
-
-//       });
-// router.post('/cancelBookingItem',function(req,res){
-//     var booking = new Booking();
-//     booking.bookingid = req.body.bookingid
-//     booking.firstName = req.body.firstName;
-//     booking.lastName = req.body.lastName;
-//     booking.email =req.body.email;
-//     booking.phone = req.body.phone;
-//     booking.gender = req.body.gender;
-//     booking.Isactive = "false";
-
-//     db.getCollection('bookings').update({},{$unset: booking}, {multi: false})
-//     // booking.save(function(err){
-//     //     if(err)
-//     //     res.send(err);
-//     //     else
-//     //     res.send('booking updated');
-//     // });
-// });
-router.put('/cancelBookingItem',function(req,res){
-    // var booking = new Booking();
-    // booking.bookingid = req.body.bookingid
-    // booking.firstName = req.body.firstName;
-    // booking.lastName = req.body.lastName;
-    // booking.email =req.body.email;
-    // booking.phone = req.body.phone;
-    // booking.gender = req.body.gender;
-    // booking.Isactive = "false";
-
-    // db.getCollection('bookings').update({},{$unset: booking}, {multi: false})
-    var myquery = { "_id": dbObjectID(req.params.id)};
-    var newvalues = { $set: { Isactive : "false" } };
-    // db1 = database.db;
-    console.log(database.db);
-    // db1.collection('bookings').updateOne(myquery, newvalues, function(err, res) {
-    //   if (err) throw err;
-    //   console.log("1 document updated");
-    //   db.close();
+    console.log(req.body);
+    // var tempID = mongoose.Types.ObjectID(req.params.id);
+    // Booking.findByIdAndUpdate(tempID, { Isactive : "false" }, function (err, booking) {
+    //     console.log("Inside func");
+    //     if (err) {
+    //         console.log("err is triggered");
+    //         console.log(err);
+    //     }
+    //     res.send('Product udpated.');
     // });
+    var query = { bookingid: req.body.bookingid };
+    Booking.findOneAndUpdate(query, { Isactive : "false" }, {
+          sort: {_id: -1},
+          upsert: true
+        }, (err, result) => {
+          if (err) return res.send(err)
+          res.send(result)
+        });
 });
-
-
-
 
 //get Booking Details
 router.post('/bookings',function(req,res){
@@ -184,24 +128,57 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res,$http){
-    console.log(req.body);
-    Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
-        console.log(dflights);
-        if(!dflights){
-            res.json({success:false, message: 'Could not find flights'})
-        }
-        else{
-            res.json(dflights)
-            console.log(dflights);
-            var fs = require('fs');
-            fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
+    var promises = [
+        Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(),
+        Flight.find({source:req.body.destination,destination:req.body.source,date :req.body.returnDate}).select('flightID source destination date fare').exec()
+          ];
+    q.all(promises).then(function(results){
+             var fs = require('fs');
+            fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (results[0]), function(err, data){
+
                             if (err) console.log(err);
                            // console.log("Successfully Written to File.");
                          });
-            }
+            
+            var fs1=require('fs');
+            console.log(results[1]);
 
-    });
-  });
+            fs1.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (results[1]), function(err, data){
+                if (err) console.log(err);
+               // console.log("Successfully Written to File.");
+             });
+            });
+});
+   
+
+    // console.log(req.body);
+    // var promise = Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(
+    //     // function(err,dflights){
+    //     // console.log(dflights);
+    //     // if(!dflights){
+    //     //     res.json({success:false, message: 'Could not find flights'})
+    //     // }
+    //     // else{
+    //     //     res.json(dflights)
+    //     //     console.log(dflights);
+    //     //     var fs = require('fs');
+    //     //     fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (dflights), function(err, data){
+    //     //                     if (err) console.log(err);
+    //     //                    // console.log("Successfully Written to File.");
+    //     //                  });
+    // //         }
+
+    // // }
+    // );
+    // promise.then(function(dflights){
+    //     console.log(dflights);
+       
+
+    // });
+    // Flight.find({source:req.body.destination,destination:req.body.source,date :req.body.returnDate}).select('flightID source destination date fare').exec(function(dflights){
+    //     console.log(dflights)
+    // });
+
 
     router.post('/authenticate', function(req, res) {
         if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {

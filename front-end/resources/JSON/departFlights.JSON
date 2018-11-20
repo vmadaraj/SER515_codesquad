@@ -1,1 +1,2 @@
-[{"_id":"5bdbd0aae7179a1b53018d21","flightID":"12685","source":"BOS","destination":"SFO","date":"11/29/2018","fare":"122"}]
+
+[{"_id":"5bdbd07ae7179a1b53018d13","flightID":"12681","source":"SFO","destination":"BOS","date":"11/22/2018","fare":"70"},{"_id":"5bf31483e7179a56e212e67b","flightID":"19910","source":"SFO","destination":"BOS","date":"11/22/2018","fare":"110"}]
