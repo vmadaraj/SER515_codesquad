@@ -75,6 +75,10 @@ app.get('/cancelBooking', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/cancelBooking.html'));
 });
 
+app.get('/bookedFlight', function(req, res){
+    res.sendFile(path.join(__dirname+ '/front-end/app/views/pages/successBooking.html'));
+});
+
 
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname+ '/front-end/app/views/index.html'));
