@@ -54,7 +54,7 @@
                 </li>
 
                 <li class="">
-                    <a class="page-scroll" href="/login">Login</a>
+                    <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                 </li>
 
 
@@ -69,7 +69,7 @@
                   <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
                 </li>
                 <li class="">
-                    <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                    <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
                 </li>
             </ul>
 
