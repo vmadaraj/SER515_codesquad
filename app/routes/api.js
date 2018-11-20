@@ -5,8 +5,6 @@ var q= require('q');
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
 var mongoose= require('mongoose');
-// var database  = require('../../server');
-// var dbObjectID = require('../../server').ObjectID;
 
 module.exports =function(router){
 // app.use(constant.USER_PATH, router);
@@ -79,7 +77,8 @@ router.put('/bookings/:id/update', function (req, res) {
           upsert: true
         }, (err, result) => {
           if (err) return res.send(err)
-          res.send(result)
+        //   res.send(result)
+          res.json({success : true, message : 'Booking Cancelled'});
         });
 });
 
