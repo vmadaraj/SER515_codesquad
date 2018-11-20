@@ -13,6 +13,8 @@
     <script src="../../../app/controllers/bookingCtrl.js"></script>
     <script src= "../../../app/controllers/bookingHistoryCtrl.js"></script>
     <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingDetailsCtrl.js"></script>
 
 
     <script src= "../../../app/services/authServices.js"></script>
@@ -30,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
     <title>Airline Reservation System</title>
   </head>
-  <body ng-app="airlineApp" ng-controller="mainCtrl as main">
+  <body ng-app="airlineApp" ng-controller="mainCtrl as main" onload="getSelSeats()">
     <nav class="navbar navbar-inverse navbar-fixed-top" >
     <div class="container">
       <div class="navbar-header page-scroll">
@@ -79,7 +81,9 @@
         <div class="col-md-4">
           <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email">
         </div>
-        <br><br>
+        <div class="col-md-4" >
+            <input type="text" class="form-control" id="seats"  ng-model="seats" >
+          </div>
         <div class="col-md-4">
           <input type="number" class="form-control" id="phone" placeholder="Enter Preferred Phone Number" ng-model="phone">
         </div>
@@ -159,7 +163,8 @@
 					</div>
 					<div class="col-md-4">
 						<input type="text" id="search_field7" class="form-control" name="search_title" placeholder="Password">
-					</div>
+          </div>
+          
       </form>
       </div>
     <br>
@@ -177,4 +182,17 @@
     </div>
     <div ng-view></div>
   </body>
+  <script>
+      function getSelSeats(){
+        var seats = sessionStorage.getItem('seats');
+        document.getElementById("seats").value = seats;
+
+        if(!seats || seats.length == 0){
+          alert("Seats not selected");
+        }
+        console.log("seats passed from booking page - " + seats);
+        //sessionStorage.removeItem('seats');
+        return seats;
+      }
+    </script>
 </html>
