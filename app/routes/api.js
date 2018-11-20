@@ -49,7 +49,7 @@ router.post('/bookingFlight',function(req,res){
 
 router.put('/bookings/:id/update', function (req, res) {
     console.log("Hellooo   fdsfdsfsdf");
-    
+
     console.log(req.body);
     // var tempID = mongoose.Types.ObjectID(req.params.id);
     // Booking.findByIdAndUpdate(tempID, { Isactive : "false" }, function (err, booking) {
@@ -59,7 +59,7 @@ router.put('/bookings/:id/update', function (req, res) {
     //         console.log(err);
     //     }
     //     res.send('Product udpated.');
-    // });  
+    // });
     var query = { bookingid: req.body.bookingid };
     Booking.findOneAndUpdate(query, { Isactive : "false" }, {
           sort: {_id: -1},
@@ -135,6 +135,7 @@ router.post('/authenticateFlights',function(req,res,$http){
     q.all(promises).then(function(results){
              var fs = require('fs');
             fs.writeFile('front-end/resources/JSON/departFlights.JSON',JSON.stringify (results[0]), function(err, data){
+
                             if (err) console.log(err);
                            // console.log("Successfully Written to File.");
                          });
@@ -177,6 +178,7 @@ router.post('/authenticateFlights',function(req,res,$http){
     // Flight.find({source:req.body.destination,destination:req.body.source,date :req.body.returnDate}).select('flightID source destination date fare').exec(function(dflights){
     //     console.log(dflights)
     // });
+
 
     router.post('/authenticate', function(req, res) {
         if (req.body.username == null || req.body.username == '' || req.body.password  == null || req.body.password == '') {
