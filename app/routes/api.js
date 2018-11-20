@@ -48,7 +48,7 @@ router.post('/bookingFlight',function(req,res){
 
 router.put('/bookings/:id/update', function (req, res) {
     console.log("Hellooo   fdsfdsfsdf");
-    
+
     console.log(req.body);
     // var tempID = mongoose.Types.ObjectID(req.params.id);
     // Booking.findByIdAndUpdate(tempID, { Isactive : "false" }, function (err, booking) {
@@ -58,7 +58,7 @@ router.put('/bookings/:id/update', function (req, res) {
     //         console.log(err);
     //     }
     //     res.send('Product udpated.');
-    // });  
+    // });
     var query = { bookingid: req.body.bookingid };
     Booking.findOneAndUpdate(query, { Isactive : "false" }, {
           sort: {_id: -1},
@@ -127,6 +127,15 @@ router.post('/users', function(req, res) {
     }
 });
 router.post('/authenticateFlights',function(req,res,$http){
+//   var promises = [Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(),
+//
+//       Flight.find({source:req.body.destination,destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec()];
+// console.log('xyz');
+//   Promise.all(promises).then(function(results){
+//     console.log(results);
+// }).catch(function(err){
+//     console.log(err);
+//   });
     console.log(req.body);
     Flight.find({source:req.body.source,destination:req.body.destination,date :req.body.departDate}).select('flightID source destination date fare').exec(function(err,dflights){
         console.log(dflights);
@@ -144,6 +153,17 @@ router.post('/authenticateFlights',function(req,res,$http){
             }
 
     });
+                Flight.find({source:req.body.destination,destination:req.body.source,date:req.body.returnDate}).select('flightID source destination date fare').exec(function(err,rflights){
+                console.log(rflights)
+                res.json(rflights)
+                // var fs = require('fs');
+                // fs.writeFile('front-end/resources/JSON/returnFlights.JSON',JSON.stringify (rflights), function(err, data){
+                //                 if (err) console.log(err);
+                //                // console.log("Successfully Written to File.");
+                //              });
+
+
+            });
   });
 
     router.post('/authenticate', function(req, res) {
