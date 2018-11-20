@@ -8,7 +8,7 @@ var bodyParser= require('body-parser');
 var router = express.Router();
 var appRoutes = require('./app/routes/api')(router);
 var Flight = require('./app/models/flight')
-
+var q = require('q');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -85,6 +85,7 @@ app.get('*', function(req, res){
 app.listen(port || 8080,function(){
     console.log('server running on port '+ port );
 });
+
 
 // var SabreDevStudio = require('sabre-dev-studio');
 // var sabre_dev_studio = new SabreDevStudio({
