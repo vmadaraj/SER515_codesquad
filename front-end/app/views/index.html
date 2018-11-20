@@ -115,13 +115,15 @@
 
 			</h3>
 			<center>
-				<!-- Default inline 1-->
+                <!-- Default inline 1-->
+                <!--
 				<div class="custom-control custom-radio custom-control-inline" id = "radioButton">
   					<input type="radio" class="custom-control-input" id="defaultInline1" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline1">Roundtrip</label>
   					<input type="radio" class="custom-control-input" id="defaultInline2" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline2">One-Way</label>
-				</div>
+                </div>
+            -->
 				<form class="form-inline" id= "searchForm">
 					<div class="form-group">
 						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From" ng-model="source">
@@ -132,10 +134,12 @@
 					</div>
 					<div class="form-group">
        					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text" ng-model="departDate"/>
-       				</div>
+                       </div>
+                       <!--
        				<div class="form-group">
        					<input class="form-control" id="return" style="visibility:hidden" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
-       				</div>
+                       </div>
+                    -->
 					<div class="input-group">
 						<span class="input-group-btn">
                         <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
