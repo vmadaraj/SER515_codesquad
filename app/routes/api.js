@@ -36,6 +36,7 @@ router.post('/bookingFlight',function(req,res){
     booking.gender = req.body.gender;
     booking.Isactive = req.body.Isactive;
     booking.seat = req.body.seat;
+    booking.flightid = req.body.flightid
     var fs = require('fs');
             fs.writeFile('front-end/resources/JSON/bookingData.JSON',JSON.stringify (booking), function(err, data){
                             if (err) console.log(err);
@@ -78,14 +79,14 @@ router.put('/bookings/:id/update', function (req, res) {
         }, (err, result) => {
           if (err) return res.send(err)
         //   res.send(result)
-          res.json({success : true, message : 'Booking Cancelled'});
+          res.json({success : true, message : 'Booking is Cancelled'});
         });
 });
 
 //get Booking Details
 router.post('/bookings',function(req,res){
     console.log(req.body.email)
-    Booking.find({email:req.body.email}).select('bookingid seat firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+    Booking.find({email:req.body.email}).select('bookingid seat firstName lastName email phone gender Isactive flightid').exec(function(err, bookings) {
         if (!bookings) {
             res.json({success : false, message : "Couldnot get Bookings"})
         }
@@ -134,7 +135,7 @@ router.post('/users', function(req, res) {
                 res.json({success : true, message : 'UserName or email already exists!!'});
             }
             else {
-                res.json({success : true, message : 'user created'});
+                res.json({success : true, message : 'User created. Please proceed to LogIn'});
             }
         });
     }
@@ -216,7 +217,7 @@ router.post('/authenticateFlights',function(req,res,$http){
                     }
                     else {
                         var token = jsonWebToken.sign({ username : user.username, email : user.email }, secret, {expiresIn : '24h'});
-                        res.json({success : true, message : 'User authenticated!', token : token});
+                        res.json({success : true, message : 'LOGIN Successful', token : token});
                     }
                 }
             });

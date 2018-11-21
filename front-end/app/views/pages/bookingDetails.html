@@ -67,13 +67,13 @@
       </div>
     </div>
     </nav>
-    <br><br>
-    <h2 style="font-size:150%;margin-left: 10px;color: brown;">Enter passenger details:</h2>
+    <br><br><br>
+    <h2 style="font-size:150%;margin-left: 10px;color: #E35947;">Enter passenger details</h2>
     <div ng-controller="bookController">
     <div class = container_details >
       <br><br>
       <form id="detailsForm" class="form-inline" action="/action_page.php">
-       
+
         <div class="col-md-4">
           <input type="text" class="form-control" id="firstName" placeholder="Enter first name" ng-model="firstName">
         </div>
@@ -83,19 +83,21 @@
         <div class="col-md-4">
           <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email">
         </div>
+        <br><br>
         <div class="col-md-4" >
             <input type="text" class="form-control" id="seats"  ng-model="seats" >
           </div>
         <div class="col-md-4" >
             <input type="text" class="form-control"  id="flight-number">
-        </div> 
+        </div>
         <div class="col-md-4">
           <input type="number" class="form-control" id="phone" placeholder="Enter Preferred Phone Number" ng-model="phone">
         </div>
-        <label for="radiobtn control-label col-sm-2" class="col-sm-4 control-label">Gender</label>
+
+        <label for="radiobtn control-label col-sm-2" class="col-sm-1 control-label">Gender</label>
         <div class="col-sm-5">
         <div class="radio radio-danger">
-        <input type="radio" name="survey" id="Radios1" value="Male" ng-model="male" >
+        <input type="radio" name="survey" id="Radios1" value="Male" ng-model="male">
         <label>
         Male
         </label>
@@ -107,9 +109,10 @@
         </label>
         </div>
         </div>
+
     </div>
     </form>
-    <h1 style="font-size:150%;margin-left: 10px;color: brown;">Payment Information</h1>
+    <h1 style="font-size:150%;margin-left: 10px;color: #E35947;">Payment Information</h1>
     <center>
 
       <div class="custom-control custom-radio custom-control-inline" id = "radioButton">
@@ -136,26 +139,17 @@
     </script>
     <form class="form-inline" action="/action_page.php">
       <div class = "container_payment" id= "card">
-        <br><br>
+        <br>
         <form class="form-inline" >
 					<div class="col-md-4">
-						<input type="text" id="search_field1" class="form-control" name="search_title" placeholder="Card Number" >
-					</div>
-					<div class="col-md-4">
-						<input type="text" id="search_field2" class="form-control" name="search_title" placeholder="Card Type">
+						<input type="number" id="search_field1" class="form-control" name="search_title" placeholder="Card Number" >
 					</div>
 					<div class="col-md-4">
        			<input class="form-control" id="depart" name="depart" placeholder="Exp.Date" type="text" />
        		</div>
-          <br> <br>
+
           <div class="col-md-4">
-						<input type="text" id="search_field3" class="form-control" name="search_title" placeholder="CVV">
-					</div>
-          <div class="col-md-4">
-						<input type="text" id="search_field4" class="form-control" name="search_title" placeholder="First Name">
-					</div>
-          <div class="col-md-4">
-						<input type="text" id="search_field5" class="form-control" name="search_title" placeholder="Last Name">
+						<input type="number" id="search_field3" class="form-control" name="search_title" placeholder="CVV">
 					</div>
       </div>
     </form>
@@ -170,6 +164,7 @@
 						<input type="text" id="search_field7" class="form-control" name="search_title" placeholder="Password">
           </div>
           
+
       </form>
       </div>
     <br>
@@ -204,9 +199,9 @@
   //     return;
   //   }
   //   $('#flight-number').val(fn);
-  // } 
+  // }
 
-     
+
 
       function getSelSeats(){
         var seats = sessionStorage.getItem('seats');
@@ -227,14 +222,16 @@
 
       }
 
-    //    function getFlightId(){
-    //   fn = localStorage.getItem("flightNumber");
+      function getFlightId(){
+      fn = localStorage.getItem("flightNumber");
+      return fn;
+      }
     //   if (!fn){
     //     alert("no flight number");
     //   return;
     //   }
     //   $('#flight-number').val(fn);
-    // } 
+    // }
 
     </script>
 </html>
