@@ -116,6 +116,7 @@
             <thead>
                 <tr>
                 <th>BookingID</th>
+                <th>FlightID</th>
                 <th>Seat Info</th>
                 <th>FirstName</th>
                 <th>LastName</th>
@@ -128,6 +129,7 @@
             <tbody>
                 <tr ng-repeat="bookingHistoryItem in bookingHistory">
                         <td ng-if = "bookingHistoryItem.Isactive == 'true'" >{{bookingHistoryItem.bookingid}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'" >{{bookingHistoryItem.flightid}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.seat}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.firstName}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.lastName}}</td>
@@ -135,6 +137,7 @@
                         <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.phone}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.gender}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:   #E35947">{{bookingHistoryItem.bookingid}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:   #E35947">{{bookingHistoryItem.flightid}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.seat}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.firstName}}</td>
                         <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.lastName}}</td>
