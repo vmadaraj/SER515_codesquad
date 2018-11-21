@@ -24,6 +24,10 @@ angular.module('appRoutes', ['ngRoute'])
         controllerAs:'filghtDetails'
     })
 
+    .when('/bookingDetails', {
+        templateUrl: 'front-end/app/views/pages/bookingDetails.html'
+    })
+
     .when('/home',{
         templateUrl: 'app/views/index.html'
     })
@@ -32,6 +36,9 @@ angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'front-end/app/views/pages/login.html'
     })
 
+    .when('/logout', {
+        templateUrl: 'front-end/app/views/pages/logout.html'
+    })
 
 
     .when('/about', {
@@ -40,7 +47,21 @@ angular.module('appRoutes', ['ngRoute'])
 
 
     .when('/userProfile', {
-        templateUrl: 'front-end/app/views/pages/userProfile.html'
+        templateUrl: 'front-end/app/views/pages/userProfile.html',
+        controller: 'bookingHistoryCtrl',
+        controllerAs: 'bookingList'
+    })
+
+    .when('/bookingHistory', {
+        templateUrl: 'front-end/app/views/pages/bookingHistory.html',
+        controller: 'bookingHistoryCtrl',
+        controllerAs: 'bookingList'
+    })
+
+    .when('/cancelBooking', {
+        templateUrl: 'front-end/app/views/pages/cancelBooking.html',
+        controller: 'cancelBookingHistoryCtrl',
+        controllerAs: 'cancelBookings'
     })
 
 

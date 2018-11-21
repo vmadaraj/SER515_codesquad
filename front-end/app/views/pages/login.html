@@ -19,7 +19,14 @@
     <script src= "../../../app/controllers/userCtrl.js"></script>
     <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
     <script src= "../../../app/controllers/searchCtrl.js"></script>
+    <script src= "../../../app/services/bookingHistoryServices.js"></script>
+    <script src= "../../../app/controllers/bookingHistoryCtrl.js"></script>
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/services/userServices.js"></script>
     <script src="../../../app/services/flightServices.js"></script>
+    <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingDetailsCtrl.js"></script>
 
 
 
@@ -61,7 +68,7 @@
                         <li class="">
                             <a class="page-scroll" href="/about">About Us</a>
                         </li>
-                        <li class="">
+                        <li>
                             <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
                         </li>
                     </ul>
@@ -72,28 +79,36 @@
     <br>
     <div class="bg">
         <div class="login-form">
-            <form id = "login-form-submit">
+            <form id = "login-form-submit" ng-submit="main.dologin(logindata);">
                 <h2 class="text-center">Log in</h2>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" required="required" ng-model="username">
+                    <input  class="form-control" placeholder="Username" required="required" ng-model="main.logindata.username">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="required" ng-model="password">
+                    <input class="form-control" placeholder="Password" required="required" ng-model="main.logindata.password">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block" ng-click = "submit(login-form-submit)">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
                 </div>
                 <div class="form-group">
                     <p class="text-center" style="color: black" ><a href="/register">Create an Account</a></p>
                 </div>
             </form>
             <br>
-            <div class="row show-hide-message" ng-show = "main.successMsg">
-                <div class="alert alert-success">{{ main.successMsg }}</div>
-            </div>
-            <div class = "row show-hide-message" ng-show = "main.errorMsg">
-                <div class="alert alert-danger"> {{ main.errorMsg }}</div>
-            </div>
+            <div  class="row show-hide-message" ng-show="main.successMessage">
+                <div class="alert alert-success">
+                    {{ main.successMessage }}
+                    <!-- {{ main.username }} -->
+                </div>
+                </div>
+
+                <br>
+
+                <div class="row show-hide-message" ng-show="main.errorMessage">
+                <div class="alert alert-danger">
+                    {{ main.errorMessage }}
+                </div>
+                </div>
         </div>
     </div>
     </body>

@@ -1,25 +1,35 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <base href="/">
-    <script src="resources/js/angular.js"></script>
-    <script src="resources/js/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../../resources/js/angular.js"></script>
+    <script src="../../../resources/js/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
-    <script src="app/controllers/searchCtrl.js"></script>
-    <script src="app/controllers/mainCtrl.js"></script>
-    <script src="app/controllers/userCtrl.js"></script>
-    <script src="app/controllers/flightDetailsCtrl.js"></script>
-    <script src="app/controllers/bookingCtrl.js"></script>
-    <script src="app/controllers/bookingHistoryCtrl.js"></script>
-    <script src= "app/controllers/cancelBookingCtrl.js"></script>
-    <script src= "app/controllers/bookingDetailsCtrl.js"></script>
-    <script src="../../app/services/authServices.js"></script>
-    <script src="../../app/services/userServices.js"></script>
-    <script src="../../resources/css/aboutUs.css"></script>
-    <script src="../../app/services/bookingHistoryServices.js"></script>
+    <script src= "../../../app/controllers/mainCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingDetailsCtrl.js"></script>
+    <script src= "../../../resources/css/aboutUs.css"></script>
+
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/controllers/userCtrl.js"></script>
+    <script src= "../../../app/controllers/flightDetailsCtrl.js"></script>
+    <script src= "../../../app/controllers/searchCtrl.js"></script>
+    <script src= "../../../app/services/bookingHistoryServices.js"></script>
+    <script src= "../../../app/controllers/bookingHistoryCtrl.js"></script>
+    <script src= "../../../app/services/authServices.js"></script>
+    <script src= "../../../app/services/userServices.js"></script>
+    <script src="../../../app/services/flightServices.js"></script>
+    <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingCtrl.js"></script>
+    <script src= "../../../app/controllers/bookingDetailsCtrl.js"></script>
+
+
     <script src="app/services/flightServices.js"></script>
+
+
+
+
     <!-- This is our Google Arvo font and Font-Awesome -->
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
@@ -42,7 +52,7 @@
 
 </head>
 
-<body ng-app="airlineApp" ng-controller="mainCtrl as main">
+<body ng-app="airlineApp" ng-controller="searchController" >
     <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -93,37 +103,59 @@
 
 
     </nav>
-	
-	<!-- Add the class "form-inline" -->
-	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	<div class="container_flights">
-		<div class="container">
-                <br><br>
-				<b> We're always interested in our customers' comments and thoughts about our products and services.<b><br><br>
+ 
 
-                <b> Your feedback helps us to improve the site and serve you better. We want to make it as easy as possible for you to find us, so we've listed every possible way for you <b><br>
-                <b> to get in touch. <b><br><br>
-				
-				<b> For replies within 24-48 hours, reach us at : codesquad@letsfly.com<b><br>
-		</div>
-	</div>
-    <script src="resources/js/bootstrap.js"></script>  
+  <br><br><br>
+  <h1> Successfully booked flight!!!</h1>
+  <h1 style="font-size:150%;
+    margin-left: 10px;
+    color: brown;">Booking Details</h1>
+    	<div class="container_flights" ng-controller="bookingDetailsController">
+
+    <!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
+        <table  class="table table-striped">
+            <thead>
+                
+            </thead>
+          <tbody>
+                <tr >
+                    
+                      </tr>
+                     
+            <tr >
+              <td>Booking Id:</td>
+              <td>{{bookingDetails.bookingid}}</td>
+            </tr>
+            <tr >
+              <td>First Name:</td>
+              <td>{{bookingDetails.firstName}}</td>
+            </tr>
+             <tr >
+              <td>Last Name:</td>
+              <td>{{bookingDetails.lastName}}</td>
+            </tr> 
+            <tr >
+            <td>Email:</td>
+            <td>{{bookingDetails.email}}</td>
+            </tr> 
+            <tr >
+            <td>Phone:</td>
+            <td>{{bookingDetails.phone}}</td>
+            </tr>
+            <tr >
+                    <td>Seat:</td>
+                    <td>{{bookingDetails.seat}}</td>
+                    </tr> 
+                                
+          </tbody>
+          </table>
+      </div>
+<script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <footer>
-        <div class="container">
-            <h2>
-                &copy letsfly.com
-            </h2>
-        </div>
-      </footer>
 
 </body>
 </html>

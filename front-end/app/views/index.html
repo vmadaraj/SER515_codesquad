@@ -9,6 +9,16 @@
     <script src="app/controllers/mainCtrl.js"></script>
     <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/flightDetailsCtrl.js"></script>
+    <script src="app/controllers/bookingCtrl.js"></script>
+    <script src="app/controllers/bookingHistoryCtrl.js"></script>
+    <script src= "app/controllers/cancelBookingCtrl.js"></script>
+    <script src= "app/controllers/bookingDetailsCtrl.js"></script>
+
+
+    <script src="../../app/services/authServices.js"></script>
+    <script src="../../app/services/userServices.js"></script>
+    <script src="../../app/services/bookingHistoryServices.js"></script>
+
 
     <script src="app/services/flightServices.js"></script>
 
@@ -19,6 +29,8 @@
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="resources/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../../resources/css/aboutUs.css" rel="stylesheet">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -37,8 +49,8 @@
 
 </head>
 
-<body ng-app="airlineApp" ng-controller="searchController" ng-controller="mainCtrl as main">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body ng-app="airlineApp" ng-controller="searchController" >
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -60,11 +72,11 @@
                         <a href="#page-top"></a>
                     </li> -->
                     <li class="">
-                        <a class="page-scroll" href="/">Home</a>
+                        <a  class="page-scroll" href="/">Home</a>
                     </li>
 
                     <li class="">
-                        <a class="page-scroll" href="/login">Login</a>
+                        <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                     </li>
 
                     <li class="">
@@ -74,7 +86,12 @@
                     <li class="">
                         <a class="page-scroll" href="/about">About Us</a>
                     </li>
-                    <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
+                    <li>
+                        <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  
+                    </li>
+                    <li class="">
+                        <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
+                    </li>
                 </ul>
 
             </div>
@@ -85,8 +102,10 @@
     </nav>
     <br><br><br>
 	<!-- Add the class "form-inline" -->
+    <!-- <div ng-view> -->
 
-	<br><br><br><br><br>
+    </div>
+
 
 
 	<div class="container_flights">
@@ -98,13 +117,15 @@
 
 			</h3>
 			<center>
-				<!-- Default inline 1-->
+                <!-- Default inline 1-->
+                <!--
 				<div class="custom-control custom-radio custom-control-inline" id = "radioButton">
   					<input type="radio" class="custom-control-input" id="defaultInline1" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline1">Roundtrip</label>
   					<input type="radio" class="custom-control-input" id="defaultInline2" onclick= "javascript:yesnoCheck();" name="inlineDefaultRadiosExample">
   					<label class="custom-control-label" for="defaultInline2">One-Way</label>
-				</div>
+                </div>
+            -->
 				<form class="form-inline" id= "searchForm">
 					<div class="form-group">
 						<input type="text" id="search_field" class="form-control" name="search_title" placeholder="From" ng-model="source">
@@ -115,14 +136,16 @@
 					</div>
 					<div class="form-group">
        					<input class="form-control" id="depart" name="depart" placeholder="Depart" type="text" ng-model="departDate"/>
-       				</div>
+                       </div>
+                       <!--
        				<div class="form-group">
        					<input class="form-control" id="return" style="visibility:hidden" name="return" placeholder="Return" type="text" ng-model="returnDate"/>
-       				</div>
+                       </div>
+                    -->
 					<div class="input-group">
 						<span class="input-group-btn">
                         <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
-                            <button ng-click="submit(searchForm)" class="btn btn-primary " name="search" type="submit">
+                            <button ng-click="submit(searchForm)" class="btn btn-danger "  type="submit">
 
         				Search
        					</button>
@@ -143,8 +166,8 @@
 	else document.getElementById('return').style.visibility = 'hidden';
   }
   </script>
-  
-  
+
+
   <div class="container" >
     <br>
     <div id="myCarousel"  class="carousel slide" data-ride="carousel">
@@ -206,7 +229,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 <script type="text/javascript">
-    $(function () {
+   $(function () {
         $('#depart').datepicker();
         $('#return').datepicker({
             useCurrent: false //Important! See issue #1075
@@ -219,5 +242,12 @@
         });
     });
 </script>
+    <footer>
+            <div class="container">
+                <h2>
+                    &copy letsfly.com
+                </h2>
+            </div>
+          </footer>
 </body>
 </html>
