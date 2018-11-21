@@ -79,7 +79,7 @@ router.put('/bookings/:id/update', function (req, res) {
         }, (err, result) => {
           if (err) return res.send(err)
         //   res.send(result)
-          res.json({success : true, message : 'Booking Cancelled'});
+          res.json({success : true, message : 'Booking is Cancelled'});
         });
 });
 
@@ -135,7 +135,7 @@ router.post('/users', function(req, res) {
                 res.json({success : true, message : 'UserName or email already exists!!'});
             }
             else {
-                res.json({success : true, message : 'user created'});
+                res.json({success : true, message : 'User created. Please proceed to LogIn'});
             }
         });
     }
@@ -217,7 +217,7 @@ router.post('/authenticateFlights',function(req,res,$http){
                     }
                     else {
                         var token = jsonWebToken.sign({ username : user.username, email : user.email }, secret, {expiresIn : '24h'});
-                        res.json({success : true, message : 'User authenticated!', token : token});
+                        res.json({success : true, message : 'LOGIN Successful', token : token});
                     }
                 }
             });
