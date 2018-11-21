@@ -10,6 +10,14 @@
     font-family: fantasy;
 }
 
+
+.bg {
+	background-image: url('http://pavbca.com/walldb/original/c/e/0/141945.jpg'); 
+	height: 180%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	}
 .tagline {
     font-size: 10px;
     margin-top: 50px;
