@@ -24,11 +24,9 @@
 
     </head>
 <body ng-app="airlineApp" ng-controller="mainCtrl as main">
-
-
-
-	<br><br><br><br><br>
+  	<br><br><br><br><br>
     <h1><center> Availability of seats:30</center></h1>
+    <h3><center> Flight ID: <span id="flight-number"</center></span></h3>
 
   <div class="plane">
     <div class="cockpit">
@@ -326,13 +324,29 @@
   </div>
   <center>
     <!-- href= "/bookingDetails" -->
-  <button type="button" class="btn btn-primary" onclick="proceed()">Book</button>
+  <button type="button" class="btn btn-danger" onclick="proceed()">Book</button>
   <!-- <button type="button" class="btn btn-primary"><a href= "/bookingDetails">Book</a></button> -->
   </center>
   <br>
   <br>
+      <footer>
+            <div class="container">
+                <h2>
+                    &copy letsfly.com
+                </h2>
+            </div>
+          </footer>
 </body>
 <script>
+  window.onload = function(){
+    fn = localStorage.getItem("flightNumber");
+    if (!fn){
+      alert("no flight number");
+      return;
+    }
+    $('#flight-number').html(fn);
+
+  }
 function proceed(){
   var selected = [];
     $('.seat-layout input:checked').each(function() {

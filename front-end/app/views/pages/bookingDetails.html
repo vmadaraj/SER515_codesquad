@@ -15,6 +15,7 @@
     <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
     <script src= "../../../app/controllers/bookingCtrl.js"></script>
     <script src= "../../../app/controllers/bookingDetailsCtrl.js"></script>
+    <script src= "../../../resources/css/aboutUs.css"></script>
 
 
     <script src= "../../../app/services/authServices.js"></script>
@@ -72,6 +73,7 @@
     <div class = container_details >
       <br><br>
       <form id="detailsForm" class="form-inline" action="/action_page.php">
+       
         <div class="col-md-4">
           <input type="text" class="form-control" id="firstName" placeholder="Enter first name" ng-model="firstName">
         </div>
@@ -84,6 +86,9 @@
         <div class="col-md-4" >
             <input type="text" class="form-control" id="seats"  ng-model="seats" >
           </div>
+        <div class="col-md-4" >
+            <input type="text" class="form-control"  id="flight-number">
+        </div> 
         <div class="col-md-4">
           <input type="number" class="form-control" id="phone" placeholder="Enter Preferred Phone Number" ng-model="phone">
         </div>
@@ -172,7 +177,7 @@
     <div class="input-group">
       <span class="input-group-btn">
                   <!--<button ng-click="goto('/search')" class="btn btn-primary " name="search" type="submit">-->
-                      <button ng-click="submit(detailsForm)" class="btn btn-primary "  type="submit">
+                      <button ng-click="submit(detailsForm)" class="btn btn-danger "  type="submit">
 
           Book
            </button>
@@ -181,18 +186,55 @@
   </center>
     </div>
     <div ng-view></div>
+    <footer>
+        <div class="container">
+            <h2>
+                &copy letsfly.com
+            </h2>
+        </div>
+      </footer>
   </body>
   <script>
+
+
+  //   window.onload = function(){
+  //   fn = localStorage.getItem("flightNumber");
+  //   if (!fn){
+  //     alert("no flight number");
+  //     return;
+  //   }
+  //   $('#flight-number').val(fn);
+  // } 
+
+     
+
       function getSelSeats(){
         var seats = sessionStorage.getItem('seats');
         document.getElementById("seats").value = seats;
+        fn = localStorage.getItem("flightNumber");
 
+        if (!fn){
+          alert("no flight number");
+          return;
+       }
+       $('#flight-number').val(fn);
         if(!seats || seats.length == 0){
           alert("Seats not selected");
         }
         console.log("seats passed from booking page - " + seats);
         //sessionStorage.removeItem('seats');
         return seats;
+
       }
+
+    //    function getFlightId(){
+    //   fn = localStorage.getItem("flightNumber");
+    //   if (!fn){
+    //     alert("no flight number");
+    //   return;
+    //   }
+    //   $('#flight-number').val(fn);
+    // } 
+
     </script>
 </html>

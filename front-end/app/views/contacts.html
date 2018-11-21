@@ -17,6 +17,10 @@
     <script src= "app/controllers/bookingDetailsCtrl.js"></script>
     <script src="../../app/services/authServices.js"></script>
     <script src="../../app/services/userServices.js"></script>
+<<<<<<< HEAD
+=======
+    <script src="../../resources/css/aboutUs.css"></script>
+>>>>>>> master
     <script src="../../app/services/bookingHistoryServices.js"></script>
     <script src="app/services/flightServices.js"></script>
     <!-- This is our Google Arvo font and Font-Awesome -->
@@ -42,7 +46,7 @@
 </head>
 
 <body ng-app="airlineApp" ng-controller="mainCtrl as main">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="mainCtrl as main">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,40 +55,45 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/">WELCOME TO LETSFLY</a>
+
+                <a class="navbar-brand page-scroll" style="font-size:50px" href="/"> LETSFLY</a>
             </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--  <div class="dummy"> -->
-     
-                   <!-- </div> -->
-                   <ul class="nav navbar-nav navbar-right" style="height : 10px">
-                       <!-- <li class="hidden active">
-                           <a href="#page-top"></a>
-                       </li> -->
-                       <li class="">
-                           <a  class="page-scroll" href="/">Home</a>
-                       </li>
-     
-                       <li class="">
-                           <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
-                       </li>
-     
-                       <li class="">
-                           <a class="page-scroll" href="/contacts">Contacts</a>
-                       </li>
-     
-                       <li class="">
-                           <a class="page-scroll" href="/about">About Us</a>
-                       </li>
-                       <li>
-                           <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  
-                       </li>
-                       <li class="">
-                           <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
-                       </li>
-                   </ul>
-     
-               </div>
+             <!--  <div class="dummy"> -->
+
+                <!-- </div> -->
+                <ul class="nav navbar-nav navbar-right" style="height : 10px">
+                    <!-- <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li> -->
+                    <li class="">
+                        <a  class="page-scroll" href="/">Home</a>
+                    </li>
+
+                    <li class="">
+                        <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/contacts">Contacts</a>
+                    </li>
+
+                    <li class="">
+                        <a class="page-scroll" href="/about">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  
+                    </li>
+                    <li class="">
+                        <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
 
     </nav>
 	
@@ -98,22 +107,26 @@
 	
 	<div class="container_flights">
 		<div class="container">
-			<h3>
-				CONTACTS
-			</h3>
-				<b> Behnaz Sabbaghi<b><br>
-				<b> Phone: 714-566-8909<b><br>
-				<b> Email: sabbaghi@gmail.com<b><br><br>
+                <br><br>
+				<b> We're always interested in our customers' comments and thoughts about our products and services.<b><br><br>
+
+                <b> Your feedback helps us to improve the site and serve you better. We want to make it as easy as possible for you to find us, so we've listed every possible way for you <b><br>
+                <b> to get in touch. <b><br><br>
 				
-				<b> Naren<b><br>
-				<b> Phone: 434-900-7777<b><br>
-				<b> Email: naren@gmail.com<b><br><br>
+				<b> For replies within 24-48 hours, reach us at : codesquad@letsfly.com<b><br>
 		</div>
 	</div>
     <script src="resources/js/bootstrap.js"></script>  
     <script src="resources/js/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <footer>
+        <div class="container">
+            <h2>
+                &copy letsfly.com
+            </h2>
+        </div>
+      </footer>
+
 </body>
 </html>
-

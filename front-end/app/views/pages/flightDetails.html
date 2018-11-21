@@ -36,6 +36,8 @@
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/aboutUs.css">
+
 
     <title>Airline Reservation System</title>
 
@@ -116,7 +118,7 @@
           <tbody>
             <tr ng-repeat="flight in flights">
               <td>
-                <input type="radio" name="xyz" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
+                <input type="radio" class="flight-chkbox" name="xyz" ng-value="flight.flightID" ng-model="select" />
                 <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
               </td>
               <td>{{flight.flightID}}</td>
@@ -130,11 +132,12 @@
       </div>
 
       <br><br>
+      <!--
   <h1 style="font-size:150%;margin-left: 10px;
   color: brown;">Return Flights</h1>
       	<div class="container_flights">
 
-  	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
+  	 `     <div ng-show="loading"><h3>Loading...</h3></div> 
           <table st-table="rflights" class="table table-striped">
             <thead>
               <tr>
@@ -151,6 +154,7 @@
                 <td>
                   <input type="radio" name="pqr" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
                   <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
+                  <!--
                 </td>
                 <td>{{rflight.flightID}}</td>
                 <td>{{rflight.source}}</td>
@@ -161,19 +165,41 @@
             </tbody>
             </table>
         </div>
+    -->
         <br>
         <center>
-          <button type="submit" class="btn btn-primary"><a href= "/booking">Book</a></button>
+
+          <button type="submit" class="btn btn-primary btn-danger"><a onclick="setFlightId()">Book</a></button>
+
+                <!-- <a href="/booking">
+                        <button class="btn  btn-danger" >
+                          <span>Book</span>
+                        </button>
+                    </a> -->
+         <!-- <button type="submit" class="btn btn-primary"><a href= "/booking">Book</a></button>-->
+
         </center>
+        <footer>
+                <div class="container">
+                    <h2>
+                        &copy letsfly.com
+                    </h2>
+                </div>
+              </footer>
 
-
-
+<br><br><br><br><br>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-
+        <script>
+        function setFlightId(){
+           //alert( document.querySelector('input[name="xyz"]:checked').value);
+           localStorage.setItem("flightNumber", document.querySelector('input[name="xyz"]:checked').value);
+           window.location.href = "/booking"
+        }
+        </script>
 </body>
 </html>
