@@ -61,18 +61,17 @@
              <!--  <div class="dummy"> -->
 
                 <!-- </div> -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden active">
+                <ul class="nav navbar-nav navbar-right" style="height : 10px">
+                    <!-- <li class="hidden active">
                         <a href="#page-top"></a>
-                    </li>
+                    </li> -->
                     <li class="">
-                        <a class="page-scroll" href="/home">Home</a>
+                        <a  class="page-scroll" href="/">Home</a>
                     </li>
 
                     <li class="">
-                        <a class="page-scroll" href="/login">Login</a>
+                        <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                     </li>
-
 
                     <li class="">
                         <a class="page-scroll" href="/contacts">Contacts</a>
@@ -82,10 +81,10 @@
                         <a class="page-scroll" href="/about">About Us</a>
                     </li>
                     <li>
-                      <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
+                        <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  
                     </li>
                     <li class="">
-                        <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                        <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
                     </li>
                 </ul>
 

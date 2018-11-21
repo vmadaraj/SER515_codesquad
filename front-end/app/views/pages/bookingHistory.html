@@ -57,7 +57,7 @@
                 </li>
 
                 <li class="">
-                    <a class="page-scroll" href="/login">Login</a>
+                    <a ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
                 </li>
 
 
@@ -72,7 +72,7 @@
                   <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
                 </li>
                 <li class="">
-                    <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+                    <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
                 </li>
             </ul>
 
@@ -116,6 +116,7 @@
           <thead>
             <tr>
               <th>BookingID</th>
+              <th>Seat Info</th>
               <th>FirstName</th>
               <th>LastName</th>
               <th>Email</th>
@@ -127,6 +128,7 @@
           <tbody>
             <tr ng-repeat="bookingHistoryItem in bookingHistory">
               <td>{{bookingHistoryItem.bookingid}}</td>
+              <td>{{cancelbookingHistoryItem.seat}}</td>
               <td>{{bookingHistoryItem.firstName}}</td>
               <td>{{bookingHistoryItem.lastName}}</td>
               <td>{{bookingHistoryItem.email}}</td>
