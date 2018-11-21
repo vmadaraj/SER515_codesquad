@@ -112,33 +112,41 @@
       </ul> -->
       <h1 style="font-size:150%; margin-left: 10px; color: brown;">Booking History</h1>
     	<div class="container_flights">
-        <table st-table="Bookings" class="table table-striped">
-          <thead>
-            <tr>
-              <th>BookingID</th>
-              <th>Seat Info</th>
-              <th>FirstName</th>
-              <th>LastName</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Gender</th>
-			  <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="bookingHistoryItem in bookingHistory">
-              <td>{{bookingHistoryItem.bookingid}}</td>
-              <td>{{cancelbookingHistoryItem.seat}}</td>
-              <td>{{bookingHistoryItem.firstName}}</td>
-              <td>{{bookingHistoryItem.lastName}}</td>
-              <td>{{bookingHistoryItem.email}}</td>
-              <td>{{bookingHistoryItem.phone}}</td>
-              <td>{{bookingHistoryItem.gender}}</td>
-			  <td>{{bookingHistoryItem.Isactive}}</td>
-            </tr>
-          </tbody>
-          </table>
-      </div>
+            <table st-table="Bookings" class="table table-striped">
+            <thead>
+                <tr>
+                <th>BookingID</th>
+                <th>Seat Info</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <!-- <th>Status</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bookingHistoryItem in bookingHistory">
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'" >{{bookingHistoryItem.bookingid}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.seat}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.firstName}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.lastName}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.email}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.phone}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'true'">{{bookingHistoryItem.gender}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:   #E35947">{{bookingHistoryItem.bookingid}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.seat}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.firstName}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.lastName}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.email}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.phone}}</td>
+                        <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#E35947">{{bookingHistoryItem.gender}}</td>
+                <!-- <td ng-if = "bookingHistoryItem.Isactive == 'false'" style="background-color:	#D3D3D3">{{bookingHistoryItem.Isactive}}</td> -->
+                <!-- <td><input type="checkbox" checked ={{bookingHistoryItem.Isactive}}/></td> -->
+                </tr>
+            </tbody>
+            </table>
+        </div>
 </body>
 </html>
 
