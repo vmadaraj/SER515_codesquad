@@ -86,7 +86,7 @@ router.put('/bookings/:id/update', function (req, res) {
 //get Booking Details
 router.post('/bookings',function(req,res){
     console.log(req.body.email)
-    Booking.find({email:req.body.email}).select('bookingid seat firstName lastName email phone gender Isactive flightid').exec(function(err, bookings) {
+    Booking.find({email:req.body.email}).select('bookingid flightid seat firstName lastName email phone gender Isactive flightid').exec(function(err, bookings) {
         if (!bookings) {
             res.json({success : false, message : "Couldnot get Bookings"})
         }
@@ -103,7 +103,7 @@ router.post('/bookings',function(req,res){
 
 router.post('/cancelBookings',function(req,res){
     console.log(req.body.email)
-    Booking.find({email:req.body.email, Isactive: "true"}).select('bookingid  seat firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+    Booking.find({email:req.body.email, Isactive: "true"}).select('bookingid flightid seat firstName lastName email phone gender Isactive').exec(function(err, bookings) {
         if (!bookings) {
             res.json({success : false, message : "Couldnot get Cancel Bookings"})
         }
