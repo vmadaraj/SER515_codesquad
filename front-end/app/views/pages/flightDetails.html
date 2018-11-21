@@ -118,7 +118,7 @@
           <tbody>
             <tr ng-repeat="flight in flights">
               <td>
-                <input type="radio" name="xyz" ng-click="$parent.$parent.$parent.$parent.noSelected(select)" ng-model="select" />
+                <input type="radio" class="flight-chkbox" name="xyz" ng-value="flight.flightID" ng-model="select" />
                 <!-- <button type="submit"><a href= "/booking">Book</a></button> -->
               </td>
               <td>{{flight.flightID}}</td>
@@ -168,12 +168,16 @@
     -->
         <br>
         <center>
+
+          <button type="submit" class="btn btn-primary"><a onclick="setFlightId()">Book</a></button>
+
                 <a href="/booking">
                         <button class="btn  btn-danger" >
                           <span>Book</span>
                         </button>
                     </a>
          <!-- <button type="submit" class="btn btn-primary"><a href= "/booking">Book</a></button>-->
+
         </center>
         <footer>
                 <div class="container">
@@ -190,6 +194,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-
+        <script>
+        function setFlightId(){
+           //alert( document.querySelector('input[name="xyz"]:checked').value);
+           localStorage.setItem("flightNumber", document.querySelector('input[name="xyz"]:checked').value);
+           window.location.href = "/booking"
+        }
+        </script>
 </body>
 </html>
