@@ -35,7 +35,9 @@ angular.module('bookingController',[]).config(function(){
 
     //    })    
     console.log(getSelSeats());
+    console.log(getFlightId());
        var seat=getSelSeats();
+       var flightid=getFlightId();
         var booking ={
             'bookingid':rand.toString(),
             'firstName':$scope.firstName,
@@ -44,7 +46,8 @@ angular.module('bookingController',[]).config(function(){
             'phone':$scope.phone,
             'gender':gender,
             'seat':seat,
-            'Isactive':true
+            'Isactive':true,
+            'flightid':flightid
 
 
         }
@@ -56,7 +59,7 @@ angular.module('bookingController',[]).config(function(){
 
 
        })
-     $window.location.href = '/bookedFlight';
+    $window.location.href = '/bookedFlight';
 
 
     }
