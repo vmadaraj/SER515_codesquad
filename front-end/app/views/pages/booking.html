@@ -23,7 +23,7 @@
 
 
     </head>
-<body ng-app="airlineApp" ng-controller="mainCtrl as main">
+<body ng-app="airlineApp" ng-controller="mainCtrl as main" div class="bg">
   	<br><br><br><br><br>
     <h1><center> Availability of seats:30</center></h1>
     <h3><center> Flight ID: <span id="flight-number"</center></span></h3>
@@ -340,6 +340,7 @@
           </footer>
 </body>
 <script>
+
   window.onload = function(){
     fn = localStorage.getItem("flightNumber");
     if (!fn){
