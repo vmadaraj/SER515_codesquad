@@ -36,6 +36,7 @@ router.post('/bookingFlight',function(req,res){
     booking.gender = req.body.gender;
     booking.Isactive = req.body.Isactive;
     booking.seat = req.body.seat;
+    booking.flightid = req.body.flightid
     var fs = require('fs');
             fs.writeFile('front-end/resources/JSON/bookingData.JSON',JSON.stringify (booking), function(err, data){
                             if (err) console.log(err);
@@ -85,7 +86,7 @@ router.put('/bookings/:id/update', function (req, res) {
 //get Booking Details
 router.post('/bookings',function(req,res){
     console.log(req.body.email)
-    Booking.find({email:req.body.email}).select('bookingid seat firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+    Booking.find({email:req.body.email}).select('bookingid seat firstName lastName email phone gender Isactive flightid').exec(function(err, bookings) {
         if (!bookings) {
             res.json({success : false, message : "Couldnot get Bookings"})
         }
