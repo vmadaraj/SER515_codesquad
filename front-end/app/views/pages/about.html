@@ -31,12 +31,7 @@
     <script src= "../../../app/services/bookingHistoryServices.js"></script>
     <script src= "../../../app/controllers/cancelBookingCtrl.js"></script>
     <script src= "../../../app/controllers/bookingCtrl.js"></script>
-    <script src= "../../../app/controllers/bookingCtrl.js"></script>
     <script src= "../../../app/controllers/bookingDetailsCtrl.js"></script>
-
-
-    
-
 
   </head>
 
@@ -61,7 +56,7 @@
             </li>
 
             <li class="">
-                <a class="page-scroll" href="/login">Login</a>
+                <a  ng-show = "!main.isLoggedIn" class="page-scroll" href="/login">Login</a>
             </li>
 
             <li class="">
@@ -73,7 +68,7 @@
             </li>
             <li><a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  </li>
             <li class="">
-              <a class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
+              <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
           </li>
           </ul>
         </div><!--/.nav-collapse -->

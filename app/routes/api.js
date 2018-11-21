@@ -5,8 +5,6 @@ var q= require('q');
 var jsonWebToken = require('jsonwebtoken');
 var secret = 'tokenTest';
 var mongoose= require('mongoose');
-// var database  = require('../../server');
-// var dbObjectID = require('../../server').ObjectID;
 
 module.exports =function(router){
 // app.use(constant.USER_PATH, router);
@@ -79,14 +77,15 @@ router.put('/bookings/:id/update', function (req, res) {
           upsert: true
         }, (err, result) => {
           if (err) return res.send(err)
-          res.send(result)
+        //   res.send(result)
+          res.json({success : true, message : 'Booking Cancelled'});
         });
 });
 
 //get Booking Details
 router.post('/bookings',function(req,res){
     console.log(req.body.email)
-    Booking.find({email:req.body.email}).select('bookingid  firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+    Booking.find({email:req.body.email}).select('bookingid seat firstName lastName email phone gender Isactive').exec(function(err, bookings) {
         if (!bookings) {
             res.json({success : false, message : "Couldnot get Bookings"})
         }
@@ -103,7 +102,7 @@ router.post('/bookings',function(req,res){
 
 router.post('/cancelBookings',function(req,res){
     console.log(req.body.email)
-    Booking.find({email:req.body.email, Isactive: "true"}).select('bookingid  firstName lastName email phone gender Isactive').exec(function(err, bookings) {
+    Booking.find({email:req.body.email, Isactive: "true"}).select('bookingid  seat firstName lastName email phone gender Isactive').exec(function(err, bookings) {
         if (!bookings) {
             res.json({success : false, message : "Couldnot get Cancel Bookings"})
         }
