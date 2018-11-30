@@ -363,5 +363,17 @@ function proceed(){
     window.location.href = "/bookingDetails";
     }
   
+    // code to restrict user to book one ticket.
+    
+    $('.seat-layout input').on('click', function(e){
+   console.log("clicked "+ e);
+   let status = false;
+   if(e.target.checked){
+     status = true;
+   }
+   $('.seat-layout input').removeAttr('checked');
+   e.target.checked = status;
+ })
+    
 </script>
 </html>
