@@ -75,7 +75,12 @@ angular.module('mainController', ['authServices'])
 
       })
 
-      $window.location.href = '/bookingHistory';
+      if (!(Auth.isLoggedIn())) {
+        alert("User is not logged In");
+        $window.location.href = '/login';
+    }
+    else {
+        $window.location.href = '/bookingHistory';
     };
 
     this.getCancelBookings = function(){
