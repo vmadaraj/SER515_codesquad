@@ -2,7 +2,7 @@
 
 The Airline Reservation System has been hosted on the cloud.  
 When the user clicks on the below url:  
-    https://gruesome-skeleton-76647.herokuapp.com/
+    https://letsfly-codesquad.herokuapp.com/
   
   
  To Run :
