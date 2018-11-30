@@ -100,7 +100,6 @@ angular.module('mainController', ['authServices'])
         })
       //   app.username1 = res.data.gender
       // $window.location.href = '/flightDetails';
-        $window.location.href = '/cancelBooking';
       };
 
 });
