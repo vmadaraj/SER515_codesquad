@@ -350,9 +350,12 @@
     $('#flight-number').html(fn);
 
   }
+
+// code to pass on the flight number to next page.
 function proceed(){
   var selected = [];
-    $('.seat-layout input:checked').each(function() {
+    
+  $('.seat-layout input:checked').each(function() {
         selected.push($(this).val());
     });
     console.log(selected);
@@ -360,14 +363,5 @@ function proceed(){
     window.location.href = "/bookingDetails";
     }
   
-  $('.seat-layout input').on('click', function(e){
-   console.log("clicked "+ e);
-   let status = false;
-   if(e.target.checked){
-     status = true;
-   }
-   $('.seat-layout input').removeAttr('checked');
-   e.target.checked = status;
- })
 </script>
 </html>
