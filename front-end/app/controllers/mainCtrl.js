@@ -81,6 +81,7 @@ angular.module('mainController', ['authServices'])
     }
     else {
         $window.location.href = '/bookingHistory';
+    }
     };
 
     this.getCancelBookings = function(){
