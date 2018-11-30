@@ -72,14 +72,9 @@ angular.module('mainController', ['authServices'])
        $http.post('/api/bookings',booking).then(function(res,$http){
            console.log("hekkooo");
            console.log(res.data)
-        // app.username1 = res.data.list
-        // console.log(app.bookingHistoryItemList)
-        //    app.bookingHistoryItem = res.data.list[0]
-        //    console.log(app.bookingHistoryItem)
-           // console.log("flight details:")
+
       })
-    //   app.username1 = res.data.gender
-    // $window.location.href = '/flightDetails';
+
       $window.location.href = '/bookingHistory';
     };
 
@@ -92,14 +87,9 @@ angular.module('mainController', ['authServices'])
          $http.post('/api/cancelBookings',booking).then(function(res,$http){
              console.log("hekkooo");
              console.log(res.data)
-          // app.username1 = res.data.list
-          // console.log(app.bookingHistoryItemList)
-          //    app.bookingHistoryItem = res.data.list[0]
-          //    console.log(app.bookingHistoryItem)
-             // console.log("flight details:")
+
         })
-      //   app.username1 = res.data.gender
-      // $window.location.href = '/flightDetails';
+
         $window.location.href = '/cancelBooking';
       };
 
