@@ -90,6 +90,7 @@
           <thead>
             <tr>
               <th>BookingID</th>
+              <th>FlightID</th>
               <th>Seat Info</th>
               <th>FirstName</th>
               <th>LastName</th>
@@ -101,6 +102,7 @@
           <tbody>
             <tr ng-repeat="cancelbookingHistoryItem in cancelBookings">
               <td>{{cancelbookingHistoryItem.bookingid}}</td>
+              <td>{{cancelbookingHistoryItem.flightid}}</td>
               <td>{{cancelbookingHistoryItem.seat}}</td>
               <td>{{cancelbookingHistoryItem.firstName}}</td>
               <td>{{cancelbookingHistoryItem.lastName}}</td>
@@ -114,5 +116,15 @@
           </tbody>
           </table>
         </div>
+        <br><br><br><br> <br><br><br><br><br><br><br>
+        <footer>
+                <div class="container" style="    height: 100px;
+                width: 100%;
+                background-color: #E35947;">
+                    <h2 style="text-align: center;">
+                        &copy letsfly.com
+                    </h2>
+                </div>
+              </footer>
 </body>
 </html>
