@@ -163,7 +163,7 @@
 					<div class="col-md-4">
 						<input type="text" id="search_field7" class="form-control" name="search_title" placeholder="Password">
           </div>
-          
+
 
       </form>
       </div>
@@ -235,5 +235,22 @@
     //   $('#flight-number').val(fn);
     // }
 
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script type="text/javascript">
+       $(function () {
+            $('#depart').datepicker();
+            $('#return').datepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#depart").on("dp.change", function (e) {
+                $('#return').data("DatePicker").minDate(e.date);
+            });
+            $("#return").on("dp.change", function (e) {
+                $('#depart').data("DatePicker").maxDate(e.date);
+            });
+        });
     </script>
 </html>
