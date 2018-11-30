@@ -19,6 +19,8 @@ angular.module('flightController',[]).config(function(){
             }
      $http.post('/api/authenticateFlights',flight).then(function(res,$http){
          console.log(res.data);
+         
+        
          console.log("flight details:")
     
         //

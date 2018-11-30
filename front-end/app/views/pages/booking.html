@@ -23,7 +23,7 @@
 
 
     </head>
-<body ng-app="airlineApp" ng-controller="mainCtrl as main">
+<body ng-app="airlineApp" ng-controller="mainCtrl as main" div class="bg">
   	<br><br><br><br><br>
     <h1><center> Availability of seats:30</center></h1>
     <h3><center> Flight ID: <span id="flight-number"</center></span></h3>
@@ -330,14 +330,17 @@
   <br>
   <br>
       <footer>
-            <div class="container">
-                <h2>
+            <div class="container" style="    height: 100px;
+    width: 100%;
+    background-color: E35947;">
+                <h2 style="text-align: center;">
                     &copy letsfly.com
                 </h2>
             </div>
           </footer>
 </body>
 <script>
+
   window.onload = function(){
     fn = localStorage.getItem("flightNumber");
     if (!fn){
