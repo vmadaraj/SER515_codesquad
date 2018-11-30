@@ -1,6 +1,6 @@
 # SER515_codesquad
 
-The Airline Reservation System has been hosted on the cloud.  
+The Airline Reservation System has been hosted on the cloud and is connected with the MongoDB hosted on mLab.  
 When the user clicks on the below url:  
     https://letsfly-codesquad.herokuapp.com/
   
@@ -10,7 +10,7 @@ When the user clicks on the below url:
   To Search for flights: enter the details  
                  From: BOS  
                  To: SFO   
-                 date: 11/29/2018
+                 date: 12/29/2018
   When the flights to be searched are not in db, the user is alerted with message "Flight not found"
   
 When you click on Book button, the user can select the desired seat.
