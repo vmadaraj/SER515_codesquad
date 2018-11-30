@@ -83,7 +83,7 @@
                         <a class="page-scroll" href="/about">About Us</a>
                     </li>
                     <li>
-                        <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>  
+                        <a href="/userProfile"><img id="profile" src= "images/userprofile.jpg"></a>
                     </li>
                     <li class="">
                         <a ng-show = "main.isLoggedIn" class="page-scroll" href="/logout" ng-click="main.logout();">Logout</a>
@@ -97,10 +97,10 @@
 
     </nav>
     <div ng-view></div>
-    <br><br><br><br>
+    <br><br>
 <h1 style="font-size:150%;
     margin-left: 10px;
-    color: brown;">Departing Flights</h1>
+    color: #E35947; text-align: center">Departing Flights</h1><br>
     	<div class="container_flights">
 
 	<!-- `     <div ng-show="loading"><h3>Loading...</h3></div> -->
@@ -125,7 +125,7 @@
               <td>{{flight.source}}</td>
               <td>{{flight.destination}}</td>
               <td>{{flight.date}}</td>
-              <td>{{flight.fare}}</td>
+              <td>$ {{flight.fare}}</td>
             </tr>
           </tbody>
           </table>
@@ -137,7 +137,7 @@
   color: brown;">Return Flights</h1>
       	<div class="container_flights">
 
-  	 `     <div ng-show="loading"><h3>Loading...</h3></div> 
+  	 `     <div ng-show="loading"><h3>Loading...</h3></div>
           <table st-table="rflights" class="table table-striped">
             <thead>
               <tr>
@@ -166,10 +166,10 @@
             </table>
         </div>
     -->
-        <br>
+
         <center>
 
-          <button type="submit" class="btn btn-primary btn-danger"><a onclick="setFlightId()">Book</a></button>
+          <button type="submit" class="btn btn-danger"><a onclick="setFlightId()">Book</a></button><br><br>
 
                 <!-- <a href="/booking">
                         <button class="btn  btn-danger" >
@@ -179,6 +179,8 @@
          <!-- <button type="submit" class="btn btn-primary"><a href= "/booking">Book</a></button>-->
 
         </center>
+        <br><br><br><br><br>
+        <br><br><br>
         <footer>
                 <div class="container">
                     <h2>
@@ -186,8 +188,6 @@
                     </h2>
                 </div>
               </footer>
-
-<br><br><br><br><br>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/jquery-3.1.1.min.js"></script>

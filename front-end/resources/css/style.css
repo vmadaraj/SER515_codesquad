@@ -58,7 +58,7 @@ div.container_flights{
 
 div.container_payment{
 	border: 1px solid green;
-	height: 150px;
+	height: 100px;
     width: 80%;
     border-radius: 30px;
 	display: table;
@@ -67,7 +67,7 @@ div.container_payment{
 
 div.container_paypal{
 	border: 1px solid green;
-	height: 150px;
+	height: 100px;
     width: 50%;
     border-radius: 30px;
 	display: table;
