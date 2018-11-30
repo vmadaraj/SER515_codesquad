@@ -90,7 +90,9 @@ angular.module('mainController', ['authServices'])
 
         })
 
+
         $window.location.href = '/cancelBooking';
+
       };
 
 });
